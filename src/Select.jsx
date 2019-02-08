@@ -1,6 +1,6 @@
 import { Component } from 'preact'
 
-export default class Input extends Component {
+export default class Select extends Component {
   shouldComponentUpdate(_, __, newContext) {
     const { name } = this.props
     return this.context.values[name] != newContext.values[name]
@@ -10,22 +10,26 @@ export default class Input extends Component {
     const { onChange } = this.context
     if (value !== undefined) onChange(name, value)
   }
-  render ({
-    required, name, placeholder, type = 'text', file,
+  render({
+    options, name, value, required,
   }) {
     const { onChange, hid, id, values } = this.context
-    return <input
-      required={required}
+    return <select
       name={name}
-      placeholder={placeholder}
-      className={`form-control${file ? '-file' : ''}`}
       value={values[name]}
-      type={type}
-      aria-describedby={hid}
+      className="custom-select"
+      required={required}
       id={id}
+      aria-describedby={hid}
       onChange={(e) => {
         onChange(name, e.currentTarget.value)
-      }}
-    />
+      }}>
+      <option></option>
+      {options.map(({ value: v, title }) => {
+        return <option key={v} value={v} selected={v==value}>
+          {title}
+        </option>
+      })}
+    </select>
   }
 }

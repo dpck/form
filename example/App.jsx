@@ -1,4 +1,6 @@
-import { Form, FormGroup, TextArea, Input } from '../src'
+import {
+  Form, FormGroup, TextArea, Input, Select,
+} from '../src'
 import { render, Component } from 'preact'
 
 class Main extends Component {
@@ -8,6 +10,18 @@ class Main extends Component {
     }}>
       <FormGroup label="Input" help="Type in something...">
         <Input name="input" value="hello-world" />
+      </FormGroup>
+      <FormGroup label="Select" help="Please select...">
+        <Select name="select" value="2" options={[
+          {
+            title: 'Free will',
+            value: '1',
+          },
+          {
+            title: 'Unfree will',
+            value: '2',
+          },
+        ]} />
       </FormGroup>
       <FormGroup label="TextArea" help="Multiple row input...">
         <TextArea name="textarea">

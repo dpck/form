@@ -51,32 +51,6 @@ export class FormGroup extends Component {
   }
 }
 
-// export const FormRow = ({
-//   type = 'text', placeholder, name, textarea,
-//   required, file, value, options, selectedOption,
-// }) => {
-//   const commonProps = {
-//     value, name, required,
-//   }
-//   const I = options ? <Select options={options} selectedOption={selectedOption} {...commonProps} /> : <Input textarea={textarea} placeholder={placeholder} type={type} file={file} {...commonProps}/>
-
-//   return <div className="form-group">
-//     {I}
-//   </div>
-// }
-
-export const Select = ({
-  options, name, value, required, id, hid,
-}) => {
-  return <select name={name} value={value} className="custom-select" required={required} id={id} aria-describedby={hid}>
-    <option></option>
-    {options.map(({ value: v, title }) => {
-      return <option key={v} value={v} selected={v==value}>
-        {title}
-      </option>
-    })}
-  </select>
-}
-
+export { default as Select } from './Select'
 export { default as TextArea } from './TextArea'
 export { default as Input } from './Input'
