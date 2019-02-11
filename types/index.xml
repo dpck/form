@@ -1,5 +1,5 @@
 <types>
-  <type name="Form" desc="Options for the Form component.">
+  <type name="Form" desc="Options for the Form component." noToc>
     <prop opt type="function" name="onChange">
       The callback to call when a change is made to any of the inputs inside of the form.
     </prop>
