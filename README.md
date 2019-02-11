@@ -42,8 +42,8 @@ __<a name="type-form">`Form`</a>__: Options for the Form component.
 | onChange | _function_ | The callback to call when a change is made to any of the inputs inside of the form. |
 
 ```jsx
-import {
-  Form, FormGroup, TextArea, Input, Select,
+import Form, {
+  FormGroup, TextArea, Input, Select,
 } from '../src'
 import { render, Component } from 'preact'
 import 'preact/devtools/'

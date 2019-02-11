@@ -1,5 +1,5 @@
-import {
-  Form, FormGroup, TextArea, Input, Select,
+import Form, {
+  FormGroup, TextArea, Input, Select,
 } from '../src'
 import { render, Component } from 'preact'
 import 'preact/devtools/'

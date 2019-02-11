@@ -1,6 +1,6 @@
 import { Component } from 'preact'
 
-export class Form extends Component {
+export default class Form extends Component {
   constructor() {
     super()
     this.state = {
