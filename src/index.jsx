@@ -39,7 +39,7 @@ export class FormGroup extends Component {
     this.id = `i${Math.floor(Math.random() * 100000)}`
     this.hid = `h${this.id}`
     /**
-     * @type {FormGroupProps}
+     * @type {FormGroup}
      */
     this.props = this.props
   }
@@ -68,7 +68,7 @@ export { default as Input } from './Input'
  * @typedef {Object} Form Options for the Form component.
  * @prop {function} [onChange] The callback to call when a change is made to any of the inputs inside of the form.
  *
- * @typedef {Object} FormGroupProps
+ * @typedef {Object} FormGroup
  * @prop {string} [label] The label to display for the group.
- * @prop {string} [help] The help text to show in `<small className="form-text text-muted">HELP</small>`
+ * @prop {string} [help] The help text to show in `<small className="form-text text-muted">{help}</small>`
  */

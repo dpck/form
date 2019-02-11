@@ -16,6 +16,7 @@ yarn add -E @depack/form
 - [API](#api)
 - [**Form**](#form)
 - [**FormGroup**](#formgroup)
+- [**Input**](#input)
 - [Copyright](#copyright)
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
@@ -128,11 +129,11 @@ const Example = () => (
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i92517">
+    <label htmlFor="i69319">
       What is your name?
     </label>
-    <input class="form-control" type="text" aria-describedby="hi92517" id="i92517" />
-    <small id="hi92517" class="form-text text-muted">
+    <input class="form-control" type="text" aria-describedby="hi69319" id="i69319" />
+    <small id="hi69319" class="form-text text-muted">
       Your name, your name, what is your name?
     </small>
   </div>
@@ -140,6 +141,39 @@ const Example = () => (
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true"></a></p>
+
+## **Input**
+
+The input is a one-line entry field.
+
+__<a name="type-inputprops">`InputProps`</a>__: Options for the Input component.
+
+|    Name     |   Type    |            Description            |
+| ----------- | --------- | --------------------------------- |
+| required    | _boolean_ | Whether this is a required field. |
+| name        | _string_  | The input name.                   |
+| placeholder | _string_  | The input placeholder.            |
+| value       | _string_  | The initial value.                |
+| type        | _string_  | The input type.                   |
+
+```jsx
+import { Input } from '@depack/form'
+
+const Example = () => (
+  <Input
+    name="example"
+    placeholder="enter the value..."
+    value="initial value"
+    type="text"
+    required
+  />
+)
+```
+```html
+<input required="1" name="example" placeholder="enter the value..." class="form-control" type="text" />
+```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/4.svg?sanitize=true"></a></p>
 
 ## Copyright
 

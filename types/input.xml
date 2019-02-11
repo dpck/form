@@ -1,0 +1,19 @@
+<types>
+  <type name="InputProps" desc="Options for the Input component." noToc>
+    <prop opt boolean name="required">
+      Whether this is a required field.
+    </prop>
+    <prop opt string name="name">
+      The input name.
+    </prop>
+    <prop opt string name="placeholder">
+      The input placeholder.
+    </prop>
+    <prop opt string name="value">
+      The initial value.
+    </prop>
+    <prop opt string name="type">
+      The input type.
+    </prop>
+  </type>
+</types>
