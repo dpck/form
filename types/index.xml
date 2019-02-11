@@ -4,12 +4,12 @@
       The callback to call when a change is made to any of the inputs inside of the form.
     </prop>
   </type>
-  <type name="FormGroupProps" noToc>
+  <type name="FormGroup" noToc>
     <prop opt string name="label">
       The label to display for the group.
     </prop>
     <prop opt string name="help">
-      The help text to show in `<small className="form-text text-muted">HELP</small>`
+      The help text to show in `<small className="form-text text-muted">{help}</small>`
     </prop>
   </type>
 </types>

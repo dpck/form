@@ -102,9 +102,14 @@ render(<Main />, document.querySelector('#preact'))
 
 ## **FormGroup**
 
-The form group is used to represent logic combination of a label, input, help text and validation error message. The _FormGroup_ component generates `id` and `hid` values and passes them to children components in the context.
+The form group is used to represent a logical combination of a label, input, help text and validation error message. The _FormGroup_ component generates `id` and `hid` values and passes them to children components in the context.
 
+__<a name="type-formgroup">`FormGroup`</a>__
 
+| Name  |   Type   |                                    Description                                    |
+| ----- | -------- | --------------------------------------------------------------------------------- |
+| label | _string_ | The label to display for the group.                                               |
+| help  | _string_ | The help text to show in `<small className="form-text text-muted">{help}</small>` |
 
 ```jsx
 import Form, { FormGroup, Input } from '@depack/form'
@@ -123,11 +128,11 @@ const Example = () => (
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i57030">
+    <label htmlFor="i92517">
       What is your name?
     </label>
-    <input class="form-control" type="text" aria-describedby="hi57030" id="i57030" />
-    <small id="hi57030" class="form-text text-muted">
+    <input class="form-control" type="text" aria-describedby="hi92517" id="i92517" />
+    <small id="hi92517" class="form-text text-muted">
       Your name, your name, what is your name?
     </small>
   </div>

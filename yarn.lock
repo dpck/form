@@ -670,10 +670,10 @@ difflib@~0.2.1:
   dependencies:
     heap ">= 0.2.0"
 
-documentary@1.21.1:
-  version "1.21.1"
-  resolved "https://registry.yarnpkg.com/documentary/-/documentary-1.21.1.tgz#5296c496b4c717e1def41cb0c5f17f003e6cb5aa"
-  integrity sha512-gQ0Pymf8P5UJ/JhtdQEc57djYLLGfdInhZ4O8Am/EsXHk72z9p8+yCWyzk3eIe2UnbPYtd4Vj1neu8Se2QpJ+Q==
+documentary@1.21.2:
+  version "1.21.2"
+  resolved "https://registry.yarnpkg.com/documentary/-/documentary-1.21.2.tgz#974185f6fc3e2c59fa6149fdaeeec109646f8bda"
+  integrity sha512-s4EUuL5GsvRUkp8nrQ3nNDUQ9REB9Bi/13EJWwY5UCGLL1tEMPN6KANSwzhLbLE+VJC1NAcrgShup3xgxINQuw==
   dependencies:
     "@wrote/clone" "1.1.0"
     "@wrote/ensure-path" "1.0.5"
