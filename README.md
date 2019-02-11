@@ -44,61 +44,77 @@ __<a name="type-form">`Form`</a>__: Options for the Form component.
 | onChange | _function_ | The callback to call when a change is made to any of the inputs inside of the form. |
 
 ```jsx
-import Form, {
-  FormGroup, TextArea, Input, Select,
-} from '../src'
-import { render, Component } from 'preact'
-import 'preact/devtools/'
+import Form, { FormGroup, TextArea, Input, Select } from '@depack/form'
 
-class Main extends Component {
-  render() {
-    const form = <Form onChange={(values) => {
-      this.setState(values)
-    }}>
-      <FormGroup label="Input" help="Type in something...">
-        <Input name="input" value="hello-world" />
-      </FormGroup>
-      <FormGroup label="Select" help="Please select...">
-        <Select name="select" value="2" options={[
-          {
-            title: 'Free will',
-            value: '1',
-          },
-          {
-            title: 'Unfree will',
-            value: '2',
-          },
-        ]} />
-      </FormGroup>
-      <FormGroup label="TextArea" help="Multiple row input...">
-        <TextArea name="textarea">
-          One must still have chaos in oneself to be able to give birth to a dancing star.
-        </TextArea>
-      </FormGroup>
-    </Form>
-    return (
-      <div className="container">
-        <h1>@Depack/Form</h1>
-        <blockquote className="blockquote">
-          The Preact component that creates and maintains
-          the form state (designed for Depack bundler).
-        </blockquote>
-        <div className="row">
-          <div className="col-sm-6">
-            {form}
-          </div>
-          <div className="col-sm-6">
-            <pre style="white-space: pre-wrap;">{
-              JSON.stringify(this.state, null, 2)
-            }</pre>
-          </div>
-        </div>
-      </div>)
-  }
-}
+const ExampleForm = ({ ...props }) => <Form {...props}>
+  <FormGroup label="Input" help="Type in something...">
+    <Input name="input" value="hello-world" />
+  </FormGroup>
+  <FormGroup label="Select" help="Please select...">
+    <Select name="select" value="2" options={[
+      {
+        title: 'Free will',
+        value: '1',
+      },
+      {
+        title: 'Unfree will',
+        value: '2',
+      },
+    ]} />
+  </FormGroup>
+  <FormGroup label="TextArea" help="Multiple row input...">
+    <TextArea name="textarea">
+      One must still have chaos in oneself to be able to give birth to a dancing star.
+    </TextArea>
+  </FormGroup>
+</Form>
 
-render(<Main />, document.querySelector('#preact'))
+export default ExampleForm
 ```
+```html
+<form>
+  <div class="form-group">
+    <label htmlFor="i85725">
+      Input
+    </label>
+    <input name="input" class="form-control" type="text" aria-describedby="hi85725" id="i85725" />
+    <small id="hi85725" class="form-text text-muted">
+      Type in something...
+    </small>
+  </div>
+  <div class="form-group">
+    <label htmlFor="i98702">
+      Select
+    </label>
+    <select name="select" class="custom-select" id="i98702" aria-describedby="hi98702">
+      <option>
+        
+      </option>
+      <option value="1">
+        Free will
+      </option>
+      <option value="2" selected>
+        Unfree will
+      </option>
+    </select>
+    <small id="hi98702" class="form-text text-muted">
+      Please select...
+    </small>
+  </div>
+  <div class="form-group">
+    <label htmlFor="i43267">
+      TextArea
+    </label>
+    <textarea name="textarea" aria-describedby="hi43267" class="form-control" id="i43267" rows="3">
+      
+    </textarea>
+    <small id="hi43267" class="form-text text-muted">
+      Multiple row input...
+    </small>
+  </div>
+</form>
+```
+
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>
 
 ## **FormGroup**
@@ -129,11 +145,11 @@ const Example = () => (
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i69319">
+    <label htmlFor="i21998">
       What is your name?
     </label>
-    <input class="form-control" type="text" aria-describedby="hi69319" id="i69319" />
-    <small id="hi69319" class="form-text text-muted">
+    <input class="form-control" type="text" aria-describedby="hi21998" id="i21998" />
+    <small id="hi21998" class="form-text text-muted">
       Your name, your name, what is your name?
     </small>
   </div>

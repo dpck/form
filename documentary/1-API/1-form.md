@@ -4,7 +4,7 @@ Creates the form that maintains the values of each field that is found inside it
 
 %TYPEDEF types/index.xml Form%
 
-%EXAMPLE: example/App.jsx, ../src => @depack/form%
-<!-- %FORK example example/example% -->
+%EXAMPLE: example/Form.jsx, ../src => @depack/form%
+%FORK-html example example/API/Form%
 
 %~%
