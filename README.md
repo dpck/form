@@ -46,7 +46,7 @@ __<a name="type-form">`Form`</a>__: Options for the Form component.
 ```jsx
 import Form, { FormGroup, TextArea, Input, Select } from '@depack/form'
 
-const ExampleForm = ({ ...props }) => <Form {...props}>
+const ExampleForm = ({ ...props }) => (<Form {...props}>
   <FormGroup label="Input" help="Type in something...">
     <Input name="input" value="hello-world" />
   </FormGroup>
@@ -67,26 +67,26 @@ const ExampleForm = ({ ...props }) => <Form {...props}>
       One must still have chaos in oneself to be able to give birth to a dancing star.
     </TextArea>
   </FormGroup>
-</Form>
+</Form>)
 
 export default ExampleForm
 ```
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i75649">
+    <label htmlFor="i63030">
       Input
     </label>
-    <input name="input" class="form-control" value="hello-world" type="text" aria-describedby="hi75649" id="i75649" />
-    <small id="hi75649" class="form-text text-muted">
+    <input name="input" class="form-control" value="hello-world" type="text" aria-describedby="hi63030" id="i63030" />
+    <small id="hi63030" class="form-text text-muted">
       Type in something...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i74297">
+    <label htmlFor="i64565">
       Select
     </label>
-    <select name="select" class="custom-select" id="i74297" aria-describedby="hi74297">
+    <select name="select" class="custom-select" id="i64565" aria-describedby="hi64565">
       <option>
         
       </option>
@@ -97,17 +97,17 @@ export default ExampleForm
         Unfree will
       </option>
     </select>
-    <small id="hi74297" class="form-text text-muted">
+    <small id="hi64565" class="form-text text-muted">
       Please select...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i3525">
+    <label htmlFor="i75571">
       TextArea
     </label>
-    <textarea name="textarea" aria-describedby="hi3525" class="form-control" id="i3525" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.
+    <textarea name="textarea" aria-describedby="hi75571" class="form-control" id="i75571" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.
     </textarea>
-    <small id="hi3525" class="form-text text-muted">
+    <small id="hi75571" class="form-text text-muted">
       Multiple row input...
     </small>
   </div>
@@ -144,11 +144,11 @@ const Example = () => (
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i66985">
+    <label htmlFor="i45420">
       What is your name?
     </label>
-    <input class="form-control" type="text" aria-describedby="hi66985" id="i66985" />
-    <small id="hi66985" class="form-text text-muted">
+    <input class="form-control" type="text" aria-describedby="hi45420" id="i45420" />
+    <small id="hi45420" class="form-text text-muted">
       Your name, your name, what is your name?
     </small>
   </div>

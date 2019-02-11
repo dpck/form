@@ -1,4 +1,4 @@
 import { format } from './'
-import ExampleForm from '../Form'
+import ExampleForm from '../ExampleForm'
 
 console.log(format(<ExampleForm />))

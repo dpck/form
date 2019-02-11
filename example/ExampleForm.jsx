@@ -1,6 +1,6 @@
 import Form, { FormGroup, TextArea, Input, Select } from '../src'
 
-const ExampleForm = ({ ...props }) => <Form {...props}>
+const ExampleForm = ({ ...props }) => (<Form {...props}>
   <FormGroup label="Input" help="Type in something...">
     <Input name="input" value="hello-world" />
   </FormGroup>
@@ -21,6 +21,6 @@ const ExampleForm = ({ ...props }) => <Form {...props}>
       One must still have chaos in oneself to be able to give birth to a dancing star.
     </TextArea>
   </FormGroup>
-</Form>
+</Form>)
 
 export default ExampleForm
