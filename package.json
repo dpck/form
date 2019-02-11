@@ -14,7 +14,7 @@
     "doc": "NODE_DEBUG=doc doc documentary -o README.md",
     "d": "yarn-s d1",
     "b": "alamode src -o build -j -p",
-    "d1": "NODE_DEBUG=doc doc src/index.js -g",
+    "d1": "NODE_DEBUG=doc doc src/index.jsx -g",
     "build": "yarn-s d b doc",
     "rec": "appshot -a Safari -y 450 -f",
     "e": "node example",

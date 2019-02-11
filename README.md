@@ -15,6 +15,7 @@ yarn add -E @depack/form
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
 - [**Form**](#form)
+- [**FormGroup**](#formgroup)
 - [Copyright](#copyright)
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
@@ -33,7 +34,7 @@ import Form, {
 
 ## **Form**
 
-Creates the form that maintains the values of each field that is found inside its children.
+Creates the form that maintains the values of each field that is found inside its children. Any additional properties will be passed down to the form. Each child component will receive `values` in its context.
 
 __<a name="type-form">`Form`</a>__: Options for the Form component.
 
@@ -98,6 +99,42 @@ class Main extends Component {
 render(<Main />, document.querySelector('#preact'))
 ```
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>
+
+## **FormGroup**
+
+The form group is used to represent logic combination of a label, input, help text and validation error message. The _FormGroup_ component generates `id` and `hid` values and passes them to children components in the context.
+
+
+
+```jsx
+import Form, { FormGroup, Input } from '@depack/form'
+
+const Example = () => (
+  <Form>
+    <FormGroup
+      label="What is your name?"
+      help="Your name, your name, what is your name?"
+    >
+      <Input />
+    </FormGroup>
+  </Form>
+)
+```
+```html
+<form>
+  <div class="form-group">
+    <label htmlFor="i57030">
+      What is your name?
+    </label>
+    <input class="form-control" type="text" aria-describedby="hi57030" id="i57030" />
+    <small id="hi57030" class="form-text text-muted">
+      Your name, your name, what is your name?
+    </small>
+  </div>
+</form>
+```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true"></a></p>
 
 ## Copyright
 

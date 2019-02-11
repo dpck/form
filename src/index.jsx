@@ -23,18 +23,25 @@ export default class Form extends Component {
     if (this.props.onChange)
       this.props.onChange(this.state.values)
   }
-  render({ children }) {
-    return <form>
+  render({ children, ...props }) {
+    return <form {...props}>
       {children}
     </form>
   }
 }
 
+/**
+ * The div with `form-group` class to hold the label, input, help and validation message.
+ */
 export class FormGroup extends Component {
   constructor() {
     super()
     this.id = `i${Math.floor(Math.random() * 100000)}`
     this.hid = `h${this.id}`
+    /**
+     * @type {FormGroupProps}
+     */
+    this.props = this.props
   }
   getChildContext() {
     return {
@@ -55,3 +62,13 @@ export class FormGroup extends Component {
 export { default as Select } from './Select'
 export { default as TextArea } from './TextArea'
 export { default as Input } from './Input'
+
+/* documentary types/index.xml */
+/**
+ * @typedef {Object} Form Options for the Form component.
+ * @prop {function} [onChange] The callback to call when a change is made to any of the inputs inside of the form.
+ *
+ * @typedef {Object} FormGroupProps
+ * @prop {string} [label] The label to display for the group.
+ * @prop {string} [help] The help text to show in `<small className="form-text text-muted">HELP</small>`
+ */
