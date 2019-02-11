@@ -12,6 +12,11 @@ import render from 'preact-render-to-string'
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
           <title>Form Example</title>
+          <style>
+            {`body {
+              background: #dfffdf;
+            }`}
+          </style>
         </head>
         <body id="preact">
           <script type="module" src="/example/App.jsx"/>

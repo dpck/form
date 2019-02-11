@@ -1,25 +1,22 @@
 ## API
 
-The package is available by importing its default function:
+The package is available by importing its default and named functions:
 
 ```js
-import form from '@depack/form'
+import Form,
+  { FormGroup, Input, TextArea, Select }
+from '@depack/form'
 ```
 
 %~%
 
-```## form
-[
-  ["arg1", "string"],
-  ["arg2?", "boolean"]
-]
-```
+## Form
 
-Call this function to get the result you want.
+Creates the form that maintains the values of each field that is found inside its children.
 
-%TYPEDEF types/index.xml%
+%TYPEDEF types/index.xml Form%
 
-%EXAMPLE: example/example.js, ../src => @depack/form%
-%FORK example example/example%
+%EXAMPLE: example/App.jsx, ../src => @depack/form%
+<!-- %FORK example example/example% -->
 
 %~%

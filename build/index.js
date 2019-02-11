@@ -1,3 +1,4 @@
+import { h } from 'preact'
 import { Component } from 'preact'
 
 export class Form extends Component {
@@ -24,9 +25,9 @@ export class Form extends Component {
       this.props.onChange(this.state.values)
   }
   render({ children }) {
-    return <form>
-      {children}
-    </form>
+    return  h('form',{},
+      children,
+    )
   }
 }
 
@@ -44,11 +45,11 @@ export class FormGroup extends Component {
   }
   render() {
     const { children, label, help } = this.props
-    return <div className="form-group">
-      {label && <label htmlFor={this.id}>{label}</label>}
-      {children}
-      {help && <small id={this.hid} className="form-text text-muted" dangerouslySetInnerHTML={{ __html: help }}/>}
-    </div>
+    return h('div',{'className':"form-group"},
+      label && h('label',{'htmlFor':this.id},label),
+      children,
+      help && h('small',{'id':this.hid,'dangerouslySetInnerHTML':{ __html: help },'className':"form-text text-muted"}),
+    )
   }
 }
 

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "The Bootstrap Form Component For Entering Data.",
   "main": "src/index.jsx",
-  "module": "src/index.jsx",
+  "module": "build/index.js",
   "scripts": {
     "t": "zoroaster -a",
     "test": "yarn t test/spec test/mask",
@@ -13,14 +13,16 @@
     "lint": "eslint .",
     "doc": "NODE_DEBUG=doc doc documentary -o README.md",
     "d": "yarn-s d1",
+    "b": "alamode src -o build -j -p",
     "d1": "NODE_DEBUG=doc doc src/index.js -g",
     "build": "yarn-s d b doc",
-    "rec": "NODE_DEBUG=appshot appshot -T 23 -a Terminal -y 150 -f",
+    "rec": "appshot -a Safari -y 450 -f",
     "e": "node example",
     "example/": "yarn e example/example"
   },
   "files": [
-    "src"
+    "src",
+    "build"
   ],
   "repository": {
     "type": "git",
@@ -28,7 +30,10 @@
   },
   "keywords": [
     "form",
-    "depack"
+    "depack",
+    "preact",
+    "bootstrap",
+    "ui"
   ],
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",
@@ -37,8 +42,8 @@
   },
   "homepage": "https://github.com/artdecocode/form#readme",
   "devDependencies": {
-    "@idio/core": "1.3.1",
-    "alamode": "1.7.3",
+    "@idio/core": "1.3.2",
+    "alamode": "1.8.0",
     "documentary": "1.21.1",
     "eslint-config-artdeco": "1.0.1",
     "preact": "8.4.2",
@@ -46,7 +51,5 @@
     "yarn-s": "1.1.0",
     "zoroaster": "3.6.6"
   },
-  "dependencies": {
-    "preact-context": "1.1.2"
-  }
+  "dependencies": {}
 }

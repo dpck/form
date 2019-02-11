@@ -24,15 +24,6 @@
     "@a-la/detect-jsx" "1.0.1"
     restream "3.4.1"
 
-"@a-la/jsx@1.2.5":
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/@a-la/jsx/-/jsx-1.2.5.tgz#74c5550b5af2f59d20921aadfea3d5b16baf9846"
-  integrity sha512-wVZC179hzUIGv8csWduhPk3QvASt+IgLjNRwa4Z6gIdMQ89jQX49LCaCBPCwGjpG/ihOl3MS/W77N5la8e9xwg==
-  dependencies:
-    "@a-la/detect-jsx" "1.0.1"
-    mismatch "1.0.3"
-    restream "3.4.1"
-
 "@a-la/jsx@1.3.1":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@a-la/jsx/-/jsx-1.3.1.tgz#55e574e0d3f4dc9102811a19cdd6bc35d14b314c"
@@ -40,6 +31,14 @@
   dependencies:
     "@a-la/detect-jsx" "1.0.1"
     mismatch "1.0.3"
+    restream "3.5.0"
+
+"@a-la/jsx@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@a-la/jsx/-/jsx-1.4.0.tgz#4bfcb42bf5c55ff8d89d4aae8eb8f5d73b8bd52e"
+  integrity sha512-NaB3Aw7eoTWUIhlX7XhIwrqL32cUxx1bnpLDfGsQr5A+3tqTRxRkP/WZohfiJJzMUEscdteltZY/JS7kwAdZqA==
+  dependencies:
+    "@a-la/detect-jsx" "1.0.1"
     restream "3.5.0"
 
 "@a-la/markers@1.0.3":
@@ -57,12 +56,12 @@
   resolved "https://registry.yarnpkg.com/@artdeco/clean-stack/-/clean-stack-1.0.1.tgz#7e4d3bb1b0ac62173b00e4bba7091f7847cdb088"
   integrity sha512-ZSavD8NpWA1/1SRCKrx8LZ5WfbKS1kRUIFOERJvR1jXqCAcbM3xWSP2VdCKEh4lCwWghSWQkotbpK6n+o1Y/xQ==
 
-"@idio/core@1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@idio/core/-/core-1.3.1.tgz#1fddf1ad660c15451a900104f61452e2df6abf68"
-  integrity sha512-UvKdkFzFof55W9Kyd8R/JeWqhHKED3cr378ioHCYdiCR4oNDAYcdFvin7ZKiu1D09nSPK/j9okTe9wgruY6fhw==
+"@idio/core@1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@idio/core/-/core-1.3.2.tgz#61735d83d87db746684b5a74e7525afa58a552df"
+  integrity sha512-fmsfPfyleIriHZwOJJcuI2DBBWc8BiUgxcha9MEvRkND7mKcErm80c746ELb9hJjdsi6e1smkmCpSP8Le0KFig==
   dependencies:
-    "@idio/frontend" "1.3.0"
+    "@idio/frontend" "1.4.0"
     "@koa/cors" "2.2.3"
     "@types/koa" "2.0.48"
     "@types/koa-router" "7.0.39"
@@ -81,15 +80,16 @@
     koa-static "5.0.0"
     server-destroy "1.0.1"
 
-"@idio/frontend@1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@idio/frontend/-/frontend-1.3.0.tgz#d8763ea3ac96a988f1ceca1c1ebf9c81e7462005"
-  integrity sha512-WFFe0efnEax9fK/kvOW4sSfrcAedyMZ7SDE/0u9pZgcnwWKxvawdu9MG9VQ5R5G8RHdbmgfO4KJ4k0JTst0bEg==
+"@idio/frontend@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@idio/frontend/-/frontend-1.4.0.tgz#49ccced5e431247d1909aebc26771dd712a473a7"
+  integrity sha512-2V8wnmyJa3rbokmkG/sb+g7XufXmRgxJQCRPhhPWCLpyDdAPR9vbsIH7nq2fg1AZMYf9+JBDnP72A8YTGS00OQ==
   dependencies:
     "@a-la/jsx" "1.3.1"
     "@wrote/exists" "1.0.1"
     "@wrote/read" "1.0.2"
     catchment "3.2.2"
+    fpj "1.0.0"
     resolve-dependency "1.0.0"
     restream "3.5.0"
 
@@ -257,6 +257,33 @@
   dependencies:
     catchment "3.2.1"
 
+"@wrote/rm@1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@wrote/rm/-/rm-1.1.2.tgz#98b0fa0c9eebe6f82b5dc75ce872441639f6cdd4"
+  integrity sha512-+yl+infL+EeF6ijKzWwqas/KRUwIe7ifEdkV43DXlyPQhtxccyNDNJ2WYUGzFhoDEafegdDweozV+vSu5av6Gg==
+  dependencies:
+    "@wrote/read-dir-structure" "1.0.2"
+    makepromise "3.0.2"
+
+"@wrote/write@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@wrote/write/-/write-1.0.2.tgz#0a781e76d530a9bf2846af9709aaad209d09ba14"
+  integrity sha512-2i9KXxypTP/3716suS7aYUE62EeqcOJl/edtCNvjJbcaVm2NtXskcY7HVUTVAkXpEA53ewjqIvn8giw0hw5Edg==
+  dependencies:
+    erotic "2.0.2"
+
+"@wrote/wrote@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@wrote/wrote/-/wrote-1.2.1.tgz#42c58a6136b719efda847d7beef505491c41a496"
+  integrity sha512-wVlkJ1Vabifxhd4uNOph2dcFQCrSU4ECVTWqK17yPdv0QcBSmvoOMAh5IfysGNpJ5rEEAcbd9o/EkpTvj5iJCA==
+  dependencies:
+    "@wrote/ensure-path" "1.0.5"
+    "@wrote/exists" "1.0.1"
+    "@wrote/read" "1.0.2"
+    "@wrote/read-dir-structure" "1.0.2"
+    "@wrote/rm" "1.1.2"
+    "@wrote/write" "1.0.2"
+
 "@zoroaster/fork@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@zoroaster/fork/-/fork-1.0.0.tgz#3418d2af1ad498bf9fb2a696591362bb626b54f0"
@@ -320,19 +347,20 @@ alamode@1.7.0:
     usually "1.1.0"
     which-stream "1.0.1"
 
-alamode@1.7.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/alamode/-/alamode-1.7.3.tgz#3b12ea5e938cbc25dc7a502a35517f78848775de"
-  integrity sha512-kHXWvY9XwyV9lhBqF8zpXHR3wwa8YDrLYdwIkpKzmDkWhRfPCT2LhZZ5EaK6F5nZSonTG6BIqOBD0CeCecnJTQ==
+alamode@1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/alamode/-/alamode-1.8.0.tgz#921d8f4aefcb4142489cc1194864450d0ba446ee"
+  integrity sha512-1ifPWWNtOkhkSI3tbUTY7W7FypzOft3PRMdk16ft05cjO4blXEhOlWdn51tjqQN2VXS9NcQkFDN3KwGcpRcRAw==
   dependencies:
     "@a-la/export" "1.3.0"
     "@a-la/import" "1.7.0"
-    "@a-la/jsx" "1.2.5"
+    "@a-la/jsx" "1.4.0"
     "@a-la/markers" "1.0.3"
-    "@wrote/ensure-path" "1.0.5"
-    "@wrote/read-dir-structure" "1.0.2"
+    "@wrote/clone" "1.1.0"
+    "@wrote/wrote" "1.2.1"
     argufy "1.3.2"
     catchment "3.2.2"
+    erte "1.1.6"
     pirates "4.0.0"
     restream "3.5.0"
     source-map "0.7.3"
@@ -740,6 +768,14 @@ forkfeed@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/forkfeed/-/forkfeed-1.0.0.tgz#e519201d8f3809a0802b72347066a0a772f0629b"
   integrity sha512-E8O9yqYwJLxyExwKLAbDe/Mw20fUuxwplFB/h8lpRQWgKrPcih3uuVKPyXqcJ0N/iPHJMHV6ZH1iFjIkRYvaFw==
+
+fpj@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/fpj/-/fpj-1.0.0.tgz#82d0dd38e387b5b36ca0d5f5d13a61263c2af3a1"
+  integrity sha512-/yE4bB8fIMceRnxsPRWx6MMx0S5Gx/qKL7jtDtUelVqBO3fZY6XfWaye1pc3rcwhiIpHBdzg4ySi1vIQAhfvUw==
+  dependencies:
+    "@wrote/exists" "1.0.1"
+    "@wrote/read" "1.0.2"
 
 fresh@~0.5.2:
   version "0.5.2"
@@ -1165,11 +1201,6 @@ pirates@4.0.0:
   resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.0.tgz#850b18781b4ac6ec58a43c9ed9ec5fe6796addbd"
   dependencies:
     node-modules-regexp "^1.0.0"
-
-preact-context@1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/preact-context/-/preact-context-1.1.2.tgz#2494f74a4295f608962c7bc3e7d82408d7d10377"
-  integrity sha512-eBPt5qC3rMCUF2j9czks7KV8CO1TT0J7MLCz68f87JeoIsp9Luw89ZJaOJqwCUeJMqPEvNPbbVUFuxyTdN5bPA==
 
 preact-render-to-string@4.1.0:
   version "4.1.0"

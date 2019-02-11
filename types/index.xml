@@ -1,10 +1,7 @@
 <types>
-  <type name="Config" desc="Options for the program.">
-    <prop boolean name="shouldRun" default="true">
-      A boolean option.
-    </prop>
-    <prop string name="text">
-      A text to return.
+  <type name="Form" desc="Options for the Form component.">
+    <prop opt type="function" name="onChange">
+      The callback to call when a change is made to any of the inputs inside of the form.
     </prop>
   </type>
 </types>
