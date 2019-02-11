@@ -17,16 +17,17 @@ export default class Input extends Component {
     const { onChange } = this.context
     if (value !== undefined) onChange(name, value)
   }
-  render ({
-    required, name, placeholder, type = 'text', file,
+  render({
+    required, name, placeholder, type = 'text', file, value,
   }) {
     const { onChange, hid, id, values = {} } = this.context
+    const rendered = name in values // for SSR
     return <input
       required={required}
       name={name}
       placeholder={placeholder}
       className={`form-control${file ? '-file' : ''}`}
-      value={values[name]}
+      value={rendered ? values[name] : value}
       type={type}
       aria-describedby={hid}
       id={id}

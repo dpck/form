@@ -14,9 +14,10 @@ export default class TextArea extends Component {
     if (child) onChange(name, child.trim())
   }
   render({
-    rows = 3, required, name, placeholder,
+    rows = 3, required, name, placeholder, children,
   }) {
     const { hid, id, onChange, values } = this.context
+    const rendered = name in values // for SSR
     return <textarea
       required={required}
       name={name}
@@ -28,7 +29,7 @@ export default class TextArea extends Component {
         onChange(name, e.currentTarget.value)
       }}
       rows={rows}>{
-        values[name]
+        rendered ? values[name] : children
       }</textarea>
   }
 }

@@ -74,19 +74,19 @@ export default ExampleForm
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i85725">
+    <label htmlFor="i75649">
       Input
     </label>
-    <input name="input" class="form-control" type="text" aria-describedby="hi85725" id="i85725" />
-    <small id="hi85725" class="form-text text-muted">
+    <input name="input" class="form-control" value="hello-world" type="text" aria-describedby="hi75649" id="i75649" />
+    <small id="hi75649" class="form-text text-muted">
       Type in something...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i98702">
+    <label htmlFor="i74297">
       Select
     </label>
-    <select name="select" class="custom-select" id="i98702" aria-describedby="hi98702">
+    <select name="select" class="custom-select" id="i74297" aria-describedby="hi74297">
       <option>
         
       </option>
@@ -97,18 +97,17 @@ export default ExampleForm
         Unfree will
       </option>
     </select>
-    <small id="hi98702" class="form-text text-muted">
+    <small id="hi74297" class="form-text text-muted">
       Please select...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i43267">
+    <label htmlFor="i3525">
       TextArea
     </label>
-    <textarea name="textarea" aria-describedby="hi43267" class="form-control" id="i43267" rows="3">
-      
+    <textarea name="textarea" aria-describedby="hi3525" class="form-control" id="i3525" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.
     </textarea>
-    <small id="hi43267" class="form-text text-muted">
+    <small id="hi3525" class="form-text text-muted">
       Multiple row input...
     </small>
   </div>
@@ -145,11 +144,11 @@ const Example = () => (
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i21998">
+    <label htmlFor="i66985">
       What is your name?
     </label>
-    <input class="form-control" type="text" aria-describedby="hi21998" id="i21998" />
-    <small id="hi21998" class="form-text text-muted">
+    <input class="form-control" type="text" aria-describedby="hi66985" id="i66985" />
+    <small id="hi66985" class="form-text text-muted">
       Your name, your name, what is your name?
     </small>
   </div>
@@ -186,7 +185,7 @@ const Example = () => (
 )
 ```
 ```html
-<input required="1" name="example" placeholder="enter the value..." class="form-control" type="text" />
+<input required="1" name="example" placeholder="enter the value..." class="form-control" value="initial value" type="text" />
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/4.svg?sanitize=true"></a></p>
