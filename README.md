@@ -14,7 +14,7 @@ yarn add -E @depack/form
 
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
-- [Form](#form)
+- [**Form**](#form)
 - [Copyright](#copyright)
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
@@ -24,14 +24,14 @@ yarn add -E @depack/form
 The package is available by importing its default and named functions:
 
 ```js
-import Form,
-  { FormGroup, Input, TextArea, Select }
-from '@depack/form'
+import Form, {
+  FormGroup, Input, TextArea, Select,
+} from '@depack/form'
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/1.svg?sanitize=true"></a></p>
 
-## Form
+## **Form**
 
 Creates the form that maintains the values of each field that is found inside its children.
 

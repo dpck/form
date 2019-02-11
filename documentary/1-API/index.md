@@ -3,14 +3,14 @@
 The package is available by importing its default and named functions:
 
 ```js
-import Form,
-  { FormGroup, Input, TextArea, Select }
-from '@depack/form'
+import Form, {
+  FormGroup, Input, TextArea, Select,
+} from '@depack/form'
 ```
 
 %~%
 
-## Form
+## **Form**
 
 Creates the form that maintains the values of each field that is found inside its children.
 
