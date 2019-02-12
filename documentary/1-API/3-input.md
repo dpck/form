@@ -1,4 +1,4 @@
-## **Input**
+### **Input**
 
 The input is a one-line entry field.
 
@@ -7,4 +7,4 @@ The input is a one-line entry field.
 %EXAMPLE: example/API/Input.jsx, ../../src => @depack/form%
 %FORK-html example example/API/Input%
 
-%~%
+%~ width="15"%

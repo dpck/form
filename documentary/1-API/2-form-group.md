@@ -1,4 +1,4 @@
-## **FormGroup**
+### **FormGroup**
 
 The form group is used to represent a logical combination of a label, input, help text and validation error message. The _FormGroup_ component generates `id` and `hid` values and passes them to children components in the context.
 
@@ -7,4 +7,4 @@ The form group is used to represent a logical combination of a label, input, hel
 %EXAMPLE: example/API/FormGroup.jsx, ../../src => @depack/form%
 %FORK-html example example/API/FormGroup%
 
-%~%
+%~ width="15"%

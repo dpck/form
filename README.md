@@ -14,11 +14,11 @@ yarn add -E @depack/form
 
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
-- [**Form**](#form)
-- [**FormGroup**](#formgroup)
-- [**Input**](#input)
-- [**Select**](#select)
-- [**Textarea**](#textarea)
+  * [**Form**](#form)
+  * [**FormGroup**](#formgroup)
+  * [**Input**](#input)
+  * [**Select**](#select)
+  * [**Textarea**](#textarea)
 - [Copyright](#copyright)
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
@@ -35,7 +35,7 @@ import Form, {
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/1.svg?sanitize=true"></a></p>
 
-## **Form**
+### **Form**
 
 Creates the form that maintains the values of each field that is found inside its children. Any additional properties will be passed down to the form. Each child component will receive `values` in its context.
 
@@ -76,21 +76,21 @@ export default ExampleForm
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i41402">
+    <label htmlFor="i70712">
       Input
     </label>
     <input name="input" class="form-control" value="hello-world" type="text"
-      aria-describedby="hi41402" id="i41402" />
-    <small id="hi41402" class="form-text text-muted">
+      aria-describedby="hi70712" id="i70712" />
+    <small id="hi70712" class="form-text text-muted">
       Type in something...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i75519">
+    <label htmlFor="i50244">
       Select
     </label>
-    <select name="select" value="2" class="custom-select" id="i75519"
-      aria-describedby="hi75519">
+    <select name="select" value="2" class="custom-select" id="i50244"
+      aria-describedby="hi50244">
       <option></option>
       <option value="1">
         Free will
@@ -99,25 +99,25 @@ export default ExampleForm
         Unfree will
       </option>
     </select>
-    <small id="hi75519" class="form-text text-muted">
+    <small id="hi50244" class="form-text text-muted">
       Please select...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i1765">
+    <label htmlFor="i67343">
       TextArea
     </label>
-    <textarea name="textarea" aria-describedby="hi1765" class="form-control" id="i1765" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.</textarea>
-    <small id="hi1765" class="form-text text-muted">
+    <textarea name="textarea" aria-describedby="hi67343" class="form-control" id="i67343" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.</textarea>
+    <small id="hi67343" class="form-text text-muted">
       Multiple row input...
     </small>
   </div>
 </form>
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true" width="15"></a></p>
 
-## **FormGroup**
+### **FormGroup**
 
 The form group is used to represent a logical combination of a label, input, help text and validation error message. The _FormGroup_ component generates `id` and `hid` values and passes them to children components in the context.
 
@@ -145,20 +145,20 @@ const Example = () => (
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i51906">
+    <label htmlFor="i91260">
       What is your name?
     </label>
-    <input class="form-control" type="text" aria-describedby="hi51906" id="i51906" />
-    <small id="hi51906" class="form-text text-muted">
+    <input class="form-control" type="text" aria-describedby="hi91260" id="i91260" />
+    <small id="hi91260" class="form-text text-muted">
       Your name, your name, what is your name?
     </small>
   </div>
 </form>
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true" width="15"></a></p>
 
-## **Input**
+### **Input**
 
 The input is a one-line entry field.
 
@@ -190,9 +190,9 @@ const Example = () => (
   class="form-control" value="initial value" type="text" />
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/4.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/4.svg?sanitize=true" width="15"></a></p>
 
-## **Select**
+### **Select**
 
 This element present the values to select from.
 
@@ -229,9 +229,9 @@ const Example = () => (
 </select>
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/5.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/5.svg?sanitize=true" width="15"></a></p>
 
-## **Textarea**
+### **Textarea**
 
 The input field with multiple lines. The child of the component will set the initial value inside of the textarea.
 

@@ -1,4 +1,4 @@
-## **Textarea**
+### **Textarea**
 
 The input field with multiple lines. The child of the component will set the initial value inside of the textarea.
 
