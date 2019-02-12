@@ -17,6 +17,7 @@ yarn add -E @depack/form
 - [**Form**](#form)
 - [**FormGroup**](#formgroup)
 - [**Input**](#input)
+- [**Select**](#select)
 - [Copyright](#copyright)
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
@@ -74,21 +75,21 @@ export default ExampleForm
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i44672">
+    <label htmlFor="i21542">
       Input
     </label>
     <input name="input" class="form-control" value="hello-world" type="text"
-      aria-describedby="hi44672" id="i44672" />
-    <small id="hi44672" class="form-text text-muted">
+      aria-describedby="hi21542" id="i21542" />
+    <small id="hi21542" class="form-text text-muted">
       Type in something...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i42718">
+    <label htmlFor="i76330">
       Select
     </label>
-    <select name="select" value="2" class="custom-select" id="i42718"
-      aria-describedby="hi42718">
+    <select name="select" value="2" class="custom-select" id="i76330"
+      aria-describedby="hi76330">
       <option></option>
       <option value="1">
         Free will
@@ -97,16 +98,16 @@ export default ExampleForm
         Unfree will
       </option>
     </select>
-    <small id="hi42718" class="form-text text-muted">
+    <small id="hi76330" class="form-text text-muted">
       Please select...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i47028">
+    <label htmlFor="i13430">
       TextArea
     </label>
-    <textarea name="textarea" aria-describedby="hi47028" class="form-control" id="i47028" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.</textarea>
-    <small id="hi47028" class="form-text text-muted">
+    <textarea name="textarea" aria-describedby="hi13430" class="form-control" id="i13430" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.</textarea>
+    <small id="hi13430" class="form-text text-muted">
       Multiple row input...
     </small>
   </div>
@@ -143,11 +144,11 @@ const Example = () => (
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i496">
+    <label htmlFor="i29349">
       What is your name?
     </label>
-    <input class="form-control" type="text" aria-describedby="hi496" id="i496" />
-    <small id="hi496" class="form-text text-muted">
+    <input class="form-control" type="text" aria-describedby="hi29349" id="i29349" />
+    <small id="hi29349" class="form-text text-muted">
       Your name, your name, what is your name?
     </small>
   </div>
@@ -189,6 +190,45 @@ const Example = () => (
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/4.svg?sanitize=true"></a></p>
+
+## **Select**
+
+This element present the values to select from.
+
+__<a name="type-selectprops">`SelectProps`</a>__: Options for the Select component.
+
+|   Name   |                   Type                   |                           Description                            |
+| -------- | ---------------------------------------- | ---------------------------------------------------------------- |
+| required | _boolean_                                | Whether this is a required field.                                |
+| name     | _string_                                 | The select name.                                                 |
+| value    | _string_                                 | The initial value.                                               |
+| options  | _Array&lt;{value: *, title: string}&gt;_ | The array with options to render inside of the `select` element. |
+
+```jsx
+import { Select } from '@depack/form'
+
+const Example = () => (
+  <Select name="example" required value="1"
+    options={[
+      { value: 1, title: 'hello' },
+      { value: 2, title: 'world' },
+    ]}>
+  </Select>
+)
+```
+```html
+<select name="example" value="1" required="1" class="custom-select">
+  <option></option>
+  <option value="1" selected="true">
+    hello
+  </option>
+  <option value="2">
+    world
+  </option>
+</select>
+```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/5.svg?sanitize=true"></a></p>
 
 ## Copyright
 

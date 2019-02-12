@@ -3,9 +3,10 @@ import { format } from './'
 import { Select } from '../../src'
 
 const Example = () => (
-  <Select name="example" required
+  <Select name="example" required value="1"
     options={[
       { value: 1, title: 'hello' },
+      { value: 2, title: 'world' },
     ]}>
   </Select>
 )

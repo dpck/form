@@ -1,6 +1,13 @@
 import { Component } from 'preact'
 
 export default class Select extends Component {
+  constructor() {
+    super()
+    /**
+     * @type {SelectProps}
+     */
+    this.props = this.props
+  }
   shouldComponentUpdate(_, __, newContext) {
     const { name } = this.props
     return this.context.values[name] != newContext.values[name]
@@ -34,3 +41,12 @@ export default class Select extends Component {
     </select>
   }
 }
+
+/* documentary types/Select.xml */
+/**
+ * @typedef {Object} SelectProps Options for the Select component.
+ * @prop {boolean} [required] Whether this is a required field.
+ * @prop {string} [name] The select name.
+ * @prop {string} [value] The initial value.
+ * @prop {Array<{value: *, title: string}>} [options] The array with options to render inside of the `select` element.
+ */
