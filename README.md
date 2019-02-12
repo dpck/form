@@ -74,21 +74,21 @@ export default ExampleForm
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i94485">
+    <label htmlFor="i90435">
       Input
     </label>
     <input name="input" class="form-control" value="hello-world" type="text"
-      aria-describedby="hi94485" id="i94485" />
-    <small id="hi94485" class="form-text text-muted">
+      aria-describedby="hi90435" id="i90435" />
+    <small id="hi90435" class="form-text text-muted">
       Type in something...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i62680">
+    <label htmlFor="i12194">
       Select
     </label>
-    <select name="select" value="2" class="custom-select" id="i62680"
-      aria-describedby="hi62680">
+    <select name="select" value="2" class="custom-select" id="i12194"
+      aria-describedby="hi12194">
       <option>
         
       </option>
@@ -99,17 +99,16 @@ export default ExampleForm
         Unfree will
       </option>
     </select>
-    <small id="hi62680" class="form-text text-muted">
+    <small id="hi12194" class="form-text text-muted">
       Please select...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i45733">
+    <label htmlFor="i51376">
       TextArea
     </label>
-    <textarea name="textarea" aria-describedby="hi45733" class="form-control" id="i45733" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.
-    </textarea>
-    <small id="hi45733" class="form-text text-muted">
+    <textarea name="textarea" aria-describedby="hi51376" class="form-control" id="i51376" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.</textarea>
+    <small id="hi51376" class="form-text text-muted">
       Multiple row input...
     </small>
   </div>
@@ -146,11 +145,11 @@ const Example = () => (
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i78891">
+    <label htmlFor="i54708">
       What is your name?
     </label>
-    <input class="form-control" type="text" aria-describedby="hi78891" id="i78891" />
-    <small id="hi78891" class="form-text text-muted">
+    <input class="form-control" type="text" aria-describedby="hi54708" id="i54708" />
+    <small id="hi54708" class="form-text text-muted">
       Your name, your name, what is your name?
     </small>
   </div>

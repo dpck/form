@@ -4,28 +4,29 @@ import render from 'preact-render-to-string'
 export const format = (e) => {
   let level = 0
   let prevOpening
-  let prevTextArea
+  let currentTextArea
   const s = render(e)
     .replace(/<.+?>/g, (m) => {
       const closing = /<\//.test(m)
       const selfClosing = /\/>/.test(m)
       const opening = !closing && !selfClosing
-      if (opening) {
-        prevTextArea = /<textarea/.test(m)
+      if (opening && currentTextArea) {
+        throw new Error('No opening tags in textarea are allowed.')
+      } else if (opening) {
+        currentTextArea = /<textarea/.test(m)
       }
       if (closing) level --
       else if (!selfClosing) level ++
       if (level < 0) level = 0
       const ws = '  '.repeat(level)
       const wws = '  '.repeat(Math.max(0, level - 1))
-      if (opening && prevTextArea) {
-        prevTextArea = false
+      if (opening && currentTextArea) {
         const r = `${prevOpening ? '' : `\n${wws}`}${m}`
         return r
-      } else if (closing && prevTextArea) {
-        prevTextArea = false
+      } else if (closing && currentTextArea) {
+        currentTextArea = false
         return m
-      } else if (prevTextArea) {
+      } else if (currentTextArea) {
         throw new Error('Text Area cannot contain tags.')
       } else if (opening) {
         const v = getAttrs(m, wws)
@@ -72,3 +73,5 @@ const getAttrs = (s, ws, maxWidth = 80) => {
   }, `${tag}`)
   return `${att}${cl}>`
 }
+
+export { render }

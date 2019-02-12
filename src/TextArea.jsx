@@ -16,7 +16,7 @@ export default class TextArea extends Component {
   render({
     rows = 3, required, name, placeholder, children,
   }) {
-    const { hid, id, onChange, values } = this.context
+    const { hid, id, onChange, values = {} } = this.context
     const rendered = name in values // for SSR
     return <textarea
       required={required}
