@@ -6,6 +6,10 @@ export default class Form extends Component {
     this.state = {
       values: {},
     }
+    /**
+     * @type {FormProps}
+     */
+    this.props = this.props
   }
   getChildContext() {
     return {
@@ -39,7 +43,7 @@ export class FormGroup extends Component {
     this.id = `i${Math.floor(Math.random() * 100000)}`
     this.hid = `h${this.id}`
     /**
-     * @type {FormGroup}
+     * @type {FormGroupProps}
      */
     this.props = this.props
   }
@@ -65,10 +69,10 @@ export { default as Input } from './Input'
 
 /* documentary types/index.xml */
 /**
- * @typedef {Object} Form Options for the Form component.
+ * @typedef {Object} FormProps Options for the Form component.
  * @prop {function} [onChange] The callback to call when a change is made to any of the inputs inside of the form.
  *
- * @typedef {Object} FormGroup
+ * @typedef {Object} FormGroupProps
  * @prop {string} [label] The label to display for the group.
  * @prop {string} [help] The help text to show in `<small className="form-text text-muted">{help}</small>`
  */

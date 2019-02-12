@@ -37,7 +37,7 @@ import Form, {
 
 Creates the form that maintains the values of each field that is found inside its children. Any additional properties will be passed down to the form. Each child component will receive `values` in its context.
 
-__<a name="type-form">`Form`</a>__: Options for the Form component.
+__<a name="type-formprops">`FormProps`</a>__: Options for the Form component.
 
 |   Name   |    Type    |                                     Description                                     |
 | -------- | ---------- | ----------------------------------------------------------------------------------- |
@@ -74,21 +74,21 @@ export default ExampleForm
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i48121">
+    <label htmlFor="i94485">
       Input
     </label>
     <input name="input" class="form-control" value="hello-world" type="text"
-      aria-describedby="hi48121" id="i48121" />
-    <small id="hi48121" class="form-text text-muted">
+      aria-describedby="hi94485" id="i94485" />
+    <small id="hi94485" class="form-text text-muted">
       Type in something...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i41042">
+    <label htmlFor="i62680">
       Select
     </label>
-    <select name="select" value="2" class="custom-select" id="i41042"
-      aria-describedby="hi41042">
+    <select name="select" value="2" class="custom-select" id="i62680"
+      aria-describedby="hi62680">
       <option>
         
       </option>
@@ -99,17 +99,17 @@ export default ExampleForm
         Unfree will
       </option>
     </select>
-    <small id="hi41042" class="form-text text-muted">
+    <small id="hi62680" class="form-text text-muted">
       Please select...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i64160">
+    <label htmlFor="i45733">
       TextArea
     </label>
-    <textarea name="textarea" aria-describedby="hi64160" class="form-control" id="i64160" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.
+    <textarea name="textarea" aria-describedby="hi45733" class="form-control" id="i45733" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.
     </textarea>
-    <small id="hi64160" class="form-text text-muted">
+    <small id="hi45733" class="form-text text-muted">
       Multiple row input...
     </small>
   </div>
@@ -122,7 +122,7 @@ export default ExampleForm
 
 The form group is used to represent a logical combination of a label, input, help text and validation error message. The _FormGroup_ component generates `id` and `hid` values and passes them to children components in the context.
 
-__<a name="type-formgroup">`FormGroup`</a>__
+__<a name="type-formgroupprops">`FormGroupProps`</a>__
 
 | Name  |   Type   |                                    Description                                    |
 | ----- | -------- | --------------------------------------------------------------------------------- |
@@ -146,11 +146,11 @@ const Example = () => (
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i36534">
+    <label htmlFor="i78891">
       What is your name?
     </label>
-    <input class="form-control" type="text" aria-describedby="hi36534" id="i36534" />
-    <small id="hi36534" class="form-text text-muted">
+    <input class="form-control" type="text" aria-describedby="hi78891" id="i78891" />
+    <small id="hi78891" class="form-text text-muted">
       Your name, your name, what is your name?
     </small>
   </div>
