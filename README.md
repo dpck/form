@@ -74,40 +74,42 @@ export default ExampleForm
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i63030">
+    <label htmlFor="i24962">
       Input
     </label>
-    <input name="input" class="form-control" value="hello-world" type="text" aria-describedby="hi63030" id="i63030" />
-    <small id="hi63030" class="form-text text-muted">
+    <input name="input" class="form-control" value="hello-world" type="text"
+      aria-describedby="hi24962" id="i24962" />
+    <small id="hi24962" class="form-text text-muted">
       Type in something...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i64565">
+    <label htmlFor="i17690">
       Select
     </label>
-    <select name="select" class="custom-select" id="i64565" aria-describedby="hi64565">
+    <select name="select" class="custom-select" id="i17690"
+        aria-describedby="hi17690">
       <option>
         
       </option>
       <option value="1">
         Free will
       </option>
-      <option value="2" selected>
+      <option value="2" selected="true">
         Unfree will
       </option>
     </select>
-    <small id="hi64565" class="form-text text-muted">
+    <small id="hi17690" class="form-text text-muted">
       Please select...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i75571">
+    <label htmlFor="i70219">
       TextArea
     </label>
-    <textarea name="textarea" aria-describedby="hi75571" class="form-control" id="i75571" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.
+    <textarea name="textarea" aria-describedby="hi70219" class="form-control" id="i70219" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.
     </textarea>
-    <small id="hi75571" class="form-text text-muted">
+    <small id="hi70219" class="form-text text-muted">
       Multiple row input...
     </small>
   </div>
@@ -144,11 +146,11 @@ const Example = () => (
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i45420">
+    <label htmlFor="i96923">
       What is your name?
     </label>
-    <input class="form-control" type="text" aria-describedby="hi45420" id="i45420" />
-    <small id="hi45420" class="form-text text-muted">
+    <input class="form-control" type="text" aria-describedby="hi96923" id="i96923" />
+    <small id="hi96923" class="form-text text-muted">
       Your name, your name, what is your name?
     </small>
   </div>
@@ -185,7 +187,8 @@ const Example = () => (
 )
 ```
 ```html
-<input required="1" name="example" placeholder="enter the value..." class="form-control" value="initial value" type="text" />
+<input required="1" name="example" placeholder="enter the value..."
+  class="form-control" value="initial value" type="text" />
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/4.svg?sanitize=true"></a></p>

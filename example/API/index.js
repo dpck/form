@@ -1,3 +1,4 @@
+import { extractProps } from 'rexml'
 import render from 'preact-render-to-string'
 
 export const format = (e) => {
@@ -27,7 +28,8 @@ export const format = (e) => {
       } else if (prevTextArea) {
         throw new Error('Text Area cannot contain tags.')
       } else if (opening) {
-        const r = `${prevOpening ? '' : `\n${wws}`}${m}\n${ws}`
+        const v = getAttrs(m, ws)
+        const r = `${prevOpening ? '' : `\n${wws}`}${v}\n${ws}`
         prevOpening = true
         return r
       } else if (closing) {
@@ -35,7 +37,8 @@ export const format = (e) => {
         prevOpening = false
         return r
       } else {
-        const r = `\n${ws}${m}\n${ws}`
+        const v = getAttrs(m, ws)
+        const r = `\n${ws}${v}\n${ws}`
         prevOpening = true
         return r
       }
@@ -48,4 +51,24 @@ export const format = (e) => {
       // return `\n${ws}${m}`
     })
   return s
+}
+
+const getAttrs = (s, ws, maxWidth = 80) => {
+  const [,tag,attrs,cl = ''] = /(<\w+ )(.+?)( \/)?>/.exec(s) || []
+  if (!attrs) return s
+  const wws = '  '
+  let currentWidth = ws.length + tag.length
+  const at = extractProps(attrs, false)
+  let start = true
+  const att = Object.keys(at).reduce((acc, key) => {
+    const val = at[key]
+    const k = `${key}="${val}"`
+    const addNewLine = currentWidth + k.length > maxWidth
+    if (addNewLine) currentWidth = ws.length + wws.length
+    currentWidth += k.length
+    const v = `${addNewLine ? `\n${ws}${wws}` : `${start ? '' : ' '}`}${k}`
+    start = false
+    return `${acc}${v}`
+  }, `${tag}`)
+  return `${att}${cl}>`
 }
