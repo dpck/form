@@ -13,7 +13,7 @@ export default class Select extends Component {
   render({
     options, name, value, required,
   }) {
-    const { onChange, hid, id, values } = this.context
+    const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
     return <select
       name={name}

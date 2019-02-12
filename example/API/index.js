@@ -5,8 +5,10 @@ export const format = (e) => {
   let level = 0
   let prevOpening
   let currentTextArea
-  const s = render(e)
-    .replace(/<.+?>/g, (m) => {
+  let currentEmpty
+  const rr = render(e)
+  const s = rr
+    .replace(/<.+?>/g, (m, i) => {
       const closing = /<\//.test(m)
       const selfClosing = /\/>/.test(m)
       const opening = !closing && !selfClosing
@@ -29,13 +31,18 @@ export const format = (e) => {
       } else if (currentTextArea) {
         throw new Error('Text Area cannot contain tags.')
       } else if (opening) {
+        currentEmpty = `${rr[i + m.length]}${rr[i + m.length + 1]}` == '</'
         const v = getAttrs(m, wws)
-        const r = `${prevOpening ? '' : `\n${wws}`}${v}\n${ws}`
+        const indent = prevOpening ? '' : `\n${wws}`
+        const nextIntent = currentEmpty ? '' : `\n${ws}`
+        const r = `${indent}${v}${nextIntent}`
         prevOpening = true
         return r
       } else if (closing) {
-        const r = `\n${ws}${m}`
+        const intent = currentEmpty ? '' : `\n${ws}`
+        const r = `${intent}${m}`
         prevOpening = false
+        currentEmpty = false
         return r
       } else {
         const v = getAttrs(m, ws)
