@@ -28,7 +28,7 @@ export const format = (e) => {
       } else if (prevTextArea) {
         throw new Error('Text Area cannot contain tags.')
       } else if (opening) {
-        const v = getAttrs(m, ws)
+        const v = getAttrs(m, wws)
         const r = `${prevOpening ? '' : `\n${wws}`}${v}\n${ws}`
         prevOpening = true
         return r

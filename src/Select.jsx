@@ -14,9 +14,10 @@ export default class Select extends Component {
     options, name, value, required,
   }) {
     const { onChange, hid, id, values } = this.context
+    const rendered = name in values // for SSR
     return <select
       name={name}
-      value={values[name]}
+      value={rendered ? values[name] : value}
       className="custom-select"
       required={required}
       id={id}
