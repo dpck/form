@@ -1,5 +1,5 @@
 import { render, Component } from 'preact'
-import 'preact/devtools/'
+// import 'preact/devtools/'
 import ExampleForm from './ExampleForm'
 
 class Main extends Component {

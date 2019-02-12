@@ -11,6 +11,7 @@
     "mask": "yarn t test/mask",
     "test-build": "ALAMODE_ENV=test-build yarn test",
     "lint": "eslint .",
+    "start": "splendid-dev -s",
     "doc": "NODE_DEBUG=doc doc documentary -o README.md",
     "d": "yarn-s d1 d2 d3 d4",
     "b": "alamode src -o build -j -p",
@@ -21,6 +22,7 @@
     "build": "yarn-s d b doc",
     "rec": "appshot -a Safari -y 450 -f",
     "e": "node example",
+    "depack": "depack-dev example/App.jsx -o splendid/js/main.js -I 2018 -a -H -p -w",
     "example/": "yarn e example/example"
   },
   "files": [
