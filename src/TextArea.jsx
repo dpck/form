@@ -4,6 +4,13 @@ import { Component } from 'preact'
  * The `<textarea>` element.
  */
 export default class TextArea extends Component {
+  constructor() {
+    super()
+    /**
+     * @type {TextAreaProps}
+     */
+    this.props = this.props
+  }
   shouldComponentUpdate(_, __, newContext) {
     const { name } = this.props
     return this.context.values[name] != newContext.values[name]
@@ -33,3 +40,12 @@ export default class TextArea extends Component {
       }</textarea>
   }
 }
+
+/* documentary types/TextArea.xml */
+/**
+ * @typedef {Object} TextAreaProps Options for the TextAreaProps component.
+ * @prop {boolean} [required] Whether this is a required field.
+ * @prop {string} [name] The textarea name.
+ * @prop {string} [placeholder] The textarea placeholder.
+ * @prop {number} [rows=3] How many rows should the textarea have. Default `3`.
+ */

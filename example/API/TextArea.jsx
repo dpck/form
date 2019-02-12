@@ -3,7 +3,7 @@ import { format } from './'
 import { TextArea } from '../../src'
 
 const Example = () => (
-  <TextArea name="example" required
+  <TextArea name="example" rows="4" required
     placeholder="enter the multiline value...">
     Hello World
   </TextArea>

@@ -1,0 +1,16 @@
+<types>
+  <type name="TextAreaProps" desc="Options for the TextAreaProps component." noToc>
+    <prop opt boolean name="required">
+      Whether this is a required field.
+    </prop>
+    <prop opt string name="name">
+      The textarea name.
+    </prop>
+    <prop opt string name="placeholder">
+      The textarea placeholder.
+    </prop>
+    <prop number name="rows" default="3">
+      How many rows should the textarea have.
+    </prop>
+  </type>
+</types>

@@ -18,6 +18,7 @@ yarn add -E @depack/form
 - [**FormGroup**](#formgroup)
 - [**Input**](#input)
 - [**Select**](#select)
+- [**Textarea**](#textarea)
 - [Copyright](#copyright)
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
@@ -75,21 +76,21 @@ export default ExampleForm
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i21542">
+    <label htmlFor="i41402">
       Input
     </label>
     <input name="input" class="form-control" value="hello-world" type="text"
-      aria-describedby="hi21542" id="i21542" />
-    <small id="hi21542" class="form-text text-muted">
+      aria-describedby="hi41402" id="i41402" />
+    <small id="hi41402" class="form-text text-muted">
       Type in something...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i76330">
+    <label htmlFor="i75519">
       Select
     </label>
-    <select name="select" value="2" class="custom-select" id="i76330"
-      aria-describedby="hi76330">
+    <select name="select" value="2" class="custom-select" id="i75519"
+      aria-describedby="hi75519">
       <option></option>
       <option value="1">
         Free will
@@ -98,16 +99,16 @@ export default ExampleForm
         Unfree will
       </option>
     </select>
-    <small id="hi76330" class="form-text text-muted">
+    <small id="hi75519" class="form-text text-muted">
       Please select...
     </small>
   </div>
   <div class="form-group">
-    <label htmlFor="i13430">
+    <label htmlFor="i1765">
       TextArea
     </label>
-    <textarea name="textarea" aria-describedby="hi13430" class="form-control" id="i13430" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.</textarea>
-    <small id="hi13430" class="form-text text-muted">
+    <textarea name="textarea" aria-describedby="hi1765" class="form-control" id="i1765" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.</textarea>
+    <small id="hi1765" class="form-text text-muted">
       Multiple row input...
     </small>
   </div>
@@ -144,11 +145,11 @@ const Example = () => (
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i29349">
+    <label htmlFor="i51906">
       What is your name?
     </label>
-    <input class="form-control" type="text" aria-describedby="hi29349" id="i29349" />
-    <small id="hi29349" class="form-text text-muted">
+    <input class="form-control" type="text" aria-describedby="hi51906" id="i51906" />
+    <small id="hi51906" class="form-text text-muted">
       Your name, your name, what is your name?
     </small>
   </div>
@@ -229,6 +230,35 @@ const Example = () => (
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/5.svg?sanitize=true"></a></p>
+
+## **Textarea**
+
+The input field with multiple lines. The child of the component will set the initial value inside of the textarea.
+
+__<a name="type-textareaprops">`TextAreaProps`</a>__: Options for the TextAreaProps component.
+
+|    Name     |   Type    |               Description               | Default |
+| ----------- | --------- | --------------------------------------- | ------- |
+| required    | _boolean_ | Whether this is a required field.       | -       |
+| name        | _string_  | The textarea name.                      | -       |
+| placeholder | _string_  | The textarea placeholder.               | -       |
+| rows        | _number_  | How many rows should the textarea have. | `3`     |
+
+```jsx
+import { TextArea } from '@depack/form'
+
+const Example = () => (
+  <TextArea name="example" rows="4" required
+    placeholder="enter the multiline value...">
+    Hello World
+  </TextArea>
+)
+```
+```html
+<textarea required="1" name="example" placeholder="enter the multiline value..." class="form-control" rows="4">Hello World</textarea>
+```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/6.svg?sanitize=true"></a></p>
 
 ## Copyright
 
