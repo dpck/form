@@ -19,6 +19,7 @@ yarn add -E @depack/form
   * [**Input**](#input)
   * [**Select**](#select)
   * [**Textarea**](#textarea)
+- [Custom Components](#custom-components)
 - [Copyright](#copyright)
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
@@ -122,7 +123,7 @@ export default ExampleForm
 
 The form group is used to represent a logical combination of a label, input, help text and validation error message. The _FormGroup_ component generates `id` and `hid` values and passes them to children components in the context.
 
-__<a name="type-formgroupprops">`FormGroupProps`</a>__
+__<a name="type-formgroupprops">`FormGroupProps`</a>__: Options for the FormGroup component.
 
 | Name  |   Type   |                                    Description                                    |
 | ----- | -------- | --------------------------------------------------------------------------------- |
@@ -261,6 +262,73 @@ const Example = () => (
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/6.svg?sanitize=true"></a></p>
+
+## Custom Components
+
+To implement a custom component, one must write a class component that would report its initial value in `componentDidMount` method via the `onChange` method that it receives in the context. Overall, there are 4 properties that a component can receive in the context:
+
+- `id`: If placed in the _FormGroup_, this will be set to the ID that the component should set on the input so that the label can focus on it on click.
+- `hid`: If placed in the _FormGroup_, this will be set to auto-generated value for the help field.
+- `values`: This is the overall values hash containing all the values of the fields in the form. It is set by the _Form_ parent component.
+- `onChange`: This is the callback set by the _Form_ to report changes to the values of the component. It must also be fired after the component is mounted to set its initial model value in the form (i.e. update the `values` field).
+
+The components are controlled which means their values are set via the model, and are contained in the `values` context property. Whenever an update is needed, the `onChange` method has to be fired. To allow server-side rendering of the component when the initial value is not going to be reported to the _Form_ via the `componentDidMount`, it must be set manually after checking if `values` contain the name of the component. If the component for some reason is going to be used also outside of the form, the `values` must be defaulted to `{}`.
+
+Here is an example of the _Input_ component which accounts for all the above points:
+
+```jsx
+import { Component } from 'preact'
+
+export default class Input extends Component {
+  constructor() {
+    super()
+    /**
+     * @type {InputProps}
+     */
+    this.props = this.props
+  }
+  shouldComponentUpdate(_, __, newContext) {
+    const { name } = this.props
+    return this.context.values[name] != newContext.values[name]
+  }
+  componentDidMount() {
+    const { value, name } = this.props
+    const { onChange } = this.context
+    if (value !== undefined) onChange(name, value)
+  }
+  render({
+    required, name, placeholder, type = 'text', file, value,
+  }) {
+    const { onChange, hid, id, values = {} } = this.context
+    const rendered = name in values // for SSR
+    return <input
+      required={required}
+      name={name}
+      placeholder={placeholder}
+      className={`form-control${file ? '-file' : ''}`}
+      value={rendered ? values[name] : value}
+      type={type}
+      aria-describedby={hid}
+      id={id}
+      onChange={(e) => {
+        onChange(name, e.currentTarget.value)
+      }}
+    />
+  }
+}
+
+/* documentary types/input.xml */
+/**
+ * @typedef {Object} InputProps Options for the Input component.
+ * @prop {boolean} [required] Whether this is a required field.
+ * @prop {string} [name] The input name.
+ * @prop {string} [placeholder] The input placeholder.
+ * @prop {string} [value] The initial value.
+ * @prop {string} [type] The input type.
+ */
+```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/7.svg?sanitize=true"></a></p>
 
 ## Copyright
 

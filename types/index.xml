@@ -4,7 +4,7 @@
       The callback to call when a change is made to any of the inputs inside of the form.
     </prop>
   </type>
-  <type name="FormGroupProps" noToc>
+  <type name="FormGroupProps" desc="Options for the FormGroup component." noToc>
     <prop opt string name="label">
       The label to display for the group.
     </prop>
