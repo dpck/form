@@ -23,7 +23,9 @@ export const format = (e) => {
       const ws = '  '.repeat(level)
       const wws = '  '.repeat(Math.max(0, level - 1))
       if (opening && currentTextArea) {
-        const r = `${prevOpening ? '' : `\n${wws}`}${m}`
+        const v = getAttrs(m, wws)
+        const indent = prevOpening ? '' : `\n${wws}`
+        const r = `${indent}${v}`
         return r
       } else if (closing && currentTextArea) {
         currentTextArea = false

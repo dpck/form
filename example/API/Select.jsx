@@ -1,4 +1,5 @@
 import { format } from './'
+import rnd from './random'
 /* start example */
 import { Select } from '../../src'
 
