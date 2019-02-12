@@ -7,5 +7,4 @@ export const main = {
   file: 'index',
   menuUrl: '/',
   menu: '@Depack/form',
-
 }

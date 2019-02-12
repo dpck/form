@@ -23,6 +23,7 @@ const config = {
   output: BUILD_DIR,
   // to generate sitemaps:
   /* url: https://website.github.io/splendid */
+  url: 'https://dpck.github.io/form',
 }
 
 export default config

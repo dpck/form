@@ -12,6 +12,7 @@
     "test-build": "ALAMODE_ENV=test-build yarn test",
     "lint": "eslint .",
     "start": "splendid-dev -s",
+    "splendid": "splendid-dev",
     "doc": "NODE_DEBUG=doc doc documentary -o README.md",
     "d": "yarn-s d1 d2 d3 d4",
     "b": "alamode src -o build -j -p",
