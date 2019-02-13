@@ -2,13 +2,7 @@
 
 This page is meant for modern browsers that are capable of loading the modules files.
 
-<File>js/modules/example/App.js</File>
-<File>js/modules/example/ExampleForm.js</File>
-<File>js/modules/src/index.js</File>
-<File>js/modules/src/input.js</File>
-<File>js/modules/src/Select.js</File>
-<File>js/modules/src/TextArea.js</File>
-<File>js/modules/preact.js</File>
+<File>js/modules</File>
 
 <div id="preact"></div>
 
