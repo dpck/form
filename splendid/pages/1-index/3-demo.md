@@ -8,7 +8,7 @@ The form in the example can be rendered within the following app:
   var head = document.getElementsByTagName('head')[0];
   var scriptElement = document.createElement('script');
   scriptElement.setAttribute('type', 'text/javascript');
-  scriptElement.setAttribute('src', 'js/main.js?t='+Math.random());
+  scriptElement.setAttribute('src', 'js/main.js');
   head.appendChild(scriptElement);
   head.removeChild(scriptElement);
 </script>

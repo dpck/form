@@ -19,3 +19,14 @@ export const compilation = {
   // menuUrl: '/depack',
   menu: 'Compiled W/ Depack',
 }
+
+/**
+ * @type {import('splendid').Page}
+ */
+export const modules = {
+  title: 'Depack Modules',
+  url: '∂epack-modules.html',
+  file: '3-modules',
+  // menuUrl: '/depack',
+  menu: 'Modules Demo',
+}

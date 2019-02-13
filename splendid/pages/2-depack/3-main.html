@@ -1,0 +1,7 @@
+## Main And Module
+
+Because the _FrontEnd_ middleware serves data from the `module` directory, and _Depack_ compiles files from there as well, the package exports the `module` field in its package.json file that points to the source code built with ÀLaMode to convert `<jsx></jsx>` into Preact's pragma executions: `h('jsx', {})`. The module containts `import` and `export` statements, therefore it needs to be used by the bundler and development middleware that can serve it. _Depack_ passes all modules to the Google Closure Compiler and it is the preferred way to build for the modern web, since the `require` call should become obsolete. The following example shows what code is exported in the `module` field:
+
+<Code src="build/index.js" />
+
+The program as modules can be viewed on the following page. ![]()

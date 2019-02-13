@@ -108,3 +108,17 @@ footer {
 li.Active {
     font-weight: bold;
 }
+.Badge {
+    color: rgb(233, 233, 233);
+}
+.Badge:hover {
+    color: white;
+    text-decoration: initial !important;
+    text-shadow: -1px -1px 1px rgba(244, 166, 118, 0.557);
+}
+.Badge .version {
+    text-shadow: -1px -1px 0px #5e0808;
+}
+.Badge:hover .version {
+    text-shadow: -1px -1px 0px #d11b1b;
+}

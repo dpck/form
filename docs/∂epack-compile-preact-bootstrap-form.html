@@ -29,12 +29,12 @@
           </div>
           <div class="badges">
             <a href="https://github.com/dpck/form" class="SimpleBadge">GitHub</a>
-            <a href="https://npmjs.com/packages/@depack/form" class="Badge"><span class="name">NPM</span><span class="version">1.0.0</span></a>
+            <a href="https://npmjs.com/package/@depack/form" class="Badge"><span class="name"></span><span class="version">1.0.0</span></a>
           </div>
 
           <h3>Pages</h3>
 
-          <ul class="AjaxNav"><li class><a data-file="1-index" href="/">@Depack/form</a></li><li class="Active"><a data-file="2-depack" href="∂epack-compile-preact-bootstrap-form.html">Compiled W/ Depack</a></li></ul>
+          <ul class="AjaxNav"><li class><a data-file="1-index" href="/">@Depack/form</a></li><li class="Active"><a data-file="2-depack" href="∂epack-compile-preact-bootstrap-form.html">Compiled W/ Depack</a></li><li class><a data-file="3-modules" href="∂epack-modules.html">Modules Demo</a></li></ul>
 
           <h3>npm links</h3>
 
@@ -54,7 +54,159 @@
   <span class="hljs-attr">"depack"</span>: <span class="hljs-string">"depack example/App.jsx -o splendid/js/main.js -I 2018 -a -H -p -w"</span>
 }</code></pre>
           
-          where the advanced compilation is set, as well as Preact's <span class="tm">h</span> pragma added to the beginning of each file. <span class="tm">-p</span> is for pretty printing, and <span class="tm">-w</span> for no warnings.
+          where the advanced compilation is set, as well as Preact's <span class="tm">h</span> pragma added to the beginning of each file. <span class="tm">-p</span> is for pretty printing, and <span class="tm">-w</span> for no warnings. <em>Depack</em> then performs static-analysis on the entered files, and creates a temp directory where it transpiles JSX files.
+          
+          <img style="padding:2rem 0" src="img/at.gif" alt="Depack Preact Form Compilation"/>
+          
+          <p class="SectionBreak">
+            <a href="#top" title="Back To Top">
+              <img src="section-breaks/0.svg" alt="Back To Top" width="15px">
+            </a>
+          </p>
+          
+          <h2>Development Server</h2>
+          
+          The development server is setup with the
+          <a href="https://npmjs.com/package/@idio/frontend" class="Badge"><span class="name">
+            @idio/<em>FrontEnd</em>
+          </span><span class="version">1.4.0</span></a>
+          middleware that serves the source files as modules with JSX transpiled using <a href="https://npmjs.com/package/@a-la/jsx" class="Badge"><span class="name">
+             @a-la/<em>JSX</em>
+           </span><span class="version">1.4.0</span></a>. This allows to change source code files and serve them as native modules that the modern browser understands.
+          
+          <pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> core <span class="token keyword">from</span> <span class="token string">'@idio/core'</span>
+<span class="token keyword">import</span> render <span class="token keyword">from</span> <span class="token string">'preact-render-to-string'</span>
+
+<span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> url <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">core</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    frontend<span class="token punctuation">:</span> <span class="token punctuation">{</span> directory<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'example'</span><span class="token punctuation">,</span> <span class="token string">'src'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">serve</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'&lt;!doctype html>'</span> <span class="token operator">+</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>html<span class="token operator">></span>
+        <span class="token operator">&lt;</span>head<span class="token operator">></span>
+          <span class="token operator">&lt;</span>link rel<span class="token operator">=</span><span class="token string">"stylesheet"</span> href<span class="token operator">=</span><span class="token string">"https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"</span> integrity<span class="token operator">=</span><span class="token string">"sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"</span> crossOrigin<span class="token operator">=</span><span class="token string">"anonymous"</span><span class="token operator">/</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token operator">/</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">"viewport"</span> content<span class="token operator">=</span><span class="token string">"width=device-width, initial-scale=1, shrink-to-fit=no"</span><span class="token operator">/</span><span class="token operator">></span>
+
+          <span class="token operator">&lt;</span>title<span class="token operator">></span>Form Example<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
+          <span class="token operator">&lt;</span>style<span class="token operator">></span>
+            <span class="token punctuation">{</span><span class="token template-string"><span class="token string">`body {
+              background: #dfffdf;
+            }`</span></span><span class="token punctuation">}</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
+        <span class="token operator">&lt;</span>body id<span class="token operator">=</span><span class="token string">"preact"</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"module"</span> src<span class="token operator">=</span><span class="token string">"/example/App.jsx"</span><span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'%s'</span><span class="token punctuation">,</span> url<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+          
+          The server code itself is written in JSX thanks to the ÀLaMode's require hook. The JSX's <em>VNode</em> tree is then transformed into HTML with <span class="tm">preact-render-to-string</span>.
+          
+          <pre><code class="js hljs"><span class="hljs-built_in">require</span>(<span class="hljs-string">'alamode'</span>)()
+<span class="hljs-built_in">require</span>(<span class="hljs-string">`../<span class="hljs-subst">${process.argv[<span class="hljs-number">2</span>]}</span>`</span>)</code></pre>
+          
+          The example can be started with <span class="tm">yarn example/</span> command:
+          
+          <pre><code class="sh hljs">MacBook:form zavr$ yarn example/
+yarn run v1.13.0
+$ yarn e example/example
+$ node example example/example
+http://localhost:5000</code></pre>
+          <p class="SectionBreak">
+            <a href="#top" title="Back To Top">
+              <img src="section-breaks/1.svg" alt="Back To Top" width="15px">
+            </a>
+          </p>
+          
+          <h2>Main And Module</h2>
+          
+          Because the <em>FrontEnd</em> middleware serves data from the <span class="tm">module</span> directory, and <em>Depack</em> compiles files from there as well, the package exports the <span class="tm">module</span> field in its package.json file that points to the source code built with ÀLaMode to convert <span class="tm">&lt;jsx&gt;&lt;/jsx&gt;</span> into Preact's pragma executions: <span class="tm">h(&apos;jsx&apos;, {})</span>. The module containts <span class="tm">import</span> and <span class="tm">export</span> statements, therefore it needs to be used by the bundler and development middleware that can serve it. <em>Depack</em> passes all modules to the Google Closure Compiler and it is the preferred way to build for the modern web, since the <span class="tm">require</span> call should become obsolete. The following example shows what code is exported in the <span class="tm">module</span> field:
+          
+          <pre><code class="js hljs"><span class="hljs-keyword">import</span> { h } <span class="hljs-keyword">from</span> <span class="hljs-string">'preact'</span>
+<span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'preact'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Form</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">constructor</span>() {
+    <span class="hljs-keyword">super</span>()
+    <span class="hljs-keyword">this</span>.state = {
+      <span class="hljs-attr">values</span>: {},
+    }
+    <span class="hljs-comment">/**
+     * @type {FormProps}
+     */</span>
+    <span class="hljs-keyword">this</span>.props = <span class="hljs-keyword">this</span>.props
+  }
+  getChildContext() {
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">values</span>: <span class="hljs-keyword">this</span>.state.values,
+      <span class="hljs-attr">onChange</span>: <span class="hljs-keyword">this</span>.onChange.bind(<span class="hljs-keyword">this</span>),
+    }
+  }
+  onChange(name, value) {
+    <span class="hljs-keyword">this</span>.setState({
+      <span class="hljs-attr">values</span>: {
+        ...this.state.values,
+        [name]: value,
+      },
+    })
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.onChange)
+      <span class="hljs-keyword">this</span>.props.onChange(<span class="hljs-keyword">this</span>.state.values)
+  }
+  render({ children, ...props }) {
+    <span class="hljs-keyword">return</span>     h(<span class="hljs-string">'form'</span>,{...props},
+      children,
+    )
+  }
+}
+
+<span class="hljs-comment">/**
+ * The div with `form-group` class to hold the label, input, help and validation message.
+ */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FormGroup</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">constructor</span>() {
+    <span class="hljs-keyword">super</span>()
+    <span class="hljs-keyword">this</span>.id = <span class="hljs-string">`i<span class="hljs-subst">${<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">100000</span>)}</span>`</span>
+    <span class="hljs-keyword">this</span>.hid = <span class="hljs-string">`h<span class="hljs-subst">${<span class="hljs-keyword">this</span>.id}</span>`</span>
+    <span class="hljs-comment">/**
+     * @type {FormGroupProps}
+     */</span>
+    <span class="hljs-keyword">this</span>.props = <span class="hljs-keyword">this</span>.props
+  }
+  getChildContext() {
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">id</span>: <span class="hljs-keyword">this</span>.id,
+      <span class="hljs-attr">hid</span>: <span class="hljs-keyword">this</span>.hid,
+    }
+  }
+  render() {
+    <span class="hljs-keyword">const</span> { children, label, help } = <span class="hljs-keyword">this</span>.props
+    <span class="hljs-keyword">return</span> h(<span class="hljs-string">'div'</span>,{<span class="hljs-string">'className'</span>:<span class="hljs-string">"form-group"</span>},
+      label &amp;&amp; h(<span class="hljs-string">'label'</span>,{<span class="hljs-string">'htmlFor'</span>:<span class="hljs-keyword">this</span>.id},label),
+      children,
+      help &amp;&amp; h(<span class="hljs-string">'small'</span>,{<span class="hljs-string">'id'</span>:<span class="hljs-keyword">this</span>.hid,<span class="hljs-string">'dangerouslySetInnerHTML'</span>:{ <span class="hljs-attr">__html</span>: help },<span class="hljs-string">'className'</span>:<span class="hljs-string">"form-text text-muted"</span>}),
+    )
+  }
+}
+
+<span class="hljs-keyword">export</span> { <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> Select } <span class="hljs-keyword">from</span> <span class="hljs-string">'./Select'</span>
+<span class="hljs-keyword">export</span> { <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> TextArea } <span class="hljs-keyword">from</span> <span class="hljs-string">'./TextArea'</span>
+<span class="hljs-keyword">export</span> { <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> Input } <span class="hljs-keyword">from</span> <span class="hljs-string">'./Input'</span>
+
+<span class="hljs-comment">/* documentary types/index.xml */</span>
+<span class="hljs-comment">/**
+ * @typedef {Object} FormProps Options for the Form component.
+ * @prop {function} [onChange] The callback to call when a change is made to any of the inputs inside of the form.
+ *
+ * @typedef {Object} FormGroupProps
+ * @prop {string} [label] The label to display for the group.
+ * @prop {string} [help] The help text to show in `&lt;small className="form-text text-muted"&gt;{help}&lt;/small&gt;`
+ */</span>
+</code></pre>
+          
+          The program as modules can be viewed on the following page. ![]()
         </div>
         <!-- <script src="js/main.js"></script> -->
       </div>

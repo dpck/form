@@ -22,6 +22,7 @@
     "d4": "NODE_DEBUG=doc doc src/TextArea.jsx -g",
     "build": "yarn-s d b doc",
     "rec": "appshot -a Safari -y 450 -f",
+    "rec-term": "appshot -a Terminal -y 250 -f",
     "e": "node example",
     "depack": "depack-dev example/App.jsx -o splendid/js/main.js -I 2018 -a -H -p -w",
     "example/": "yarn e example/example"

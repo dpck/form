@@ -1,0 +1,26 @@
+## Development Server
+
+The development server is setup with the
+<NPMBadge package="@idio/frontend" version="1.4.0">
+  @idio/_FrontEnd_
+</NPMBadge>
+middleware that serves the source files as modules with JSX transpiled using <NPMBadge package="@a-la/jsx" version="1.4.0">
+  @a-la/_JSX_
+</NPMBadge>. This allows to change source code files and serve them as native modules that the modern browser understands.
+
+<Code src="example/example.jsx" />
+
+The server code itself is written in JSX thanks to the ÀLaMode's require hook. The JSX's _VNode_ tree is then transformed into HTML with `preact-render-to-string`.
+
+<Code src="example/index.js" />
+
+The example can be started with `yarn example/` command:
+
+```sh
+MacBook:form zavr$ yarn example/
+yarn run v1.13.0
+$ yarn e example/example
+$ node example example/example
+http://localhost:5000
+```
+<SectionBreak width="15px"/>

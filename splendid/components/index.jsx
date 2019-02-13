@@ -7,9 +7,9 @@ export const Figure = ({ img, alt, children }) => {
   </p>
 }
 
-export const NPMBadge = ({ package: p, version }) => {
-  return (<a href={`https://npmjs.com/packages/${p}`} className="Badge">
-    <span className="name">NPM</span>
+export const NPMBadge = ({ package: p, version, children }) => {
+  return (<a href={`https://npmjs.com/package/${p}`} className="Badge">
+    <span className="name">{children}</span>
     <span className="version">{version}</span>
   </a>)
 }

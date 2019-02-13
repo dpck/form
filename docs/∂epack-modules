@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      <title>Depack Modules</title>
+      <link href="styles/app.css" rel="stylesheet">
+      <link href="styles/default.css" rel="stylesheet">
+      <link href="styles/prism.css" rel="stylesheet">
+      <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
+      <link rel="manifest" href="img/favicon_io/site.webmanifest">
+      <link href="https://fonts.googleapis.com/css?family=Ruda" rel="stylesheet">
+
+      <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+
+      <link href="loaders/inner-circles.css" rel="stylesheet">
+    </head>
+    <body>
+      <span class="inner-circles-loader" style="display:none;" id="SplendidLoader">Loading...</span>
+      <div class="table">
+        <div class="left-column" style="padding-left:1rem;">
+          <div class="logo">
+            <img src="img/logo.jpg" alt="splendid logo">
+          </div>
+          <div class="badges">
+            <a href="https://github.com/dpck/form" class="SimpleBadge">GitHub</a>
+            <a href="https://npmjs.com/package/@depack/form" class="Badge"><span class="name"></span><span class="version">1.0.0</span></a>
+          </div>
+
+          <h3>Pages</h3>
+
+          <ul class="AjaxNav"><li class><a data-file="1-index" href="/">@Depack/form</a></li><li class><a data-file="2-depack" href="∂epack-compile-preact-bootstrap-form.html">Compiled W/ Depack</a></li><li class="Active"><a data-file="3-modules" href="∂epack-modules">Modules Demo</a></li></ul>
+
+          <h3>npm links</h3>
+
+          <ul>
+            <li><a href="https://www.npmjs.com/package/splendid">splendid</a></li>
+            <li><a href="https://www.npmjs.com/package/mnp">mnp</a></li>
+          </ul>
+        </div>
+        <div class="right-column" id="Content">
+          <h1>Depack/Form Modules Demo</h1>
+          
+          This page is meant for modern browsers that are capable of loading the modules files.
+          
+          
+          
+          <div id="preact"></div>
+          
+          <script>
+            var head = document.getElementsByTagName('head')[0];
+            var scriptElement = document.createElement('script');
+            scriptElement.setAttribute('type', 'text/javascript');
+            scriptElement.setAttribute('src', 'js/index.jsx');
+            head.appendChild(scriptElement);
+            head.removeChild(scriptElement);
+          </script>
+        </div>
+        <!-- <script src="js/main.js"></script> -->
+      </div>
+      <footer>
+        &copy; <a href="https://artd.eco/depack">Depack</a>, 2019
+      </footer>
+      <script src="js/ajax-loader.js"></script>
+      <script>window.AjaxLoader()</script>
+    </body>
+</html>
