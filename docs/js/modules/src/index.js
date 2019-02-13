@@ -66,7 +66,7 @@ export class FormGroup extends Component {
 
 export { default as Select } from './Select.js'
 export { default as TextArea } from './TextArea.js'
-export { default as Input } from './Input.js'
+export { default as Input } from './input.js'
 
 /* documentary types/index.xml */
 /**
