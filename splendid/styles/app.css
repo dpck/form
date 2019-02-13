@@ -105,3 +105,6 @@ footer {
     box-shadow: 5px 5px 20px #f6c39f;
     margin-bottom: 1rem;
 }
+li.Active {
+    font-weight: bold;
+}
