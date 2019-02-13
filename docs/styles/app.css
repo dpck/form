@@ -9,23 +9,6 @@
     border-radius: 2px;
     padding: 0 0.2em 0 0.2em;
 }
-.Badge {
-    text-decoration: none;
-    display: inline-block !important;
-    color: white;
-}
-.Badge > span {
-    padding: 0 0.2em 0 0.2em;
-}
-.Badge > .name {
-    margin-top: 1em;
-    background-color: #545454;
-    border-radius: 2px 0 0 2px;
-}
-.Badge > .version {
-    background-color: #c12127;
-    border-radius: 0 2px 2px 0;
-}
 .table {
     display: table;
     margin: 1em auto 2em auto;
@@ -110,15 +93,43 @@ li.Active {
 }
 .Badge {
     color: rgb(233, 233, 233);
+    text-shadow: -1px -1px 0px #4b3a3a;
 }
 .Badge:hover {
-    color: white;
+    color: #ffffff;
     text-decoration: initial !important;
-    text-shadow: -1px -1px 1px rgba(244, 166, 118, 0.557);
+    text-shadow: -1px -1px 0px rgba(192, 185, 180, 0.557)
+}
+.SimpleBadge:hover {
+    color: #ffffff;
+    text-decoration: initial !important;
+    text-shadow: -1px -1px 0px rgba(192, 185, 180, 0.557)
 }
 .Badge .version {
     text-shadow: -1px -1px 0px #5e0808;
 }
 .Badge:hover .version {
     text-shadow: -1px -1px 0px #d11b1b;
+}
+.badges .Badge span {
+    display: inline-block;
+}
+.badges .Badge, .badges .SimpleBadge {
+    display: block;
+    margin-top: 0.5rem;
+}
+.Badge {
+    display: inline-block;
+    color: white;
+}
+.Badge > span {
+    padding: 0 0.2em 0 0.2em;
+}
+.Badge > .name {
+    background-color: #545454;
+    border-radius: 2px 0 0 2px;
+}
+.Badge > .version {
+    background-color: #c12127;
+    border-radius: 0 2px 2px 0;
 }
