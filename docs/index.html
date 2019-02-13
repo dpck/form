@@ -113,6 +113,15 @@
           
           <div id="preact"></div>
           
+          <script>
+            var head = document.getElementsByTagName('head')[0];
+            var scriptElement = document.createElement('script');
+            scriptElement.setAttribute('type', 'text/javascript');
+            scriptElement.setAttribute('src', 'js/main.js?t='+Math.random());
+            head.appendChild(scriptElement);
+            head.removeChild(scriptElement);
+          </script>
+          
           
           
           <pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> render<span class="token punctuation">,</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'preact'</span>
@@ -152,7 +161,7 @@
             </a>
           </p>
         </div>
-        <script src="js/main.js"></script>
+        <!-- <script src="js/main.js"></script> -->
       </div>
       <footer>
         &copy; <a href="https://artd.eco/depack">Depack</a>, 2019
