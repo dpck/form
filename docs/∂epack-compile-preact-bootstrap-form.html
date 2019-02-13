@@ -1,81 +1,80 @@
 <!doctype html>
 <html lang="en">
-    <head>
-      <title>Depack Compile Preact Bootstrap Form</title>
-      <link href="styles/app.css" rel="stylesheet">
-      <link href="styles/default.css" rel="stylesheet">
-      <link href="styles/prism.css" rel="stylesheet">
-      <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
-      <link rel="manifest" href="img/favicon_io/site.webmanifest">
-      <link href="https://fonts.googleapis.com/css?family=Ruda" rel="stylesheet">
+  <head>
+    <title>Depack Compile Preact Bootstrap Form</title>
+    <link href="styles/app.css" rel="stylesheet">
+    <link href="styles/default.css" rel="stylesheet">
+    <link href="styles/prism.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon_io/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css?family=Ruda" rel="stylesheet">
 
-      <!-- Required meta tags -->
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
-
-      <link href="loaders/inner-circles.css" rel="stylesheet">
-    </head>
-    <body>
-      <span class="inner-circles-loader" style="display:none;" id="SplendidLoader">Loading...</span>
-      <div class="table">
-        <div class="left-column" style="padding-left:1rem;">
-          <div class="logo">
-            <img src="img/logo.jpg" alt="splendid logo">
-          </div>
-          <div class="badges">
-            <a href="https://github.com/dpck/form" class="SimpleBadge">GitHub</a>
-            <a href="https://npmjs.com/package/@depack/form" class="Badge"><span class="name">@depack/form</span><span class="version">0.0.0</span></a>
-            <hr/>
-          </div>
-
-          <h3>Pages</h3>
-
-          <ul class="AjaxNav"><li class><a data-file="1-index" href="/">@Depack/form</a></li><li class="Active"><a data-file="2-depack" href="∂epack-compile-preact-bootstrap-form.html">Compiled W/ Depack</a></li><li class><a data-file="3-modules" href="∂epack-modules.html">Modules Demo</a></li></ul>
-
-          <h3>npm links</h3>
-
-          <ul>
-            <li><a href="https://www.npmjs.com/package/splendid">splendid</a></li>
-            <li><a href="https://www.npmjs.com/package/mnp">mnp</a></li>
-          </ul>
+    <link href="loaders/inner-circles.css" rel="stylesheet">
+  </head>
+  <body>
+    <span class="inner-circles-loader" style="display:none;" id="SplendidLoader">Loading...</span>
+    <div class="table">
+      <div class="left-column" style="padding-left:1rem;">
+        <div class="logo">
+          <img src="img/logo.jpg" alt="splendid logo">
         </div>
-        <div class="right-column" id="Content">
-          <h1>Compilation With Depack</h1>
-          
-          <p>
-            The module was compiled with <em>Depack</em>: the website bundler that runs Google Closure Compiler. The command for creating the bundle is:
-          </p>
-          
-          <pre><code class="json hljs">{
+        <div class="badges">
+          <a href="https://github.com/dpck/form" class="SimpleBadge">GitHub</a>
+          <a href="https://npmjs.com/package/@depack/form" class="Badge"><span class="name">@depack/form</span><span class="version">0.0.0</span></a>
+          <hr/>
+        </div>
+
+        <h3>Pages</h3>
+
+        <ul class="AjaxNav"><li class><a data-file="1-index" href="/">@Depack/form</a></li><li class="Active"><a data-file="2-depack" href="∂epack-compile-preact-bootstrap-form.html">Compiled W/ Depack</a></li><li class><a data-file="3-modules" href="∂epack-modules.html">Modules Demo</a></li></ul>
+
+        <h3>npm links</h3>
+
+        <ul>
+          <li><a href="https://www.npmjs.com/package/splendid">splendid</a></li>
+          <li><a href="https://www.npmjs.com/package/mnp">mnp</a></li>
+        </ul>
+      </div>
+      <div class="right-column" id="Content">
+        <h1>Compilation With Depack</h1>
+        
+        <p>
+          The module was compiled with <em>Depack</em>: the website bundler that runs Google Closure Compiler. The command for creating the bundle is:
+        </p>
+        
+        <pre><code class="json hljs">{
   <span class="hljs-attr">"depack"</span>: <span class="hljs-string">"depack example/App.jsx -o splendid/js/main.js -I 2018 -a -H -p -w"</span>
 }</code></pre>
-          
-          where the advanced compilation is set, as well as Preact's <span class="tm">h</span> pragma added to the beginning of each file. <span class="tm">-p</span> is for pretty printing, and <span class="tm">-w</span> for no warnings. <em>Depack</em> then performs static-analysis on the entered files, and creates a temp directory where it transpiles JSX files.
-          
-          <img style="padding:2rem 0" src="img/at.gif" alt="Depack Preact Form Compilation"/>
-          
-          <p class="SectionBreak">
-            <a href="#top" title="Back To Top">
-              <img src="section-breaks/0.svg" alt="Back To Top" width="15px">
-            </a>
-          </p>
-          
-          <h2>Development Server</h2>
-          
-          The development server is setup with the
-          <a href="https://npmjs.com/package/@idio/frontend" class="Badge"><span class="name">
-            @idio/<em>FrontEnd</em>
-          </span><span class="version">1.4.0</span></a>
-          middleware that serves the source files as modules with JSX transpiled using <a href="https://npmjs.com/package/@a-la/jsx" class="Badge"><span class="name">
-             @a-la/<em>JSX</em>
-           </span><span class="version">1.4.0</span></a>. This allows to change source code files and serve them as native modules that the modern browser understands.
-          
-          <pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> core <span class="token keyword">from</span> <span class="token string">'@idio/core'</span>
+        
+        where the advanced compilation is set, as well as Preact's <span class="tm">h</span> pragma added to the beginning of each file. <span class="tm">-p</span> is for pretty printing, and <span class="tm">-w</span> for no warnings. <em>Depack</em> then performs static-analysis on the entered files, and creates a temp directory where it transpiles JSX files.
+        
+        <img style="padding:2rem 0" src="img/at.gif" alt="Depack Preact Form Compilation"/>
+        
+        <p class="SectionBreak">
+          <a href="#top" title="Back To Top">
+            <img src="section-breaks/0.svg" alt="Back To Top" width="15px">
+          </a>
+        </p>
+        
+        <h2>Development Server</h2>
+        
+        The development server is setup with the
+        <a href="https://npmjs.com/package/@idio/frontend" class="Badge"><span class="name">
+          @idio/<em>FrontEnd</em>
+        </span><span class="version">1.4.0</span></a>
+        middleware that serves the source files as modules with JSX transpiled using <a href="https://npmjs.com/package/@a-la/jsx" class="Badge"><span class="name">
+           @a-la/<em>JSX</em>
+         </span><span class="version">1.4.0</span></a>. This allows to change source code files and serve them as native modules that the modern browser understands.
+        
+        <pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> core <span class="token keyword">from</span> <span class="token string">'@idio/core'</span>
 <span class="token keyword">import</span> render <span class="token keyword">from</span> <span class="token string">'preact-render-to-string'</span>
 
 <span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
@@ -103,30 +102,30 @@
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'%s'</span><span class="token punctuation">,</span> url<span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-          
-          The server code itself is written in JSX thanks to the ÀLaMode's require hook. The JSX's <em>VNode</em> tree is then transformed into HTML with <span class="tm">preact-render-to-string</span>.
-          
-          <pre><code class="js hljs"><span class="hljs-built_in">require</span>(<span class="hljs-string">'alamode'</span>)()
+        
+        The server code itself is written in JSX thanks to the ÀLaMode's require hook. The JSX's <em>VNode</em> tree is then transformed into HTML with <span class="tm">preact-render-to-string</span>.
+        
+        <pre><code class="js hljs"><span class="hljs-built_in">require</span>(<span class="hljs-string">'alamode'</span>)()
 <span class="hljs-built_in">require</span>(<span class="hljs-string">`../<span class="hljs-subst">${process.argv[<span class="hljs-number">2</span>]}</span>`</span>)</code></pre>
-          
-          The example can be started with <span class="tm">yarn example/</span> command:
-          
-          <pre><code class="sh hljs">MacBook:form zavr$ yarn example/
+        
+        The example can be started with <span class="tm">yarn example/</span> command:
+        
+        <pre><code class="sh hljs">MacBook:form zavr$ yarn example/
 yarn run v1.13.0
 $ yarn e example/example
 $ node example example/example
 http://localhost:5000</code></pre>
-          <p class="SectionBreak">
-            <a href="#top" title="Back To Top">
-              <img src="section-breaks/1.svg" alt="Back To Top" width="15px">
-            </a>
-          </p>
-          
-          <h2>Main And Module</h2>
-          
-          Because the <em>FrontEnd</em> middleware serves data from the <span class="tm">module</span> directory, and <em>Depack</em> compiles files from there as well, the package exports the <span class="tm">module</span> field in its package.json file that points to the source code built with ÀLaMode to convert <span class="tm">&lt;jsx&gt;&lt;/jsx&gt;</span> into Preact's pragma executions: <span class="tm">h(&apos;jsx&apos;, {})</span>. The module containts <span class="tm">import</span> and <span class="tm">export</span> statements, therefore it needs to be used by the bundler and development middleware that can serve it. <em>Depack</em> passes all modules to the Google Closure Compiler and it is the preferred way to build for the modern web, since the <span class="tm">require</span> call should become obsolete. The following example shows what code is exported in the <span class="tm">module</span> field:
-          
-          <pre><code class="js hljs"><span class="hljs-keyword">import</span> { h } <span class="hljs-keyword">from</span> <span class="hljs-string">'preact'</span>
+        <p class="SectionBreak">
+          <a href="#top" title="Back To Top">
+            <img src="section-breaks/1.svg" alt="Back To Top" width="15px">
+          </a>
+        </p>
+        
+        <h2>Main And Module</h2>
+        
+        Because the <em>FrontEnd</em> middleware serves data from the <span class="tm">module</span> directory, and <em>Depack</em> compiles files from there as well, the package exports the <span class="tm">module</span> field in its package.json file that points to the source code built with ÀLaMode to convert <span class="tm">&lt;jsx&gt;&lt;/jsx&gt;</span> into Preact's pragma executions: <span class="tm">h(&apos;jsx&apos;, {})</span>. The module containts <span class="tm">import</span> and <span class="tm">export</span> statements, therefore it needs to be used by the bundler and development middleware that can serve it. <em>Depack</em> passes all modules to the Google Closure Compiler and it is the preferred way to build for the modern web, since the <span class="tm">require</span> call should become obsolete. The following example shows what code is exported in the <span class="tm">module</span> field:
+        
+        <pre><code class="js hljs"><span class="hljs-keyword">import</span> { h } <span class="hljs-keyword">from</span> <span class="hljs-string">'preact'</span>
 <span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'preact'</span>
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Form</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
@@ -206,16 +205,16 @@ http://localhost:5000</code></pre>
  * @prop {string} [help] The help text to show in `&lt;small className="form-text text-muted"&gt;{help}&lt;/small&gt;`
  */</span>
 </code></pre>
-          
-          The program as modules can be viewed on the following page. <a href="/%E2%88%82epack-modules.html">Modules Demo</a>. The aim was to discover the use case for building JSX files into JS for serving as modules on CDNs like GitHub pages where the addition of <span class="tm">.jsx</span> extension is required for serving <span class="tm">&lt;script type=&quot;module&quot;&gt;&lt;/script&gt;</span>.
-          <!-- The program is built with simple JSX parser. -->
-        </div>
-        <!-- <script src="js/main.js"></script> -->
+        
+        The program as modules can be viewed on the following page. <a href="/%E2%88%82epack-modules.html">Modules Demo</a>. The aim was to discover the use case for building JSX files into JS for serving as modules on CDNs like GitHub pages where the addition of <span class="tm">.jsx</span> extension is required for serving <span class="tm">&lt;script type=&quot;module&quot;&gt;&lt;/script&gt;</span>.
+        <!-- The program is built with simple JSX parser. -->
       </div>
-      <footer>
-        &copy; <a href="https://artd.eco/depack">Depack</a>, 2019
-      </footer>
-      <script src="js/ajax-loader.js"></script>
-      <script>window.AjaxLoader()</script>
-    </body>
+      <!-- <script src="js/main.js"></script> -->
+    </div>
+    <footer>
+      &copy; <a href="https://artd.eco/depack">Depack</a>, 2019
+    </footer>
+    <script src="js/ajax-loader.js"></script>
+    <script>window.AjaxLoader({ root: '/form/' })</script>
+  </body>
 </html>

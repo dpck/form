@@ -20,6 +20,7 @@ const config = {
       replacement: `${new Date().getFullYear()}`,
     },
   ],
+  mount: '/form/',
   output: BUILD_DIR,
   // to generate sitemaps:
   /* url: https://website.github.io/splendid */
