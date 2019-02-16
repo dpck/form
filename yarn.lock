@@ -56,6 +56,11 @@
   resolved "https://registry.yarnpkg.com/@artdeco/clean-stack/-/clean-stack-1.0.1.tgz#7e4d3bb1b0ac62173b00e4bba7091f7847cdb088"
   integrity sha512-ZSavD8NpWA1/1SRCKrx8LZ5WfbKS1kRUIFOERJvR1jXqCAcbM3xWSP2VdCKEh4lCwWghSWQkotbpK6n+o1Y/xQ==
 
+"@depack/render@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@depack/render/-/render-1.0.0.tgz#2e8c0a3aad42cf2ca9c1c978bc6a42dc7b3e4c76"
+  integrity sha512-bghYqPjkzK8l0tqobJFoiwMKCu/8Hy55C2guqKEjBWSjQti5dmzJjMCjrnN2ZrtWQE+ggAA2O4VmQnRPTwc+gA==
+
 "@idio/core@1.3.2":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@idio/core/-/core-1.3.2.tgz#61735d83d87db746684b5a74e7525afa58a552df"
