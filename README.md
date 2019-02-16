@@ -171,7 +171,7 @@ const Example = () => (
 )
 ```
 ```html
-<input required="1" name="example" placeholder="enter the value..."
+<input required name="example" placeholder="enter the value..."
   class="form-control" value="initial value" type="text" />
 ```
 
@@ -203,7 +203,7 @@ const Example = () => (
 )
 ```
 ```html
-<select name="example" value="1" required="1" class="custom-select">
+<select name="example" value="1" required class="custom-select">
   <option></option>
   <option value="1" selected>hello</option>
   <option value="2">world</option>
@@ -236,7 +236,7 @@ const Example = () => (
 )
 ```
 ```html
-<textarea required="1" name="example" placeholder="enter the multiline value..."
+<textarea required name="example" placeholder="enter the multiline value..."
   class="form-control" rows="4">Hello World</textarea>
 ```
 
