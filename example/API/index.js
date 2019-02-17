@@ -1,7 +1,7 @@
 import render from '@depack/render'
 
 export const format = (e) => {
-  const res = render(e, { pretty: true })
+  const res = render(e, { pretty: true, lineLength: 80 })
   return res
 }
 
