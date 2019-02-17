@@ -1,6 +1,6 @@
 // returns the correct output
-test
+<Form></Form>
 
 /* expected */
-test
+<form></form>
 /**/

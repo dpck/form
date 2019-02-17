@@ -8,15 +8,15 @@ const T = {
   'is a function'() {
     equal(typeof form, 'function')
   },
-  async 'calls package without error'() {
-    await form()
-  },
-  async 'gets a link to the fixture'({ FIXTURE }) {
-    const res = await form({
-      text: FIXTURE,
-    })
-    ok(res, FIXTURE)
-  },
+  // async 'calls package without error'() {
+  //   await form()
+  // },
+  // async 'gets a link to the fixture'({ FIXTURE }) {
+  //   const res = await form({
+  //     text: FIXTURE,
+  //   })
+  //   ok(res, FIXTURE)
+  // },
 }
 
 export default T
