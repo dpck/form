@@ -1,6 +1,6 @@
 import { makeTestSuite } from 'zoroaster'
 import JSXContext from '@depack/context'
-import Form from '../../src'
+import Form, { FormGroup, Input } from '../../src'
 
 export default makeTestSuite('test/result/index.jsx', {
   /**
@@ -9,10 +9,24 @@ export default makeTestSuite('test/result/index.jsx', {
    */
   getResults(input, { getVNode, render }) {
     const vnode = getVNode(input, {
-      Form,
+      Form, FormGroup, Input,
     })
-    const res = render(vnode)
+    const res = render(vnode, {
+      pretty: true,
+    })
     return res
   },
-  context: JSXContext,
+  context: [JSXContext, class Random {
+    _init() {
+      this.original = Math.random
+      let seed = 1
+      Math.random = () => {
+        var x = Math.sin(seed++) * 10000
+        return x - Math.floor(x)
+      }
+    }
+    _destroy() {
+      Math.random = this.original
+    }
+  }],
 })
