@@ -76,6 +76,11 @@
   resolved "https://registry.yarnpkg.com/@depack/render/-/render-1.1.2.tgz#c95870ec49a774bb5bc1639cef8df6cfbb34604f"
   integrity sha512-XcP2c6A/ZFDJtSdzVWarxI5UzijDu40hFmtFYA84Jcg1JArl8MPPj/oQnEaZ4y0hn3TNN7YZn6Fd2g3GAbkjfg==
 
+"@depack/render@1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@depack/render/-/render-1.1.3.tgz#20e16c48f0c8974f7f8a3be83e8cd577fcaf4a36"
+  integrity sha512-BLUvxgmEk9PskHP6hFjmi9talSFJqtdNitTMXJN+Y6HSLMOgMb6ht6TjFnSuCS4uGDosOmVxFAtSSgMu/MrdvA==
+
 "@idio/core@1.3.2":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@idio/core/-/core-1.3.2.tgz#61735d83d87db746684b5a74e7525afa58a552df"
@@ -1526,10 +1531,10 @@ ylru@^1.2.0:
   resolved "https://registry.yarnpkg.com/ylru/-/ylru-1.2.1.tgz#f576b63341547989c1de7ba288760923b27fe84f"
   integrity sha512-faQrqNMzcPCHGVC2aaOINk13K+aaBDUPjGWl0teOXywElLjyVAB6Oe2jj62jHYtwsU49jXhScYbvPENK+6zAvQ==
 
-zoroaster@3.7.0:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/zoroaster/-/zoroaster-3.7.0.tgz#0ccd9cbff2ae9f8471fcd6393bacc6da4b5eff25"
-  integrity sha512-TIv5nnTqP6+HxUwErJDzwBsO+2vcS9g2RVK37OT3tVLk5yPaIakx5WLxnF2rBD7tmF+uK/lRxe/p1JnUs4c4tw==
+zoroaster@3.7.1:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/zoroaster/-/zoroaster-3.7.1.tgz#a950ba202483849567bada5446fc1ae29fcc070f"
+  integrity sha512-4Dqj2wYkosoLbQoWdco3BMA5S3+/CktVXLVS0YSht6xEYXWdNx68vkHe1XaOT2Xt/Z6GU7U3D7c1Kx23FR4jcg==
   dependencies:
     "@artdeco/clean-stack" "1.0.1"
     "@zoroaster/fork" "1.1.0"

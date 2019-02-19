@@ -78,13 +78,13 @@ export default ExampleForm
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i70984">Input</label>
+    <label for="i70984">Input</label>
     <input name="input" class="form-control" value="hello-world" type="text"
       aria-describedby="hi70984" id="i70984" />
     <small id="hi70984" class="form-text text-muted">Type in something...</small>
   </div>
   <div class="form-group">
-    <label htmlFor="i97426">Select</label>
+    <label for="i97426">Select</label>
     <select name="select" value="2" class="custom-select" id="i97426"
       aria-describedby="hi97426">
       <option></option>
@@ -94,7 +94,7 @@ export default ExampleForm
     <small id="hi97426" class="form-text text-muted">Please select...</small>
   </div>
   <div class="form-group">
-    <label htmlFor="i20008">TextArea</label>
+    <label for="i20008">TextArea</label>
     <textarea name="textarea" aria-describedby="hi20008" class="form-control"
       id="i20008" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.</textarea>
     <small id="hi20008" class="form-text text-muted">Multiple row input...</small>
@@ -132,7 +132,7 @@ const Example = () => (
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="i70984">What is your name?</label>
+    <label for="i70984">What is your name?</label>
     <input class="form-control" type="text" aria-describedby="hi70984" id="i70984" />
     <small id="hi70984" class="form-text text-muted">
       Your name, your name, what is your name?
