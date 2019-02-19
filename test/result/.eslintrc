@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "no-unexpected-multiline": "off",
+    "react/no-unknown-property": "off"
+  }
+}

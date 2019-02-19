@@ -1531,10 +1531,10 @@ ylru@^1.2.0:
   resolved "https://registry.yarnpkg.com/ylru/-/ylru-1.2.1.tgz#f576b63341547989c1de7ba288760923b27fe84f"
   integrity sha512-faQrqNMzcPCHGVC2aaOINk13K+aaBDUPjGWl0teOXywElLjyVAB6Oe2jj62jHYtwsU49jXhScYbvPENK+6zAvQ==
 
-zoroaster@3.7.1:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/zoroaster/-/zoroaster-3.7.1.tgz#a950ba202483849567bada5446fc1ae29fcc070f"
-  integrity sha512-4Dqj2wYkosoLbQoWdco3BMA5S3+/CktVXLVS0YSht6xEYXWdNx68vkHe1XaOT2Xt/Z6GU7U3D7c1Kx23FR4jcg==
+zoroaster@3.7.2:
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/zoroaster/-/zoroaster-3.7.2.tgz#9fb19defaa0a76f07c9782232fabcd45568827e5"
+  integrity sha512-+InCsr9Gxcuac+8n6MJMVRjHKYBUedGBRJgflbCdDmZfv3lHKURwIX8OOyyaMLEGM5sUUXLjgIJLQUa7qXzadA==
   dependencies:
     "@artdeco/clean-stack" "1.0.1"
     "@zoroaster/fork" "1.1.0"
