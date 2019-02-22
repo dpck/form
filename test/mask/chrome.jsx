@@ -31,18 +31,5 @@ export const Chrome = makeTestSuite('test/result/chrome.jsx', {
     IdioContext,
     RemoteChrome,
     JSXContext,
-  //   class Random {
-  //   _init() {
-  //     this.original = Math.random
-  //     let seed = 1
-  //     Math.random = () => {
-  //       var x = Math.sin(seed++) * 10000
-  //       return x - Math.floor(x)
-  //     }
-  //   }
-  //   _destroy() {
-  //     Math.random = this.original
-  //   }
-  // }
   ],
 })

@@ -15,7 +15,7 @@ export default class IdioContext {
     //
     const { app, url } = await core({
       frontend: {
-        directory: 'src',
+        directory: ['src', 'test/context/idio'],
       },
       async serveJSX(ctx) {
         const inv = jsx(input, {
@@ -29,9 +29,9 @@ export default class IdioContext {
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossOrigin="anonymous"/>
             <title>Hello, world!</title>
           </head>
+          <script type="module" src="test/context/idio/math-random.js" />
           <script type="module" dangerouslySetInnerHTML={{
-            __html: `
-import { h, render } from '/node_modules/preact/dist/preact.mjs'
+            __html: `import { h, render } from '/node_modules/preact/dist/preact.mjs'
 import Form, { FormGroup, Input, TextArea, Select } from '/src/'
 render(${inv}, document.body)`,
           }}>
