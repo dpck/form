@@ -1,6 +1,6 @@
 import { makeTestSuite } from 'zoroaster'
 import JSXContext from '@depack/context'
-import Form, { FormGroup, Input, Select, TextArea } from '../../src'
+import Form, * as Form2 from '../../src'
 
 export default makeTestSuite('test/result/index.jsx', {
   /**
@@ -9,7 +9,7 @@ export default makeTestSuite('test/result/index.jsx', {
    */
   getResults(input, { getVNode, render }) {
     const vnode = getVNode(input, {
-      Form, FormGroup, Input, Select, TextArea,
+      Form, ...Form2,
     })
     const res = render(vnode, {
       pretty: true,

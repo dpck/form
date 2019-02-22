@@ -6,9 +6,9 @@
   "module": "build/index.js",
   "scripts": {
     "t": "zoroaster -a",
-    "test": "yarn t test/spec test/mask",
+    "test": "yarn t test/spec test/mask -t 10000",
     "spec": "yarn t test/spec",
-    "mask": "yarn t test/mask",
+    "mask": "yarn t test/mask -t 10000",
     "test-build": "ALAMODE_ENV=test-build yarn test",
     "lint": "eslint .",
     "start": "splendid-dev -s",
@@ -49,16 +49,19 @@
   },
   "homepage": "https://github.com/dpck/form#readme",
   "devDependencies": {
+    "@a-la/jsx": "1.4.2",
     "@depack/context": "1.1.1",
     "@depack/render": "1.1.3",
     "@idio/core": "1.3.3",
     "alamode": "1.8.2",
+    "chrome-remote-interface": "0.27.1",
     "documentary": "1.21.2",
+    "erte": "1.1.6",
     "eslint-config-artdeco": "1.0.1",
     "preact": "8.4.2",
     "rexml": "1.3.0",
     "yarn-s": "1.1.0",
-    "zoroaster": "3.7.2"
+    "zoroaster": "3.7.3"
   },
   "dependencies": {}
 }
