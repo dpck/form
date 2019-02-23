@@ -30,6 +30,7 @@ export default class IdioContext {
             <title>Hello, world!</title>
           </head>
           <script type="module" src="test/context/idio/math-random.js" />
+          <script type="module" src="test/context/idio/format.js" />
           <script type="module" dangerouslySetInnerHTML={{
             __html: `import { h, render } from '/node_modules/preact/dist/preact.mjs'
 import Form, { FormGroup, Input, TextArea, Select } from '/src/'

@@ -22,8 +22,11 @@ export const Chrome = makeTestSuite('test/result/chrome.jsx', {
 
     await Page.navigate({ url })
     await Page.loadEventFired()
-    const res = await Runtime.evaluate({ expression: 'document.querySelector(\'html body\').innerHTML' })
-    const { result: { value } } = res
+    const res = await Runtime.evaluate({ expression: 'window.idio.format(document.querySelector(\'html body\'), 0).innerHTML.trim()' })
+    const { result: { value }, exceptionDetails } = res
+    if (exceptionDetails) {
+      throw new Error(exceptionDetails.exception.description)
+    }
     return `(${value})`
   },
   context: [

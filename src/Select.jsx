@@ -15,16 +15,18 @@ export default class Select extends Component {
   componentDidMount() {
     const { value, name } = this.props
     const { onChange } = this.context
-    if (value !== undefined) onChange(name, value)
+    if (onChange && value !== undefined) onChange(name, value)
   }
   render({
     options, name, value, required,
   }) {
     const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
+    const selectValue = rendered ? values[name] : value
+    console.log('select value %s', selectValue)
     return <select
       name={name}
-      value={rendered ? values[name] : value}
+      value={selectValue}
       className="custom-select"
       required={required}
       id={id}
