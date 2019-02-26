@@ -46,6 +46,8 @@ __<a name="type-formprops">`FormProps`</a>__: Options for the Form component.
 |   Name   |    Type    |                                     Description                                     |
 | -------- | ---------- | ----------------------------------------------------------------------------------- |
 | onChange | _function_ | The callback to call when a change is made to any of the inputs inside of the form. |
+| formRef  | _function_ | The function to call with the reference to the form HTML.                           |
+| onSubmit | _function_ | The function to call on form submit.                                                |
 
 ```jsx
 import Form, { FormGroup, TextArea, Input, Select } from '@depack/form'

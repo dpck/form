@@ -27,8 +27,14 @@ export default class Form extends Component {
     if (this.props.onChange)
       this.props.onChange(this.state.values)
   }
-  render({ children, ...props }) {
-    return <form {...props}>
+  /**
+   * @param {FormProps} props Options for the Form component.
+ * @param {function} [props.onChange] The callback to call when a change is made to any of the inputs inside of the form.
+ * @param {function} [props.formRef] The function to call with the reference to the form HTML.
+ * @param {function} [props.onSubmit] The function to call on form submit.
+   */
+  render({ children, formRef, onSubmit, ...props }) {
+    return <form ref={formRef} onSubmit={onSubmit} {...props}>
       {children}
     </form>
   }
@@ -71,8 +77,10 @@ export { default as Input } from './Input'
 /**
  * @typedef {Object} FormProps Options for the Form component.
  * @prop {function} [onChange] The callback to call when a change is made to any of the inputs inside of the form.
+ * @prop {function} [formRef] The function to call with the reference to the form HTML.
+ * @prop {function} [onSubmit] The function to call on form submit.
  *
- * @typedef {Object} FormGroupProps
+ * @typedef {Object} FormGroupProps Options for the FormGroup component.
  * @prop {string} [label] The label to display for the group.
  * @prop {string} [help] The help text to show in `<small className="form-text text-muted">{help}</small>`
  */

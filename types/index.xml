@@ -3,6 +3,12 @@
     <prop opt type="function" name="onChange">
       The callback to call when a change is made to any of the inputs inside of the form.
     </prop>
+    <prop opt type="function" name="formRef">
+      The function to call with the reference to the form HTML.
+    </prop>
+    <prop opt type="function" name="onSubmit">
+      The function to call on form submit.
+    </prop>
   </type>
   <type name="FormGroupProps" desc="Options for the FormGroup component." noToc>
     <prop opt string name="label">
