@@ -5,7 +5,7 @@ export default class RemoteChrome {
   async _init() {
     let client
     client = await CDP({
-      host: '172.31.12.175', //
+      host: '127.0.0.1', // '172.31.12.175', //
       port: '9222',
     })
     const { Network, Page, Runtime } = client

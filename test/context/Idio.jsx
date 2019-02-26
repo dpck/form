@@ -41,10 +41,9 @@ render(${inv}, document.body)`,
       },
       ...conf,
 
-    }, { port, host: '0.0.0.0' })
+    }, { port })
     this.app = app
     this.url = url
-    // url.replace('localhost', '192.168.255.6')
     return this.url
   }
   async _destroy() {

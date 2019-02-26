@@ -10,16 +10,9 @@ export const Chrome = makeTestSuite('test/result/chrome.jsx', {
    */
   async getResults(input, { Page, Runtime, client }, { start }, { log }) {
     log(client)
-    // const { Page, Runtime }, { start } = adc
-    const u = await start({
-      // jsx
+    const url = await start({
       input,
-    }, 5005)
-    const url =
-    // u.replace('localhost:5005',
-    // 'https://4353fbdc.ngrok.io' //) how to tunnel to docker
-    'https://5595d89f.ngrok.io'
-    // run proxy server on 9221 that
+    })
 
     await Page.navigate({ url })
     await Page.loadEventFired()
