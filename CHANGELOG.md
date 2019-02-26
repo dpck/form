@@ -1,5 +1,9 @@
 ## 26 February 2019
 
+### 1.1.0
+
+- [feature] Ref form via `formRef` and explicitly pass `onSubmit`.
+
 ### 1.0.0
 
 - [package] Release v1, mask tested and documented.
