@@ -23,7 +23,6 @@ export default class Select extends Component {
     const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
     const selectValue = rendered ? values[name] : value
-    console.log('select value %s', selectValue)
     return <select
       name={name}
       value={selectValue}
