@@ -102,7 +102,7 @@ export default ExampleForm
 </form>
 ```
 
-<img src="doc/ExampleForm.png" />
+<table><img src="doc/ExampleForm.png" /></table>
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true" width="15"></a></p>
 
