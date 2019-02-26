@@ -16,14 +16,22 @@ export default class Select extends Component {
   componentDidMount() {
     const { value, name } = this.props
     const { onChange } = this.context
-    if (value !== undefined) onChange(name, value)
+    if (onChange && value !== undefined) onChange(name, value)
   }
   render({
     options, name, value, required,
   }) {
     const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
-    return                                                      h('select',{'name':name,'value':rendered ? values[name] : value,'required':required,'className':"custom-select",'id':id,'aria-describedby':hid,'onChange':(e) => {
+    const selectValue = rendered ? values[name] : value
+    return     h('select',{
+      'name':name,
+      'value':selectValue,
+      'required':required,
+      'className':"custom-select",
+      'id':id,
+      'aria-describedby':hid,
+      'onChange':(e) => {
         onChange(name, e.currentTarget.value)
       }},
       h('option'),

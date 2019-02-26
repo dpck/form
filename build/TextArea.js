@@ -26,9 +26,17 @@ export default class TextArea extends Component {
   }) {
     const { hid, id, onChange, values = {} } = this.context
     const rendered = name in values // for SSR
-    return                                                      h('textarea',{'required':required,'name':name,'placeholder':placeholder,'aria-describedby':hid,'className':"form-control",'id':id,'onChange':(e) => {
+    return h('textarea',{
+      'required':required,
+      'name':name,
+      'placeholder':placeholder,
+      'aria-describedby':hid,
+      'className':"form-control",
+      'id':id,
+      'onChange':(e) => {
         onChange(name, e.currentTarget.value)
-      },'rows':rows},
+      },
+      'rows':rows},
         rendered ? values[name] : children
       )
   }

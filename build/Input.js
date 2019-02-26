@@ -23,9 +23,19 @@ export default class Input extends Component {
   }) {
     const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
-    return                                                        h('input',{'required':required,'name':name,'placeholder':placeholder,'className':`form-control${file ? '-file' : ''}`,'value':rendered ? values[name] : value,'type':type,'aria-describedby':hid,'id':id,'onChange':(e) => {
+    return h('input',{
+      'required':required,
+      'name':name,
+      'placeholder':placeholder,
+      'className':`form-control${file ? '-file' : ''}`,
+      'value':rendered ? values[name] : value,
+      'type':type,
+      'aria-describedby':hid,
+      'id':id,
+      'onChange':(e) => {
         onChange(name, e.currentTarget.value)
-      }})
+      }
+    })
   }
 }
 
