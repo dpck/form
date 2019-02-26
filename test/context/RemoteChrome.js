@@ -9,18 +9,16 @@ export default class RemoteChrome {
       port: '9222',
     })
     const { Network, Page, Runtime } = client
-    this.stdoutWritten = 0
-    Network.requestWillBeSent((params) => {
-      this.stdoutWritten++
-      process.stdout.write('.')
-      // console.log(params.request.url)
-    })
     await Network.enable()
     await Page.enable()
     this.client = client
     this._Page = Page
     this._Runtime = Runtime
+    this.Network = Network
     console.log('[%s]: %s', c('RemoteChrome', 'red'), b('Page enabled', 'green'))
+  }
+  static get _timeout() {
+    return 10000
   }
   /**
    * The enabled page, write types for that
@@ -35,9 +33,6 @@ export default class RemoteChrome {
     return this._Runtime
   }
   async _destroy() {
-    if (this.stdoutWritten) {
-      process.stdout.write(`\r${' '.repeat(this.stdoutWritten)}\r`)
-    }
     if (this.client) {
       await this.client.close()
     }

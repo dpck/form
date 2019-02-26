@@ -15,7 +15,7 @@ import { TextArea, Select, Form, FormGroup, Input } from '../../src'
 /* expected */
 (<div class="form-group">
   <label for="i70984">test</label>
-  <input placeholder="test" class="form-control" type="text" aria-describedby="hi70984" id="i70984">
+  <input placeholder="test" class="form-control" type="text" aria-describedby="hi70984" id="i70984" />
   <small id="hi70984" class="form-text text-muted">ok</small>
 </div>)
 /**/
@@ -47,5 +47,5 @@ import { TextArea, Select, Form, FormGroup, Input } from '../../src'
 (<Input name="test" placeholder="test" required type="text" value="hello-world"/>)
 
 /* expected */
-(<input name="test" placeholder="test" class="form-control" type="text">)
+(<input name="test" placeholder="test" class="form-control" type="text" />)
 /**/

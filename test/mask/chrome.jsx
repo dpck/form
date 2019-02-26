@@ -1,23 +1,24 @@
 import { makeTestSuite } from 'zoroaster'
 import IdioContext from '../context/Idio'
 import RemoteChrome from '../context/RemoteChrome'
-import JSXContext from '@depack/context'
 
 export const Chrome = makeTestSuite('test/result/chrome.jsx', {
   /**
    * @param {string} input
-   * @param {IdioContext} i
    * @param {RemoteChrome} i
-   * @param {JSXContext} i
+   * @param {IdioContext} i
    */
-  async getResults(input, { start }, { Page, Runtime }) {
+  async getResults(input, { Page, Runtime, client }, { start }, { log }) {
+    log(client)
+    // const { Page, Runtime }, { start } = adc
     const u = await start({
       // jsx
       input,
     }, 5005)
     const url =
     // u.replace('localhost:5005',
-    'https://4353fbdc.ngrok.io' //) how to tunnel to docker
+    // 'https://4353fbdc.ngrok.io' //) how to tunnel to docker
+    'https://5595d89f.ngrok.io'
     // run proxy server on 9221 that
 
     await Page.navigate({ url })
@@ -27,12 +28,27 @@ export const Chrome = makeTestSuite('test/result/chrome.jsx', {
     if (exceptionDetails) {
       throw new Error(exceptionDetails.exception.description)
     }
-    return `(${value})`
+    const v = value.replace(/(<input[\s\S]*?)>/g, (m, i) => {
+      return `${i} />`
+    })
+    return `(${v})`
   },
-  context: [
-    // JSXContext,
-    IdioContext,
-    RemoteChrome,
-    JSXContext,
-  ],
+  context: [IdioContext, class Log {
+    log(client) {
+      this.stdoutWritten = 0
+      this.client = client
+      this.f = () => {
+        this.stdoutWritten++
+        process.stdout.write('.')
+      }
+      client.on('Network.requestWillBeSent', this.f)
+    }
+    _destroy() {
+      this.client.removeListener('Network.requestWillBeSent', this.f)
+      if (this.stdoutWritten) {
+        process.stdout.write(`\r${' '.repeat(this.stdoutWritten)}\r`)
+      }
+    }
+  }],
+  persistentContext: [RemoteChrome],
 })
