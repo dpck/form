@@ -61,7 +61,7 @@
     "preact": "8.4.2",
     "rexml": "1.3.0",
     "yarn-s": "1.1.0",
-    "zoroaster": "3.7.3"
+    "zoroaster": "3.8.0"
   },
   "dependencies": {}
 }
