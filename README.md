@@ -53,30 +53,45 @@ __<a name="type-formprops">`FormProps`</a>__: Options for the Form component.
 | onSubmit | _function_ | The function to call on form submit.                                                |
 
 ```jsx
-import Form, { FormGroup, TextArea, Input, Select } from '@depack/form'
+import Form, {
+  FormGroup, TextArea, Input, Select, SubmitButton, SubmitForm,
+} from '@depack/form'
 
-const ExampleForm = ({ ...props }) => (<Form {...props}>
-  <FormGroup label="Input" help="Type in something...">
-    <Input name="input" value="hello-world" />
-  </FormGroup>
-  <FormGroup label="Select" help="Please select...">
-    <Select name="select" value="2" options={[
-      {
-        title: 'Free will',
-        value: '1',
-      },
-      {
-        title: 'Unfree will',
-        value: '2',
-      },
-    ]} />
-  </FormGroup>
-  <FormGroup label="TextArea" help="Multiple row input...">
-    <TextArea name="textarea">
-      One must still have chaos in oneself to be able to give birth to a dancing star.
-    </TextArea>
-  </FormGroup>
-</Form>)
+class ExampleForm extends SubmitForm {
+  render({ onChange, ...props }) {
+    const { formLoading, error, success } = this.state
+
+    return (<Form {...props} onSubmit={this.submit.bind(this)} onChange={values => {
+      this.reset()
+      if(onChange) onChange(values)
+    }}>
+      <FormGroup label="Input" help="Type in something...">
+        <Input name="input" value="hello-world" />
+      </FormGroup>
+      <FormGroup label="Select" help="Please select...">
+        <Select name="select" value="2" options={[
+          {
+            title: 'Free will',
+            value: '1',
+          },
+          {
+            title: 'Unfree will',
+            value: '2',
+          },
+        ]} />
+      </FormGroup>
+      <FormGroup label="TextArea" help="Multiple row input...">
+        <TextArea name="textarea">
+          One must still have chaos in oneself to be able to give birth to a dancing star.
+        </TextArea>
+      </FormGroup>
+      <SubmitButton loading={formLoading} type="warning"
+        confirmText="Submit Data" />
+      {error && `Error: ${error}`}
+      {success && `OK`}
+    </Form>)
+  }
+}
 
 export default ExampleForm
 ```
@@ -104,6 +119,7 @@ export default ExampleForm
       id="i20008" rows="3">One must still have chaos in oneself to be able to give birth to a dancing star.</textarea>
     <small id="hi20008" class="form-text text-muted">Multiple row input...</small>
   </div>
+  <button class="btn btn-warning" type="submit">Submit Data</button>
 </form>
 ```
 

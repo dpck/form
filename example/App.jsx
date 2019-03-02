@@ -15,7 +15,7 @@ class Main extends Component {
           <div className="col-sm-6">
             <ExampleForm onChange={(values) => {
               this.setState(values)
-            }}/>
+            }} path="/form" />
           </div>
           <div className="col-sm-6">
             <pre style="white-space: pre-wrap;">{

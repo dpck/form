@@ -33,7 +33,7 @@ export default class Form extends Component {
  * @param {function} [props.formRef] The function to call with the reference to the form HTML.
  * @param {function} [props.onSubmit] The function to call on form submit.
    */
-  render({ children, formRef, onSubmit, ...props }) {
+  render({ children, formRef, onSubmit, onChange, ...props }) {
     return <form ref={formRef} onSubmit={onSubmit} {...props}>
       {children}
     </form>
@@ -85,10 +85,10 @@ export { default as SubmitForm } from './SubmitForm'
  * @param {boolean} [props.outline=false] Display the outline style of the button via setting the `btn-outline-{type}` class. Default `false`.
  */
 export const SubmitButton = (props) => {
-  const { loading, loadingText, confirmText, className, type = 'primary', outline = false } = props
+  const { loading, confirmText, loadingText = confirmText, className, type = 'primary', outline = false } = props
   const classes = ['btn', `btn-${outline ? 'outline-' : ''}${type}`, className].filter(Boolean)
   return (<button type="submit" className={classes.join(' ')} disabled={loading}>
-    {loading && <span className="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"/>}
+    {loading && <span className={`spinner-border spinner-border-sm${loadingText ? ' mr-2' : ''}`} role="status" aria-hidden="true"/>}
     {loading ? loadingText : confirmText}
   </button>)
 }

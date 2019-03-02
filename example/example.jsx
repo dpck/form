@@ -1,9 +1,14 @@
 import core from '@idio/core'
-import render from 'preact-render-to-string'
+import render from '@depack/render'
 
 (async () => {
   const { url } = await core({
     frontend: { directory: ['example', 'src'] },
+    async api(ctx, next) {
+      if (ctx.path == '/form') {
+        ctx.body = { data: 'ok', error: null }
+      } else await next()
+    },
     serve(ctx) {
       ctx.body = '<!doctype html>' + render(<html>
         <head>
@@ -23,6 +28,6 @@ import render from 'preact-render-to-string'
         </body>
       </html>)
     },
-  })
+  }, { port: null })
   console.log('%s', url)
 })()
