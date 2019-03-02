@@ -31,7 +31,7 @@
     <prop opt string name="className">
       The class name, such as `btn-lg`.
     </prop>
-    <prop type="('primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark')" default="primary" name="type">
+    <prop type="('primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark')" default="primary" name="type">
       The type of the button to add to the class as `btn-{type}`.
     </prop>
     <prop boolean default="false" name="outline">

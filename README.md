@@ -308,14 +308,14 @@ The button that can be placed inside the form and used for submission since it h
 
 __<a name="type-submitbuttonprops">`SubmitButtonProps`</a>__: Options for the SubmitButton component.
 
-|       Name       |                                        Type                                         |                                     Description                                     |  Default  |
-| ---------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | --------- |
-| loading          | _boolean_                                                                           | Whether the button should display as loading.                                       | `false`   |
-| loadingText      | _string_                                                                            | The text to show during the loading progress.                                       | -         |
-| __confirmText*__ | _string_                                                                            | The text for the normal state.                                                      | -         |
-| className        | _string_                                                                            | The class name, such as `btn-lg`.                                                   | -         |
-| type             | _('primary'\|'secondary'\|'success'\|'danger'\|'warning'\|'info'\|'light'\|'dark')_ | The type of the button to add to the class as `btn-{type}`.                         | `primary` |
-| outline          | _boolean_                                                                           | Display the outline style of the button via setting the `btn-outline-{type}` class. | `false`   |
+|       Name       |                                               Type                                                |                                     Description                                     |  Default  |
+| ---------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | --------- |
+| loading          | _boolean_                                                                                         | Whether the button should display as loading.                                       | `false`   |
+| loadingText      | _string_                                                                                          | The text to show during the loading progress.                                       | -         |
+| __confirmText*__ | _string_                                                                                          | The text for the normal state.                                                      | -         |
+| className        | _string_                                                                                          | The class name, such as `btn-lg`.                                                   | -         |
+| type             | _('primary' \| 'secondary' \| 'success' \| 'danger' \| 'warning' \| 'info' \| 'light' \| 'dark')_ | The type of the button to add to the class as `btn-{type}`.                         | `primary` |
+| outline          | _boolean_                                                                                         | Display the outline style of the button via setting the `btn-outline-{type}` class. | `false`   |
 
 ```jsx
 import { SubmitButton } from '@depack/form'

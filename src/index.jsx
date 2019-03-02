@@ -81,7 +81,7 @@ export { default as SubmitForm } from './SubmitForm'
  * @param {string} [props.loadingText] The text to show during the loading progress.
  * @param {string} props.confirmText The text for the normal state.
  * @param {string} [props.className] The class name, such as `btn-lg`.
- * @param {('primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark')} [props.type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
+ * @param {('primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark')} [props.type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
  * @param {boolean} [props.outline=false] Display the outline style of the button via setting the `btn-outline-{type}` class. Default `false`.
  */
 export const SubmitButton = (props) => {
@@ -109,6 +109,6 @@ export const SubmitButton = (props) => {
  * @prop {string} [loadingText] The text to show during the loading progress.
  * @prop {string} confirmText The text for the normal state.
  * @prop {string} [className] The class name, such as `btn-lg`.
- * @prop {('primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark')} [type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
+ * @prop {('primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark')} [type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
  * @prop {boolean} [outline=false] Display the outline style of the button via setting the `btn-outline-{type}` class. Default `false`.
  */
