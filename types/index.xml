@@ -18,7 +18,7 @@
       The help text to show in `<small className="form-text text-muted">{help}</small>`
     </prop>
   </type>
-  <type name="ButtonProps" desc="Options for the Button component." noToc>
+  <type name="SubmitButtonProps" desc="Options for the SubmitButton component." noToc>
     <prop boolean name="loading" default="false">
       Whether the button should display as loading.
     </prop>
@@ -29,10 +29,13 @@
       The text for the normal state.
     </prop>
     <prop opt string name="className">
-      The class name, such as `btn-success`.
+      The class name, such as `btn-lg`.
     </prop>
     <prop type="('primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark')" default="primary" name="type">
       The type of the button to add to the class as `btn-{type}`.
+    </prop>
+    <prop boolean default="false" name="outline">
+      Display the outline style of the button via setting the `btn-outline-{type}` class.
     </prop>
   </type>
 </types>

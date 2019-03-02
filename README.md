@@ -22,6 +22,7 @@ yarn add -E @depack/form
   * [**Textarea**](#textarea)
   * [**SubmitForm**](#submitform)
     * [`reset(): void`](#reset-void)
+  * [**SubmitButton**](#submitbutton)
 - [Custom Components](#custom-components)
 - [Copyright](#copyright)
 
@@ -106,7 +107,10 @@ export default ExampleForm
 </form>
 ```
 
-<undefined></undefined>
+<table>
+        <tr><td>
+        <img src="doc/ExampleForm.png" /></td></tr>
+      </table>
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true" width="15"></a></p>
 
@@ -250,7 +254,7 @@ const Example = () => (
 
 ### **SubmitForm**
 
-This class extends the `Preact.Component` and implements the `submit` method which will send the data to the server and await for the response while setting the `formLoading` property of the state to `true`. The `error` and `success` properties will also be set upon the arrival of data. The `submitFinish` callback can be used to receive the result of the form submission. Components implementing this abstract class must implement their own render method.
+This class extends the `Preact.Component` and implements the `submit` method which will send the data to the server and await for the response while setting the `formLoading` property of the state to `true`. The `error` and `success` properties will also be set upon the arrival of data, with the JSON response being used to extract the error. The `submitFinish` callback can be used to receive the result of the form submission. Components implementing this abstract class must write their own render method.
 
 __<a name="type-submitformprops">`SubmitFormProps`</a>__: Options for the SubmitForm component.
 
@@ -296,7 +300,36 @@ const Example = () => (
 Resets the `error` and `success` properties of the form.
 
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/7.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/7.svg?sanitize=true" width="15"></a></p>
+
+### **SubmitButton**
+
+The button that can be placed inside the form and used for submission since it has `type="submit"` property. It also has the `loading` property to disable the button and show the spinning wheel indicator.
+
+__<a name="type-submitbuttonprops">`SubmitButtonProps`</a>__: Options for the SubmitButton component.
+
+|       Name       |                                        Type                                         |                                     Description                                     |  Default  |
+| ---------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | --------- |
+| loading          | _boolean_                                                                           | Whether the button should display as loading.                                       | `false`   |
+| loadingText      | _string_                                                                            | The text to show during the loading progress.                                       | -         |
+| __confirmText*__ | _string_                                                                            | The text for the normal state.                                                      | -         |
+| className        | _string_                                                                            | The class name, such as `btn-lg`.                                                   | -         |
+| type             | _('primary'\|'secondary'\|'success'\|'danger'\|'warning'\|'info'\|'light'\|'dark')_ | The type of the button to add to the class as `btn-{type}`.                         | `primary` |
+| outline          | _boolean_                                                                           | Display the outline style of the button via setting the `btn-outline-{type}` class. | `false`   |
+
+```jsx
+import { SubmitButton } from '@depack/form'
+
+const Example = ({ formLoading }) => (
+  <SubmitButton type="light" confirmText="Add Data"
+    loading={formLoading} loadingText="Loading..." outline="1" />
+)
+```
+```html
+<button class="btn btn-outline-light" type="submit">Add Data</button>
+```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/8.svg?sanitize=true"></a></p>
 
 ## Custom Components
 
@@ -363,7 +396,7 @@ export default class Input extends Component {
  */
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/8.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/9.svg?sanitize=true"></a></p>
 
 ## Copyright
 
