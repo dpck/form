@@ -1,3 +1,9 @@
+## 2 March 2019
+
+### 1.2.0
+
+- [feature] `SubmitForm` class with Bootstrap `SubmitButton`.
+
 ## 26 February 2019
 
 ### 1.1.0
