@@ -257,10 +257,10 @@ This class extends the `Preact.Component` and implements the `submit` method whi
 
 __<a name="type-submitformprops">`SubmitFormProps`</a>__: Options for the SubmitForm component.
 
-|     Name     |               Type                |                                    Description                                    |
-| ------------ | --------------------------------- | --------------------------------------------------------------------------------- |
-| __path*__    | _string_                          | The path where to send data.                                                      |
-| submitFinish | _(result: *) =&gt; Promise&lt;*>_ | The callback after the data has been sent with possible response from the server. |
+|     Name     |               Type               |                                    Description                                    |
+| ------------ | -------------------------------- | --------------------------------------------------------------------------------- |
+| __path*__    | _string_                         | The path where to send data.                                                      |
+| submitFinish | _(result: Object) =&gt; Promise_ | The callback after the data has been sent with possible response from the server. |
 __<a name="type-submitformstate">`SubmitFormState`</a>__: The state structure for the SubmitForm.
 
 |       Name       |   Type    |                    Description                    |

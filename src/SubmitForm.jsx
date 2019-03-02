@@ -66,7 +66,7 @@ export default class SubmitForm extends Component {
 /**
  * @typedef {Object} SubmitFormProps Options for the SubmitForm component.
  * @prop {string} path The path where to send data.
- * @prop {(result: *) => Promise<*>} [submitFinish] The callback after the data has been sent with possible response from the server.
+ * @prop {(result: Object) => Promise} [submitFinish] The callback after the data has been sent with possible response from the server.
  *
  * @typedef {Object} SubmitFormState The state structure for the SubmitForm.
  * @prop {boolean} formLoading Whether the data has been sent for submission.

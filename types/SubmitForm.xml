@@ -3,7 +3,7 @@
     <prop string name="path">
       The path where to send data.
     </prop>
-    <prop type="(result: *) => Promise<*>" opt name="submitFinish">
+    <prop type="(result: Object) => Promise" opt name="submitFinish">
       The callback after the data has been sent with possible response from the server.
     </prop>
   </type>
