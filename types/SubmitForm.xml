@@ -1,0 +1,21 @@
+<types>
+  <type name="SubmitFormProps" desc="Options for the SubmitForm component." noToc>
+    <prop string name="path">
+      The path where to send data.
+    </prop>
+    <prop type="(result: *) => Promise<*>" opt name="submitFinish">
+      The callback after the data has been sent with possible response from the server.
+    </prop>
+  </type>
+  <type name="SubmitFormState" desc="The state structure for the SubmitForm." noToc>
+    <prop boolean name="formLoading">
+      Whether the data has been sent for submission.
+    </prop>
+    <prop string name="error">
+      The error returned by the server.
+    </prop>
+    <prop boolean name="success">
+      Whether the form has been submitted successfully.
+    </prop>
+  </type>
+</types>

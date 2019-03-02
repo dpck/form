@@ -20,6 +20,7 @@
     "d2": "NODE_DEBUG=doc doc src/Input.jsx -g",
     "d3": "NODE_DEBUG=doc doc src/Select.jsx -g",
     "d4": "NODE_DEBUG=doc doc src/TextArea.jsx -g",
+    "d5": "NODE_DEBUG=doc doc src/SubmitForm.jsx -g",
     "build": "yarn-s d b doc",
     "rec": "appshot -a Safari -y 450 -f",
     "rec-term": "appshot -a Terminal -y 250 -f",
@@ -63,5 +64,7 @@
     "yarn-s": "1.1.0",
     "zoroaster": "3.8.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "unfetch": "4.0.1"
+  }
 }
