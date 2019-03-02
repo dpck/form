@@ -1,6 +1,6 @@
 {
   "name": "@depack/form",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "The Bootstrap Form Component For Entering Data.",
   "main": "src/index.jsx",
   "module": "build/index.js",
