@@ -106,10 +106,7 @@ export default ExampleForm
 </form>
 ```
 
-<table>
-        <tr><td>
-        <img src="doc/ExampleForm.png" /></td></tr>
-      </table>
+<undefined></undefined>
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true" width="15"></a></p>
 
@@ -261,6 +258,7 @@ __<a name="type-submitformprops">`SubmitFormProps`</a>__: Options for the Submit
 | ------------ | -------------------------------- | --------------------------------------------------------------------------------- |
 | __path*__    | _string_                         | The path where to send data.                                                      |
 | submitFinish | _(result: Object) =&gt; Promise_ | The callback after the data has been sent with possible response from the server. |
+
 __<a name="type-submitformstate">`SubmitFormState`</a>__: The state structure for the SubmitForm.
 
 |       Name       |   Type    |                    Description                    |
