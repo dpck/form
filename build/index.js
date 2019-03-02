@@ -34,7 +34,7 @@ export default class Form extends Component {
  * @param {function} [props.formRef] The function to call with the reference to the form HTML.
  * @param {function} [props.onSubmit] The function to call on form submit.
    */
-  render({ children, formRef, onSubmit, ...props }) {
+  render({ children, formRef, onSubmit, onChange, ...props }) {
     return    h('form',{...props,'ref':formRef, 'onSubmit':onSubmit},
       children,
     )
@@ -77,18 +77,19 @@ export { default as SubmitForm } from './SubmitForm'
 
 /**
  * The button with `type="submit"` which can be loading with a spinner indicator.
- * @param {ButtonProps} props Options for the Button component.
+ * @param {SubmitButtonProps} props Options for the SubmitButton component.
  * @param {boolean} [props.loading=false] Whether the button should display as loading. Default `false`.
  * @param {string} [props.loadingText] The text to show during the loading progress.
  * @param {string} props.confirmText The text for the normal state.
- * @param {string} [props.className] The class name, such as `btn-success`.
- * @param {('primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark')} [props.type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
+ * @param {string} [props.className] The class name, such as `btn-lg`.
+ * @param {('primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark')} [props.type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
+ * @param {boolean} [props.outline=false] Display the outline style of the button via setting the `btn-outline-{type}` class. Default `false`.
  */
 export const SubmitButton = (props) => {
-  const { loading, loadingText, confirmText, className, type = 'primary' } = props
-  const classes = ['btn', `btn-${type}`, className].filter(Boolean)
+  const { loading, confirmText, loadingText = confirmText, className, type = 'primary', outline = false } = props
+  const classes = ['btn', `btn-${outline ? 'outline-' : ''}${type}`, className].filter(Boolean)
   return (h('button',{ 'className':classes.join(' '),'type':"submit", 'disabled':loading},
-    loading && h('span',{'className':"spinner-border spinner-border-sm mr-2",'role':"status",'aria-hidden':"true"}),
+    loading && h('span',{'className':`spinner-border spinner-border-sm${loadingText ? ' mr-2' : ''}`,'role':"status",'aria-hidden':"true"}),
     loading ? loadingText : confirmText,
   ))
 }
@@ -104,10 +105,11 @@ export const SubmitButton = (props) => {
  * @prop {string} [label] The label to display for the group.
  * @prop {string} [help] The help text to show in `<small className="form-text text-muted">{help}</small>`
  *
- * @typedef {Object} ButtonProps Options for the Button component.
+ * @typedef {Object} SubmitButtonProps Options for the SubmitButton component.
  * @prop {boolean} [loading=false] Whether the button should display as loading. Default `false`.
  * @prop {string} [loadingText] The text to show during the loading progress.
  * @prop {string} confirmText The text for the normal state.
- * @prop {string} [className] The class name, such as `btn-success`.
- * @prop {('primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark')} [type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
+ * @prop {string} [className] The class name, such as `btn-lg`.
+ * @prop {('primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark')} [type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
+ * @prop {boolean} [outline=false] Display the outline style of the button via setting the `btn-outline-{type}` class. Default `false`.
  */
