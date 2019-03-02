@@ -74,6 +74,24 @@ export { default as TextArea } from './TextArea'
 export { default as Input } from './Input'
 export { default as SubmitForm } from './SubmitForm'
 
+/**
+ * The button with `type="submit"` which can be loading with a spinner indicator.
+ * @param {ButtonProps} props Options for the Button component.
+ * @param {boolean} [props.loading=false] Whether the button should display as loading. Default `false`.
+ * @param {string} [props.loadingText] The text to show during the loading progress.
+ * @param {string} props.confirmText The text for the normal state.
+ * @param {string} [props.className] The class name, such as `btn-success`.
+ * @param {('primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark')} [props.type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
+ */
+export const SubmitButton = (props) => {
+  const { loading, loadingText, confirmText, className, type = 'primary' } = props
+  const classes = ['btn', `btn-${type}`, className].filter(Boolean)
+  return (<button type="submit" className={classes.join(' ')} disabled={loading}>
+    {loading && <span className="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"/>}
+    {loading ? loadingText : confirmText}
+  </button>)
+}
+
 /* documentary types/index.xml */
 /**
  * @typedef {Object} FormProps Options for the Form component.
@@ -84,4 +102,11 @@ export { default as SubmitForm } from './SubmitForm'
  * @typedef {Object} FormGroupProps Options for the FormGroup component.
  * @prop {string} [label] The label to display for the group.
  * @prop {string} [help] The help text to show in `<small className="form-text text-muted">{help}</small>`
+ *
+ * @typedef {Object} ButtonProps Options for the Button component.
+ * @prop {boolean} [loading=false] Whether the button should display as loading. Default `false`.
+ * @prop {string} [loadingText] The text to show during the loading progress.
+ * @prop {string} confirmText The text for the normal state.
+ * @prop {string} [className] The class name, such as `btn-success`.
+ * @prop {('primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark')} [type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
  */

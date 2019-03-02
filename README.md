@@ -20,6 +20,8 @@ yarn add -E @depack/form
   * [**Input**](#input)
   * [**Select**](#select)
   * [**Textarea**](#textarea)
+  * [**SubmitForm**](#submitform)
+    * [`reset(): void`](#reset-void)
 - [Custom Components](#custom-components)
 - [Copyright](#copyright)
 
@@ -247,7 +249,56 @@ const Example = () => (
   class="form-control" rows="4">Hello World</textarea>
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/6.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/6.svg?sanitize=true" width="15"></a></p>
+
+### **SubmitForm**
+
+This class extends the `Preact.Component` and implements the `submit` method which will send the data to the server and await for the response while setting the `formLoading` property of the state to `true`. The `error` and `success` properties will also be set upon the arrival of data. The `submitFinish` callback can be used to receive the result of the form submission. Components implementing this abstract class must implement their own render method.
+
+__<a name="type-submitformprops">`SubmitFormProps`</a>__: Options for the SubmitForm component.
+
+|     Name     |               Type                |                                    Description                                    |
+| ------------ | --------------------------------- | --------------------------------------------------------------------------------- |
+| __path*__    | _string_                          | The path where to send data.                                                      |
+| submitFinish | _(result: *) =&gt; Promise&lt;*>_ | The callback after the data has been sent with possible response from the server. |
+__<a name="type-submitformstate">`SubmitFormState`</a>__: The state structure for the SubmitForm.
+
+|       Name       |   Type    |                    Description                    |
+| ---------------- | --------- | ------------------------------------------------- |
+| __formLoading*__ | _boolean_ | Whether the data has been sent for submission.    |
+| __error*__       | _string_  | The error returned by the server.                 |
+| __success*__     | _boolean_ | Whether the form has been submitted successfully. |
+
+```jsx
+import Form, { SubmitForm, Input } from '@depack/form'
+
+class DataForm extends SubmitForm {
+  render() {
+    const { error, success, formLoading } = this.state
+    return (<Form onSubmit={this.submit.bind(this)}>
+      <Input name="example" />
+      {error && `Error: ${error}`}
+      {success && 'Success!'}
+      <button type="submit" disabled={formLoading}>Submit</button>
+    </Form>)
+  }
+}
+const Example = () => (
+  <DataForm path="/send-data" submitFinish={() => {
+    console.log('hooray!')
+  }} />
+)
+```
+```html
+<form><input name="example" class="form-control" type="text" /><button type="submit">Submit</button></form>
+```
+
+#### `reset(): void`
+
+Resets the `error` and `success` properties of the form.
+
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/7.svg?sanitize=true"></a></p>
 
 ## Custom Components
 
@@ -314,7 +365,7 @@ export default class Input extends Component {
  */
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/7.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/8.svg?sanitize=true"></a></p>
 
 ## Copyright
 
