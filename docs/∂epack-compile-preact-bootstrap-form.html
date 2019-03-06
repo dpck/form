@@ -28,7 +28,7 @@
         </div>
         <div class="badges">
           <a href="https://github.com/dpck/form" class="SimpleBadge">GitHub</a>
-          <a href="https://npmjs.com/package/@depack/form" class="Badge"><span class="name">@depack/form</span><span class="version">0.0.0</span></a>
+          <a href="https://npmjs.com/package/@depack/form" class="Badge"><span class="name">@depack/form</span><span class="version">1.2.0</span></a>
           <hr/>
         </div>
 
@@ -58,28 +58,25 @@
         
         <img style="padding:2rem 0" src="img/at.gif" alt="Depack Preact Form Compilation"/>
         
-        <p class="SectionBreak">
-          <a href="#top" title="Back To Top">
-            <img src="section-breaks/0.svg" alt="Back To Top" width="15px">
-          </a>
-        </p>
+        <p class="SectionBreak"><a href="#top" title="Back To Top"><img src="section-breaks/0.svg" alt="Back To Top" width="15px" /></a></p>
         
         <h2>Development Server</h2>
         
         The development server is setup with the
-        <a href="https://npmjs.com/package/@idio/frontend" class="Badge"><span class="name">
-          @idio/<em>FrontEnd</em>
-        </span><span class="version">1.4.0</span></a>
-        middleware that serves the source files as modules with JSX transpiled using <a href="https://npmjs.com/package/@a-la/jsx" class="Badge"><span class="name">
-           @a-la/<em>JSX</em>
-         </span><span class="version">1.4.0</span></a>. This allows to change source code files and serve them as native modules that the modern browser understands.
+        <a href="https://npmjs.com/package/@idio/frontend" class="Badge"><span class="name">@idio/<em>FrontEnd</em></span><span class="version">1.4.0</span></a>
+        middleware that serves the source files as modules with JSX transpiled using <a href="https://npmjs.com/package/@a-la/jsx" class="Badge"><span class="name">@a-la/<em>JSX</em></span><span class="version">1.4.0</span></a>. This allows to change source code files and serve them as native modules that the modern browser understands.
         
         <pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> core <span class="token keyword">from</span> <span class="token string">'@idio/core'</span>
-<span class="token keyword">import</span> render <span class="token keyword">from</span> <span class="token string">'preact-render-to-string'</span>
+<span class="token keyword">import</span> render <span class="token keyword">from</span> <span class="token string">'@depack/render'</span>
 
 <span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> <span class="token punctuation">{</span> url <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">core</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     frontend<span class="token punctuation">:</span> <span class="token punctuation">{</span> directory<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'example'</span><span class="token punctuation">,</span> <span class="token string">'src'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">async</span> <span class="token function">api</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>path <span class="token operator">==</span> <span class="token string">'/form'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token punctuation">{</span> data<span class="token punctuation">:</span> <span class="token string">'ok'</span><span class="token punctuation">,</span> error<span class="token punctuation">:</span> <span class="token keyword">null</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token function">serve</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'&lt;!doctype html>'</span> <span class="token operator">+</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>html<span class="token operator">></span>
         <span class="token operator">&lt;</span>head<span class="token operator">></span>
@@ -99,7 +96,7 @@
         <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
       <span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span><span class="token punctuation">)</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> port<span class="token punctuation">:</span> <span class="token keyword">null</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'%s'</span><span class="token punctuation">,</span> url<span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
         
@@ -115,11 +112,7 @@ yarn run v1.13.0
 $ yarn e example/example
 $ node example example/example
 http://localhost:5000</code></pre>
-        <p class="SectionBreak">
-          <a href="#top" title="Back To Top">
-            <img src="section-breaks/1.svg" alt="Back To Top" width="15px">
-          </a>
-        </p>
+        <p class="SectionBreak"><a href="#top" title="Back To Top"><img src="section-breaks/1.svg" alt="Back To Top" width="15px" /></a></p>
         
         <h2>Main And Module</h2>
         
@@ -155,8 +148,14 @@ http://localhost:5000</code></pre>
     <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.onChange)
       <span class="hljs-keyword">this</span>.props.onChange(<span class="hljs-keyword">this</span>.state.values)
   }
-  render({ children, ...props }) {
-    <span class="hljs-keyword">return</span>     h(<span class="hljs-string">'form'</span>,{...props},
+  <span class="hljs-comment">/**
+   * @param {FormProps} props Options for the Form component.
+ * @param {function} [props.onChange] The callback to call when a change is made to any of the inputs inside of the form.
+ * @param {function} [props.formRef] The function to call with the reference to the form HTML.
+ * @param {function} [props.onSubmit] The function to call on form submit.
+   */</span>
+  render({ children, formRef, onSubmit, onChange, ...props }) {
+    <span class="hljs-keyword">return</span>    h(<span class="hljs-string">'form'</span>,{...props,<span class="hljs-string">'ref'</span>:formRef, <span class="hljs-string">'onSubmit'</span>:onSubmit},
       children,
     )
   }
@@ -194,15 +193,45 @@ http://localhost:5000</code></pre>
 <span class="hljs-keyword">export</span> { <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> Select } <span class="hljs-keyword">from</span> <span class="hljs-string">'./Select'</span>
 <span class="hljs-keyword">export</span> { <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> TextArea } <span class="hljs-keyword">from</span> <span class="hljs-string">'./TextArea'</span>
 <span class="hljs-keyword">export</span> { <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> Input } <span class="hljs-keyword">from</span> <span class="hljs-string">'./Input'</span>
+<span class="hljs-keyword">export</span> { <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> SubmitForm } <span class="hljs-keyword">from</span> <span class="hljs-string">'./SubmitForm'</span>
+
+<span class="hljs-comment">/**
+ * The button with `type="submit"` which can be loading with a spinner indicator.
+ * @param {SubmitButtonProps} props Options for the SubmitButton component.
+ * @param {boolean} [props.loading=false] Whether the button should display as loading. Default `false`.
+ * @param {string} [props.loadingText] The text to show during the loading progress.
+ * @param {string} props.confirmText The text for the normal state.
+ * @param {string} [props.className] The class name, such as `btn-lg`.
+ * @param {('primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark')} [props.type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
+ * @param {boolean} [props.outline=false] Display the outline style of the button via setting the `btn-outline-{type}` class. Default `false`.
+ */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> SubmitButton = <span class="hljs-function">(<span class="hljs-params">props</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> { loading, confirmText, loadingText = confirmText, className, type = <span class="hljs-string">'primary'</span>, outline = <span class="hljs-literal">false</span> } = props
+  <span class="hljs-keyword">const</span> classes = [<span class="hljs-string">'btn'</span>, <span class="hljs-string">`btn-<span class="hljs-subst">${outline ? <span class="hljs-string">'outline-'</span> : <span class="hljs-string">''</span>}</span><span class="hljs-subst">${type}</span>`</span>, className].filter(<span class="hljs-built_in">Boolean</span>)
+  <span class="hljs-keyword">return</span> (h(<span class="hljs-string">'button'</span>,{ <span class="hljs-string">'className'</span>:classes.join(<span class="hljs-string">' '</span>),<span class="hljs-string">'type'</span>:<span class="hljs-string">"submit"</span>, <span class="hljs-string">'disabled'</span>:loading},
+    loading &amp;&amp; h(<span class="hljs-string">'span'</span>,{<span class="hljs-string">'className'</span>:<span class="hljs-string">`spinner-border spinner-border-sm<span class="hljs-subst">${loadingText ? <span class="hljs-string">' mr-2'</span> : <span class="hljs-string">''</span>}</span>`</span>,<span class="hljs-string">'role'</span>:<span class="hljs-string">"status"</span>,<span class="hljs-string">'aria-hidden'</span>:<span class="hljs-string">"true"</span>}),
+    loading ? loadingText : confirmText,
+  ))
+}
 
 <span class="hljs-comment">/* documentary types/index.xml */</span>
 <span class="hljs-comment">/**
  * @typedef {Object} FormProps Options for the Form component.
  * @prop {function} [onChange] The callback to call when a change is made to any of the inputs inside of the form.
+ * @prop {function} [formRef] The function to call with the reference to the form HTML.
+ * @prop {function} [onSubmit] The function to call on form submit.
  *
- * @typedef {Object} FormGroupProps
+ * @typedef {Object} FormGroupProps Options for the FormGroup component.
  * @prop {string} [label] The label to display for the group.
  * @prop {string} [help] The help text to show in `&lt;small className="form-text text-muted"&gt;{help}&lt;/small&gt;`
+ *
+ * @typedef {Object} SubmitButtonProps Options for the SubmitButton component.
+ * @prop {boolean} [loading=false] Whether the button should display as loading. Default `false`.
+ * @prop {string} [loadingText] The text to show during the loading progress.
+ * @prop {string} confirmText The text for the normal state.
+ * @prop {string} [className] The class name, such as `btn-lg`.
+ * @prop {('primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark')} [type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
+ * @prop {boolean} [outline=false] Display the outline style of the button via setting the `btn-outline-{type}` class. Default `false`.
  */</span>
 </code></pre>
         

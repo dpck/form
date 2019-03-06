@@ -8,16 +8,10 @@ const config = {
   layout: join(APP_DIR, 'layout/main.html'),
   appDir: APP_DIR,
   pagesDir: PAGES_DIR,
-  pre: [
+  replacements: [
     {
       re: /{{ company }}/g,
       replacement: '[Depack](https://artd.eco/depack)',
-    },
-  ],
-  postProcess: [
-    {
-      re: /{{ year }}/g,
-      replacement: `${new Date().getFullYear()}`,
     },
   ],
   mount: '/form/',
