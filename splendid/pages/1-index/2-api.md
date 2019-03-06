@@ -10,4 +10,4 @@ import Form, {
 
 Read about each in the [GitHub documentation](https://github.com/dpck/form).
 
-<SectionBreak />
+<section-break />

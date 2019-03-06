@@ -17,4 +17,4 @@ The form in the example can be rendered within the following app:
 
 <Code src="example/App.jsx"/>
 
-<SectionBreak />
+<section-break />

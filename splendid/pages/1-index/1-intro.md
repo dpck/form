@@ -4,4 +4,4 @@ The main advantage of this package is that it allows to write forms in JSX langu
 
 <Code src="example/ExampleForm.jsx"/>
 
-<SectionBreak />
+<section-break />
