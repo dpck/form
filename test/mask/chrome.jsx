@@ -1,4 +1,4 @@
-import { makeTestSuite } from 'zoroaster'
+import { makeTestSuite, equal } from 'zoroaster'
 import IdioContext from '../context/Idio'
 import RemoteChrome from '../context/RemoteChrome'
 
@@ -10,21 +10,34 @@ export const Chrome = makeTestSuite('test/result/chrome.jsx', {
    */
   async getResults(input, { Page, Runtime, client }, { start }, { log }) {
     log(client)
+    const { action, pre } = this
     const url = await start({
+      pre,
       input,
     })
 
     await Page.navigate({ url })
     await Page.loadEventFired()
-    const res = await Runtime.evaluate({ expression: 'window.idio.format(document.querySelector(\'html body\'), 0).innerHTML.trim()' })
-    const { result: { value }, exceptionDetails } = res
-    if (exceptionDetails) {
-      throw new Error(exceptionDetails.exception.description)
+    let actionValue
+    if (action) {
+      const s = await Runtime.evaluate({ expression: action,
+        awaitPromise: true })
+      handleError(s)
+      if (s.result) actionValue = s.result.value
     }
+    const res = await Runtime.evaluate({ expression: 'window.idio.format(document.querySelector(\'html body\'), 0).innerHTML.trim()' })
+    handleError(res)
+    const { result: { value } } = res
     const v = value.replace(/(<input[\s\S]*?)>/g, (m, i) => {
       return `${i} />`
     })
-    return `(${v})`
+    return { actionValue, actual: `(${v})` }
+  },
+  mapActual({ actual }) {
+    return actual
+  },
+  assertResults({ actionValue }, { actionValue: av }) {
+    if (av) equal(`'${actionValue}'`, av)
   },
   context: [IdioContext, class Log {
     log(client) {
@@ -45,3 +58,10 @@ export const Chrome = makeTestSuite('test/result/chrome.jsx', {
   }],
   persistentContext: [RemoteChrome],
 })
+
+const handleError = (res) => {
+  const { exceptionDetails } = res
+  if (exceptionDetails) {
+    throw new Error(exceptionDetails.exception.description)
+  }
+}

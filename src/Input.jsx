@@ -1,5 +1,5 @@
 import { Component } from 'preact'
-import { shouldComponentUpdate } from './lib';
+import { shouldComponentUpdate } from './lib'
 
 export default class Input extends Component {
   constructor() {
@@ -16,10 +16,10 @@ export default class Input extends Component {
   componentDidMount() {
     const { value, name } = this.props
     const { onChange } = this.context
-    if (value !== undefined) onChange(name, value)
+    if (value !== undefined && onChange) onChange(name, value)
   }
   render({
-    required, name, placeholder, type = 'text', file, value,
+    required, name, placeholder, type = 'text', file, value, ...props
   }) {
     const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
@@ -35,6 +35,7 @@ export default class Input extends Component {
       onChange={(e) => {
         onChange(name, e.currentTarget.value)
       }}
+      {...props}
     />
   }
 }
@@ -47,4 +48,5 @@ export default class Input extends Component {
  * @prop {string} [placeholder] The input placeholder.
  * @prop {string} [value] The initial value.
  * @prop {string} [type] The input type.
+ * @prop {*} [...props] All other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>`
  */

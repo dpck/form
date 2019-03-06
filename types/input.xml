@@ -15,5 +15,8 @@
     <prop opt string name="type">
       The input type.
     </prop>
+    <prop opt name="...props">
+      All other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>`
+    </prop>
   </type>
 </types>

@@ -1,3 +1,5 @@
+/* eslint-env browser */
+import { Component } from 'preact'
 import { TextArea, Select, Form, FormGroup, Input } from '../../src'
 
 // Form
@@ -48,4 +50,42 @@ import { TextArea, Select, Form, FormGroup, Input } from '../../src'
 
 /* expected */
 (<input required="" name="test" placeholder="test" class="form-control" type="text" />)
+/**/
+
+// Reset
+(<Form><App /></Form>)
+
+/* pre */
+class App extends Component {
+  constructor() {
+    super()
+    this.state = { value: 'hello-world' }
+  }
+  render() {
+    const { value } = this.state
+    return (<Input required type="text" value={value} onClick={() => {
+      this.setState({ value: 'new value' })
+    }}/>)
+  }
+}
+async function clickInput() {
+  const input = document.querySelector('input')
+  input.click()
+  await new Promise(r => setTimeout(r, 1))
+  return input.value
+}
+window.clickInput = clickInput
+/**/
+
+/* action */
+clickInput()
+/**/
+/* actionValue */
+'new value'
+/**/
+
+/* expected */
+(<form>
+  <input required="" class="form-control" type="text" />
+</form>)
 /**/

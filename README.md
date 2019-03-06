@@ -175,13 +175,14 @@ The input is a one-line entry field.
 
 __<a name="type-inputprops">`InputProps`</a>__: Options for the Input component.
 
-|    Name     |   Type    |            Description            |
-| ----------- | --------- | --------------------------------- |
-| required    | _boolean_ | Whether this is a required field. |
-| name        | _string_  | The input name.                   |
-| placeholder | _string_  | The input placeholder.            |
-| value       | _string_  | The initial value.                |
-| type        | _string_  | The input type.                   |
+|    Name     |   Type    |                                                                     Description                                                                      |
+| ----------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| required    | _boolean_ | Whether this is a required field.                                                                                                                    |
+| name        | _string_  | The input name.                                                                                                                                      |
+| placeholder | _string_  | The input placeholder.                                                                                                                               |
+| value       | _string_  | The initial value.                                                                                                                                   |
+| type        | _string_  | The input type.                                                                                                                                      |
+| ...props    | _*_       | All other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>` |
 
 ```jsx
 import { Input } from '@depack/form'
@@ -362,6 +363,7 @@ Here is an example of the _Input_ component which accounts for all the above poi
 
 ```jsx
 import { Component } from 'preact'
+import { shouldComponentUpdate } from './lib'
 
 export default class Input extends Component {
   constructor() {
@@ -371,17 +373,17 @@ export default class Input extends Component {
      */
     this.props = this.props
   }
-  shouldComponentUpdate(_, __, newContext) {
-    const { name } = this.props
-    return this.context.values[name] != newContext.values[name]
+  shouldComponentUpdate(newProps, __, newContext) {
+    const res = shouldComponentUpdate.call(this, newProps, newContext)
+    return res
   }
   componentDidMount() {
     const { value, name } = this.props
     const { onChange } = this.context
-    if (value !== undefined) onChange(name, value)
+    if (value !== undefined && onChange) onChange(name, value)
   }
   render({
-    required, name, placeholder, type = 'text', file, value,
+    required, name, placeholder, type = 'text', file, value, ...props
   }) {
     const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
@@ -397,6 +399,7 @@ export default class Input extends Component {
       onChange={(e) => {
         onChange(name, e.currentTarget.value)
       }}
+      {...props}
     />
   }
 }
@@ -409,6 +412,7 @@ export default class Input extends Component {
  * @prop {string} [placeholder] The input placeholder.
  * @prop {string} [value] The initial value.
  * @prop {string} [type] The input type.
+ * @prop {*} [...props] All other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>`
  */
 ```
 

@@ -8,19 +8,22 @@ export default class IdioContext {
    * @param {import('@idio/core').MiddlewareConfig} config
    */
   async start(config = {}, port = null) {
-    const { input, ...conf } = config
+    const { input, pre = '', ...conf } = config
     // this needs to be open for 172.31.12.175
     // run the proxy tunnel on 172.31.12.175:5000
     // make an image that has node and starts the js server
     //
+    const inv = jsx(input, {
+      quoteProps: 'dom',
+    })
+    const pree = jsx(pre, {
+      quoteProps: 'dom',
+    })
     const { app, url } = await core({
       frontend: {
         directory: ['src', 'test/context/idio'],
       },
       async serveJSX(ctx) {
-        const inv = jsx(input, {
-          quoteProps: 'dom',
-        })
         ctx.body = render(<html>
           <head>
             <meta charset="utf-8"/>
@@ -32,9 +35,11 @@ export default class IdioContext {
           <script type="module" src="test/context/idio/math-random.js" />
           <script type="module" src="test/context/idio/format.js" />
           <script type="module" dangerouslySetInnerHTML={{
-            __html: `import { h, render } from '/node_modules/preact/dist/preact.mjs'
+            __html: `import { h, render, Component } from '/node_modules/preact/dist/preact.mjs'
 import Form, { FormGroup, Input, TextArea, Select } from '/src/'
-render(${inv}, document.body)`,
+${pree}
+render(${inv}, document.body)
+`,
           }}>
           </script>
         </html>, { addDoctype: 1, pretty: 1 })
