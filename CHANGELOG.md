@@ -1,3 +1,9 @@
+## 6 March 2019
+
+### 1.2.1
+
+- [fix] Update the model's `value` via the `shouldComponentUpdate` on `Input`, `TextArea` and `Select`.
+
 ## 2 March 2019
 
 ### 1.2.0
