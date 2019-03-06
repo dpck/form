@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import { Component } from 'preact'
+import { shouldComponentUpdate } from './lib'
 
 export default class Input extends Component {
   constructor() {
@@ -10,28 +11,20 @@ export default class Input extends Component {
     this.props = this.props
   }
   shouldComponentUpdate(newProps, __, newContext) {
-    const { name, value } = this.props
-    const { value: newValue } = newProps
-    const newContextValue = this.context.values[name] != newContext.values[name]
-    if (newContextValue) return true
-
-    const nw = value != newValue
-    if (nw) {
-      if (newContext.onChange) newContext.onChange(newProps.name, newValue)
-      return false
-    }
+    const res = shouldComponentUpdate.call(this, newProps, newContext)
+    return res
   }
   componentDidMount() {
     const { value, name } = this.props
     const { onChange } = this.context
-    if (value !== undefined) onChange(name, value)
+    if (value !== undefined && onChange) onChange(name, value)
   }
   render({
-    required, name, placeholder, type = 'text', file, value,
+    required, name, placeholder, type = 'text', file, value, ...props
   }) {
     const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
-    return h('input',{
+    return h('input',{...props,
       'required':required,
       'name':name,
       'placeholder':placeholder,
@@ -55,4 +48,5 @@ export default class Input extends Component {
  * @prop {string} [placeholder] The input placeholder.
  * @prop {string} [value] The initial value.
  * @prop {string} [type] The input type.
+ * @prop {*} [...props] All other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>`
  */

@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import { Component } from 'preact'
+import { shouldComponentUpdate } from './lib'
 
 /**
  * The `<textarea>` element.
@@ -13,16 +14,8 @@ export default class TextArea extends Component {
     this.props = this.props
   }
   shouldComponentUpdate(newProps, __, newContext) {
-    const { name, value } = this.props
-    const { value: newValue } = newProps
-    const newContextValue = this.context.values[name] != newContext.values[name]
-    if (newContextValue) return true
-
-    const nw = value != newValue
-    if (nw) {
-      if (newContext.onChange) newContext.onChange(newProps.name, newValue)
-      return false
-    }
+    const res = shouldComponentUpdate.call(this, newProps, newContext)
+    return res
   }
   componentDidMount() {
     const { children: [child], name } = this.props
