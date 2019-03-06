@@ -1,4 +1,5 @@
 import { Component } from 'preact'
+import { shouldComponentUpdate } from './lib'
 
 export default class Select extends Component {
   constructor() {
@@ -8,9 +9,9 @@ export default class Select extends Component {
      */
     this.props = this.props
   }
-  shouldComponentUpdate(_, __, newContext) {
-    const { name } = this.props
-    return this.context.values[name] != newContext.values[name]
+  shouldComponentUpdate(newProps, __, newContext) {
+    const res = shouldComponentUpdate.call(this, newProps, newContext)
+    return res
   }
   componentDidMount() {
     const { value, name } = this.props

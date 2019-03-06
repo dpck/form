@@ -27,7 +27,7 @@ import { TextArea, Select, Form, FormGroup, Input } from '../../src'
 ]} />)
 
 /* expected */
-(<select name="test" class="custom-select">
+(<select name="test" required="" class="custom-select">
   <option></option>
   <option value="1">test</option>
   <option value="2">test2</option>
@@ -40,12 +40,12 @@ import { TextArea, Select, Form, FormGroup, Input } from '../../src'
 </TextArea>)
 
 /* expected */
-(<textarea name="test" placeholder="test" class="form-control" rows="5">This is the default input of the textarea.</textarea>)
+(<textarea required="" name="test" placeholder="test" class="form-control" rows="5">This is the default input of the textarea.</textarea>)
 /**/
 
 // Input
 (<Input name="test" placeholder="test" required type="text" value="hello-world"/>)
 
 /* expected */
-(<input name="test" placeholder="test" class="form-control" type="text" />)
+(<input required="" name="test" placeholder="test" class="form-control" type="text" />)
 /**/

@@ -14,7 +14,7 @@ import { TextArea, Select, Form, FormGroup, Input } from '../../src'
 
 /* expected */
 (<div class="form-group">
-  <label htmlFor="i70984">test</label>
+  <label for="i70984">test</label>
   <input placeholder="test"
     class="form-control" type="text"
     aria-describedby="hi70984" id="i70984" />

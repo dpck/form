@@ -9,9 +9,17 @@ export default class Select extends Component {
      */
     this.props = this.props
   }
-  shouldComponentUpdate(_, __, newContext) {
-    const { name } = this.props
-    return this.context.values[name] != newContext.values[name]
+  shouldComponentUpdate(newProps, __, newContext) {
+    const { name, value } = this.props
+    const { value: newValue } = newProps
+    const newContextValue = this.context.values[name] != newContext.values[name]
+    if (newContextValue) return true
+
+    const nw = value != newValue
+    if (nw) {
+      if (newContext.onChange) newContext.onChange(newProps.name, newValue)
+      return false
+    }
   }
   componentDidMount() {
     const { value, name } = this.props
