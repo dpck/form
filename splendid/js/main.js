@@ -281,23 +281,34 @@ function ma() {
   };
   w.Symbol || (w.Symbol = na);
 }
+function oa(a, b) {
+  this.a = a;
+  ja(this, "description", {configurable:!0, writable:!0, value:b});
+}
+oa.prototype.toString = function() {
+  return this.a;
+};
 var na = function() {
-  var a = 0;
-  return function(b) {
-    return "jscomp_symbol_" + (b || "") + a++;
-  };
+  function a(c) {
+    if (this instanceof a) {
+      throw new TypeError("Symbol is not a constructor");
+    }
+    return new oa("jscomp_symbol_" + (c || "") + "_" + b++, c);
+  }
+  var b = 0;
+  return a;
 }();
 function z() {
   ma();
   var a = w.Symbol.iterator;
-  a || (a = w.Symbol.iterator = w.Symbol("iterator"));
+  a || (a = w.Symbol.iterator = w.Symbol("Symbol.iterator"));
   "function" != typeof Array.prototype[a] && ja(Array.prototype, a, {configurable:!0, writable:!0, value:function() {
-    return oa(aa(this));
+    return pa(aa(this));
   }});
   z = function() {
   };
 }
-function oa(a) {
+function pa(a) {
   z();
   a = {next:a};
   a[w.Symbol.iterator] = function() {
@@ -313,7 +324,7 @@ function D() {
   this.i = this.j = 0;
   this.I = this.a = null;
 }
-function pa(a) {
+function qa(a) {
   if (a.s) {
     throw new TypeError("Generator is already running");
   }
@@ -322,7 +333,7 @@ function pa(a) {
 D.prototype.B = function(a) {
   this.v = a;
 };
-function qa(a, b) {
+function ra(a, b) {
   a.a = {Z:b, aa:!0};
   a.c = a.j || a.i;
 }
@@ -330,29 +341,29 @@ D.prototype.return = function(a) {
   this.a = {return:a};
   this.c = this.i;
 };
-function ra(a, b, c) {
+function sa(a, b, c) {
   a.c = c;
   return {value:b};
 }
 D.prototype.A = function(a) {
   this.c = a;
 };
-function sa(a) {
+function ta(a) {
   this.a = new D;
   this.c = a;
 }
-function ta(a, b) {
-  pa(a.a);
+function ua(a, b) {
+  qa(a.a);
   var c = a.a.g;
   if (c) {
-    return ua(a, "return" in c ? c["return"] : function(a) {
+    return va(a, "return" in c ? c["return"] : function(a) {
       return {value:a, done:!0};
     }, b, a.a.return);
   }
   a.a.return(b);
   return E(a);
 }
-function ua(a, b, c, d) {
+function va(a, b, c, d) {
   try {
     var e = b.call(a.a.g, c);
     if (!(e instanceof Object)) {
@@ -363,7 +374,7 @@ function ua(a, b, c, d) {
     }
     var f = e.value;
   } catch (h) {
-    return a.a.g = null, qa(a.a, h), E(a);
+    return a.a.g = null, ra(a.a, h), E(a);
   }
   a.a.g = null;
   d.call(a.a, f);
@@ -377,7 +388,7 @@ function E(a) {
         return a.a.s = !1, {value:b.value, done:!1};
       }
     } catch (c) {
-      a.a.v = void 0, qa(a.a, c);
+      a.a.v = void 0, ra(a.a, c);
     }
   }
   a.a.s = !1;
@@ -391,26 +402,26 @@ function E(a) {
   }
   return {value:void 0, done:!0};
 }
-function va(a) {
+function wa(a) {
   this.next = function(b) {
-    pa(a.a);
-    a.a.g ? b = ua(a, a.a.g.next, b, a.a.B) : (a.a.B(b), b = E(a));
+    qa(a.a);
+    a.a.g ? b = va(a, a.a.g.next, b, a.a.B) : (a.a.B(b), b = E(a));
     return b;
   };
   this.throw = function(b) {
-    pa(a.a);
-    a.a.g ? b = ua(a, a.a.g["throw"], b, a.a.B) : (qa(a.a, b), b = E(a));
+    qa(a.a);
+    a.a.g ? b = va(a, a.a.g["throw"], b, a.a.B) : (ra(a.a, b), b = E(a));
     return b;
   };
   this.return = function(b) {
-    return ta(a, b);
+    return ua(a, b);
   };
   z();
   this[Symbol.iterator] = function() {
     return this;
   };
 }
-function wa(a) {
+function xa(a) {
   function b(b) {
     return a.next(b);
   }
@@ -424,7 +435,7 @@ function wa(a) {
     f(a.next());
   });
 }
-function xa(a, b) {
+function ya(a, b) {
   z();
   a instanceof String && (a += "");
   var c = 0, d = {next:function() {
@@ -444,24 +455,10 @@ function xa(a, b) {
 }
 ka("Array.prototype.values", function(a) {
   return a ? a : function() {
-    return xa(this, function(a, c) {
+    return ya(this, function(a, c) {
       return c;
     });
   };
-});
-var ya = "function" == typeof Object.assign ? Object.assign : function(a, b) {
-  for (var c = 1; c < arguments.length; c++) {
-    var d = arguments[c];
-    if (d) {
-      for (var e in d) {
-        Object.prototype.hasOwnProperty.call(d, e) && (a[e] = d[e]);
-      }
-    }
-  }
-  return a;
-};
-ka("Object.assign", function(a) {
-  return a || ya;
 });
 function za() {
 }
@@ -938,7 +935,7 @@ function Ta(a, b) {
 m(W, S);
 W.prototype.submit = function(a) {
   var b = this, c, d, e, f, h;
-  return wa(new va(new sa(function(g) {
+  return xa(new wa(new ta(function(g) {
     switch(g.c) {
       case 1:
         a.preventDefault();
@@ -950,9 +947,9 @@ W.prototype.submit = function(a) {
         b.m({M:!0});
         g.j = 2;
         g.i = 3;
-        return ra(g, Ta(b.b.path, {method:"POST", body:c}), 5);
+        return sa(g, Ta(b.b.path, {method:"POST", body:c}), 5);
       case 5:
-        return d = g.v, ra(g, d.json(), 6);
+        return d = g.v, sa(g, d.json(), 6);
       case 6:
         e = g.v, (f = e.error) ? b.m({error:f}) : b.m({K:1});
       case 3:
@@ -976,7 +973,7 @@ W.prototype.submit = function(a) {
           g.A(7);
           break;
         }
-        return ra(g, b.b.xa(d), 7);
+        return sa(g, b.b.xa(d), 7);
       case 7:
         return g.return(!1);
     }
