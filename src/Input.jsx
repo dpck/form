@@ -4,9 +4,7 @@ import { shouldComponentUpdate } from './lib'
 export default class Input extends Component {
   constructor() {
     super()
-    /**
-     * @type {!_depackForm.InputProps}
-     */
+    /** @type {!_depackForm.InputProps} */
     this.props = this.props
   }
   shouldComponentUpdate(newProps, __, newContext) {
@@ -18,12 +16,10 @@ export default class Input extends Component {
     const { onChange } = this.context
     if (value !== undefined && onChange) onChange(name, value)
   }
-  /**
-   * @param {!_depackForm.InputProps} props Options for the Input component.
-   */
-  render({
-    required, name, placeholder, type = 'text', file, value, ...props
-  }) {
+  render(props) {
+    const {
+      required, name, placeholder, type = 'text', file, value, ...prop
+    } = /** @type {!_depackForm.InputProps} */ (props)
     const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
     return <input
@@ -38,7 +34,7 @@ export default class Input extends Component {
       onChange={(e) => {
         onChange(name, e.currentTarget.value)
       }}
-      {...props}
+      {...prop}
     />
   }
 }

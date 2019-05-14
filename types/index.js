@@ -71,8 +71,8 @@ export {}
 /**
  * @typedef {Object} _depackForm.SubmitFormState The state structure for the SubmitForm.
  * @prop {boolean} formLoading Whether the data has been sent for submission.
- * @prop {string} error The error returned by the server.
- * @prop {boolean} success Whether the form has been submitted successfully.
+ * @prop {?string} error The error returned by the server.
+ * @prop {?boolean} success Whether the form has been submitted successfully.
  */
 
 /* typal types/textarea.xml closure noSuppress */

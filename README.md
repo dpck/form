@@ -279,11 +279,11 @@ __<a name="type-_depackformsubmitformprops">`_depackForm.SubmitFormProps`</a>__:
 
 __<a name="type-_depackformsubmitformstate">`_depackForm.SubmitFormState`</a>__: The state structure for the SubmitForm.
 
-|       Name       |       Type       |                    Description                    |
-| ---------------- | ---------------- | ------------------------------------------------- |
-| __formLoading*__ | <em>boolean</em> | Whether the data has been sent for submission.    |
-| __error*__       | <em>string</em>  | The error returned by the server.                 |
-| __success*__     | <em>boolean</em> | Whether the form has been submitted successfully. |
+|       Name       |       Type        |                    Description                    |
+| ---------------- | ----------------- | ------------------------------------------------- |
+| __formLoading*__ | <em>boolean</em>  | Whether the data has been sent for submission.    |
+| __error*__       | <em>?string</em>  | The error returned by the server.                 |
+| __success*__     | <em>?boolean</em> | Whether the form has been submitted successfully. |
 
 ```jsx
 import Form, { SubmitForm, Input } from '@depack/form'
@@ -365,9 +365,7 @@ import { shouldComponentUpdate } from './lib'
 export default class Input extends Component {
   constructor() {
     super()
-    /**
-     * @type {!_depackForm.InputProps}
-     */
+    /** @type {!_depackForm.InputProps} */
     this.props = this.props
   }
   shouldComponentUpdate(newProps, __, newContext) {
@@ -379,12 +377,10 @@ export default class Input extends Component {
     const { onChange } = this.context
     if (value !== undefined && onChange) onChange(name, value)
   }
-  /**
-   * @param {!_depackForm.InputProps} props Options for the Input component.
-   */
-  render({
-    required, name, placeholder, type = 'text', file, value, ...props
-  }) {
+  render(props) {
+    const {
+      required, name, placeholder, type = 'text', file, value, ...prop
+    } = /** @type {!_depackForm.InputProps} */ (props)
     const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
     return <input
@@ -399,7 +395,7 @@ export default class Input extends Component {
       onChange={(e) => {
         onChange(name, e.currentTarget.value)
       }}
-      {...props}
+      {...prop}
     />
   }
 }

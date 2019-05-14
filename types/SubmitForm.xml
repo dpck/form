@@ -11,10 +11,10 @@
     <prop boolean name="formLoading">
       Whether the data has been sent for submission.
     </prop>
-    <prop string name="error">
+    <prop type="?string" name="error">
       The error returned by the server.
     </prop>
-    <prop boolean name="success">
+    <prop type="?boolean" name="success">
       Whether the form has been submitted successfully.
     </prop>
   </type>

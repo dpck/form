@@ -39,7 +39,7 @@ _depackForm.SelectProps
 _depackForm.SubmitFormProps
 /**
  * The state structure for the SubmitForm.
- * @typedef {{ formLoading: boolean, error: string, success: boolean }}
+ * @typedef {{ formLoading: boolean, error: ?string, success: ?boolean }}
  */
 _depackForm.SubmitFormState
 

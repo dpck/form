@@ -4,9 +4,7 @@ import { shouldComponentUpdate } from './lib'
 export default class Select extends Component {
   constructor() {
     super()
-    /**
-     * @type {!_depackForm.SelectProps}
-     */
+    /** @type {!_depackForm.SelectProps} */
     this.props = this.props
   }
   shouldComponentUpdate(newProps, __, newContext) {
@@ -18,10 +16,9 @@ export default class Select extends Component {
     const { onChange } = this.context
     if (onChange && value !== undefined) onChange(name, value)
   }
-  /**
-   * @param {!_depackForm.SelectProps} props
-   */
-  render({ options, name, value, required }) {
+  render(props) {
+    const { options, name, value, required } =
+      /** @type {!_depackForm.SelectProps} */ (props)
     const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
     const selectValue = rendered ? values[name] : value

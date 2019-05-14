@@ -1,5 +1,6 @@
 /**
  * Allows for changes in values via properties, and for updates originated for the Form Model update via the context. Also fires onChange with the new value from properties.
+ * @this {!preact.Component}
  */
 export const shouldComponentUpdate = function (newProps, newContext) {
   const { name, value } = this.props

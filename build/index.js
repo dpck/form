@@ -7,9 +7,7 @@ export default class Form extends Component {
     this.state = {
       values: {},
     }
-    /**
-     * @type {!_depackForm.FormProps}
-     */
+    /** @type {!_depackForm.FormProps} */
     this.props = this.props
   }
   getChildContext() {
@@ -28,11 +26,10 @@ export default class Form extends Component {
     if (this.props.onChange)
       this.props.onChange(this.state.values)
   }
-  /**
-   * @param {!_depackForm.FormProps} props Options for the Form component.
-   */
-  render({ children, formRef, onSubmit, onChange, ...props }) {
-    return    h('form',{...props,'ref':formRef, 'onSubmit':onSubmit},
+  render(props) {
+    const { children, formRef, onSubmit, onChange, ...prop } =
+      /** @type {!_depackForm.FormProps} */ (props)
+    return    h('form',{...prop,'ref':formRef, 'onSubmit':onSubmit},
       children,
     )
   }
@@ -46,9 +43,7 @@ export class FormGroup extends Component {
     super()
     this.id = `i${Math.floor(Math.random() * 100000)}`
     this.hid = `h${this.id}`
-    /**
-     * @type {!_depackForm.FormGroupProps}
-     */
+    /** @type {!_depackForm.FormGroupProps} */
     this.props = this.props
   }
   getChildContext() {
@@ -57,10 +52,9 @@ export class FormGroup extends Component {
       hid: this.hid,
     }
   }
-  /**
-   * @param {!_depackForm.FormGroupProps} props
-   */
-  render({ children, label, help }) {
+  render(props) {
+    const { children, label, help } =
+      /** @type {!_depackForm.FormGroupProps} */ (props)
     return h('div',{'className':"form-group"},
       label && h('label',{'htmlFor':this.id},label),
       children,
