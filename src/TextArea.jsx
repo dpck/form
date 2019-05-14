@@ -7,9 +7,7 @@ import { shouldComponentUpdate } from './lib'
 export default class TextArea extends Component {
   constructor() {
     super()
-    /**
-     * @type {TextAreaProps}
-     */
+    /** @type {!_depackForm.TextAreaProps} */
     this.props = this.props
   }
   shouldComponentUpdate(newProps, __, newContext) {
@@ -21,9 +19,8 @@ export default class TextArea extends Component {
     const { onChange } = this.context
     if (child) onChange(name, child.trim())
   }
-  render({
-    rows = 3, required, name, placeholder, children,
-  }) {
+  /** @param {!_depackForm.TextAreaProps} props */
+  render({ rows = 3, required, name, placeholder, children }) {
     const { hid, id, onChange, values = {} } = this.context
     const rendered = name in values // for SSR
     return <textarea
@@ -42,11 +39,7 @@ export default class TextArea extends Component {
   }
 }
 
-/* documentary types/TextArea.xml */
 /**
- * @typedef {Object} TextAreaProps Options for the TextAreaProps component.
- * @prop {boolean} [required] Whether this is a required field.
- * @prop {string} [name] The textarea name.
- * @prop {string} [placeholder] The textarea placeholder.
- * @prop {number} [rows=3] How many rows should the textarea have. Default `3`.
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types').TextAreaProps} _depackForm.TextAreaProps
  */

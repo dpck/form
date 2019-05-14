@@ -13,25 +13,21 @@
     "lint": "eslint .",
     "start": "splendid-dev -s",
     "splendid": "splendid-dev",
-    "doc": "NODE_DEBUG=doc doc documentary -o README.md",
-    "d": "yarn-s d1 d2 d3 d4",
+    "doc": "NODE_DEBUG=doc doc -o README.md",
     "b": "alamode src -o build -j -p",
-    "d1": "NODE_DEBUG=doc doc src/index.jsx -g",
-    "d2": "NODE_DEBUG=doc doc src/Input.jsx -g",
-    "d3": "NODE_DEBUG=doc doc src/Select.jsx -g",
-    "d4": "NODE_DEBUG=doc doc src/TextArea.jsx -g",
-    "d5": "NODE_DEBUG=doc doc src/SubmitForm.jsx -g",
+    "d": "typal types/index.js types/externs.js",
     "build": "yarn-s d b doc",
     "rec": "appshot -a Safari -y 450 -f",
     "rec-term": "appshot -a Terminal -y 250 -f",
     "e": "node example",
-    "depack": "depack-dev example/App.jsx -o splendid/js/main.js -I 2018 -a -H -p -w",
+    "depack": "depack-dev example/App.jsx -o splendid/js/main.js -a -H -p -w",
     "example/": "yarn e example/example"
   },
   "files": [
     "src",
     "build"
   ],
+  "externs": "types/externs.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/dpck/form.git"
@@ -50,19 +46,19 @@
   },
   "homepage": "https://dpck.github.io/form/",
   "devDependencies": {
-    "@a-la/jsx": "1.4.4",
+    "@a-la/jsx": "1.6.0",
     "@depack/context": "1.1.2",
     "@depack/render": "1.1.4",
-    "@idio/core": "1.3.5",
-    "alamode": "1.8.5",
+    "@idio/core": "1.4.0",
+    "alamode": "2.2.0",
     "chrome-remote-interface": "0.27.1",
-    "documentary": "1.22.0",
-    "erte": "1.1.7",
+    "documentary": "1.27.2",
+    "erte": "1.2.0",
     "eslint-config-artdeco": "1.0.1",
     "preact": "8.4.2",
-    "rexml": "1.3.0",
+    "rexml": "1.4.0",
     "yarn-s": "1.1.0",
-    "zoroaster": "3.8.3"
+    "zoroaster": "4.1.1-alpha"
   },
   "dependencies": {
     "unfetch": "4.1.0"

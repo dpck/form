@@ -1,5 +1,5 @@
-<types>
-  <type name="InputProps" desc="Options for the Input component." noToc>
+<types ns="_depackForm">
+  <type name="InputProps" desc="Options for the Input component." noToc desc="The rest is all other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>`.">
     <prop opt boolean name="required">
       Whether this is a required field.
     </prop>
@@ -9,14 +9,14 @@
     <prop opt string name="placeholder">
       The input placeholder.
     </prop>
+    <prop opt boolean name="file">
+      Whether the input is for selecting files.
+    </prop>
     <prop opt string name="value">
       The initial value.
     </prop>
     <prop opt string name="type">
       The input type.
-    </prop>
-    <prop opt name="...props">
-      All other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>`
     </prop>
   </type>
 </types>

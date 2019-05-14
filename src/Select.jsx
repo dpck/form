@@ -5,7 +5,7 @@ export default class Select extends Component {
   constructor() {
     super()
     /**
-     * @type {SelectProps}
+     * @type {!_depackForm.SelectProps}
      */
     this.props = this.props
   }
@@ -18,9 +18,10 @@ export default class Select extends Component {
     const { onChange } = this.context
     if (onChange && value !== undefined) onChange(name, value)
   }
-  render({
-    options, name, value, required,
-  }) {
+  /**
+   * @param {!_depackForm.SelectProps} props
+   */
+  render({ options, name, value, required }) {
     const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
     const selectValue = rendered ? values[name] : value
@@ -44,11 +45,7 @@ export default class Select extends Component {
   }
 }
 
-/* documentary types/Select.xml */
 /**
- * @typedef {Object} SelectProps Options for the Select component.
- * @prop {boolean} [required] Whether this is a required field.
- * @prop {string} [name] The select name.
- * @prop {string} [value] The initial value.
- * @prop {Array<{value: *, title: string}>} [options] The array with options to render inside of the `select` element.
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types').SelectProps} _depackForm.SelectProps
  */

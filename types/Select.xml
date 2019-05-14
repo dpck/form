@@ -1,4 +1,4 @@
-<types>
+<types ns="_depackForm">
   <type name="SelectProps" desc="Options for the Select component." noToc>
     <prop opt boolean name="required">
       Whether this is a required field.
@@ -9,7 +9,7 @@
     <prop opt string name="value">
       The initial value.
     </prop>
-    <prop opt type="Array<{value: *, title: string}>" name="options">
+    <prop opt type="!Array<{value: *, title: string}>" name="options">
       The array with options to render inside of the `select` element.
     </prop>
   </type>

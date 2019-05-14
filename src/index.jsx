@@ -7,7 +7,7 @@ export default class Form extends Component {
       values: {},
     }
     /**
-     * @type {FormProps}
+     * @type {!_depackForm.FormProps}
      */
     this.props = this.props
   }
@@ -28,10 +28,7 @@ export default class Form extends Component {
       this.props.onChange(this.state.values)
   }
   /**
-   * @param {FormProps} props Options for the Form component.
- * @param {function} [props.onChange] The callback to call when a change is made to any of the inputs inside of the form.
- * @param {function} [props.formRef] The function to call with the reference to the form HTML.
- * @param {function} [props.onSubmit] The function to call on form submit.
+   * @param {!_depackForm.FormProps} props Options for the Form component.
    */
   render({ children, formRef, onSubmit, onChange, ...props }) {
     return <form ref={formRef} onSubmit={onSubmit} {...props}>
@@ -49,7 +46,7 @@ export class FormGroup extends Component {
     this.id = `i${Math.floor(Math.random() * 100000)}`
     this.hid = `h${this.id}`
     /**
-     * @type {FormGroupProps}
+     * @type {!_depackForm.FormGroupProps}
      */
     this.props = this.props
   }
@@ -59,8 +56,10 @@ export class FormGroup extends Component {
       hid: this.hid,
     }
   }
-  render() {
-    const { children, label, help } = this.props
+  /**
+   * @param {!_depackForm.FormGroupProps} props
+   */
+  render({ children, label, help }) {
     return <div className="form-group">
       {label && <label htmlFor={this.id}>{label}</label>}
       {children}
@@ -76,16 +75,9 @@ export { default as SubmitForm } from './SubmitForm'
 
 /**
  * The button with `type="submit"` which can be loading with a spinner indicator.
- * @param {SubmitButtonProps} props Options for the SubmitButton component.
- * @param {boolean} [props.loading=false] Whether the button should display as loading. Default `false`.
- * @param {string} [props.loadingText] The text to show during the loading progress.
- * @param {string} props.confirmText The text for the normal state.
- * @param {string} [props.className] The class name, such as `btn-lg`.
- * @param {('primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark')} [props.type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
- * @param {boolean} [props.outline=false] Display the outline style of the button via setting the `btn-outline-{type}` class. Default `false`.
+ * @param {!_depackForm.SubmitButtonProps} props Options for the SubmitButton component.
  */
-export const SubmitButton = (props) => {
-  const { loading, confirmText, loadingText = confirmText, className, type = 'primary', outline = false } = props
+export const SubmitButton = ({ loading, confirmText, loadingText = confirmText, className, type = 'primary', outline = false }) => {
   const classes = ['btn', `btn-${outline ? 'outline-' : ''}${type}`, className].filter(Boolean)
   return (<button type="submit" className={classes.join(' ')} disabled={loading}>
     {loading && <span className={`spinner-border spinner-border-sm${loadingText ? ' mr-2' : ''}`} role="status" aria-hidden="true"/>}
@@ -93,22 +85,15 @@ export const SubmitButton = (props) => {
   </button>)
 }
 
-/* documentary types/index.xml */
 /**
- * @typedef {Object} FormProps Options for the Form component.
- * @prop {function} [onChange] The callback to call when a change is made to any of the inputs inside of the form.
- * @prop {function} [formRef] The function to call with the reference to the form HTML.
- * @prop {function} [onSubmit] The function to call on form submit.
- *
- * @typedef {Object} FormGroupProps Options for the FormGroup component.
- * @prop {string} [label] The label to display for the group.
- * @prop {string} [help] The help text to show in `<small className="form-text text-muted">{help}</small>`
- *
- * @typedef {Object} SubmitButtonProps Options for the SubmitButton component.
- * @prop {boolean} [loading=false] Whether the button should display as loading. Default `false`.
- * @prop {string} [loadingText] The text to show during the loading progress.
- * @prop {string} confirmText The text for the normal state.
- * @prop {string} [className] The class name, such as `btn-lg`.
- * @prop {('primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark')} [type="primary"] The type of the button to add to the class as `btn-{type}`. Default `primary`.
- * @prop {boolean} [outline=false] Display the outline style of the button via setting the `btn-outline-{type}` class. Default `false`.
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types').FormProps} _depackForm.FormProps
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types').FormGroupProps} _depackForm.FormGroupProps
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types').SubmitButtonProps} _depackForm.SubmitButtonProps
  */

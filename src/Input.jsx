@@ -5,7 +5,7 @@ export default class Input extends Component {
   constructor() {
     super()
     /**
-     * @type {InputProps}
+     * @type {!_depackForm.InputProps}
      */
     this.props = this.props
   }
@@ -18,6 +18,9 @@ export default class Input extends Component {
     const { onChange } = this.context
     if (value !== undefined && onChange) onChange(name, value)
   }
+  /**
+   * @param {!_depackForm.InputProps} props Options for the Input component.
+   */
   render({
     required, name, placeholder, type = 'text', file, value, ...props
   }) {
@@ -40,13 +43,7 @@ export default class Input extends Component {
   }
 }
 
-/* documentary types/input.xml */
 /**
- * @typedef {Object} InputProps Options for the Input component.
- * @prop {boolean} [required] Whether this is a required field.
- * @prop {string} [name] The input name.
- * @prop {string} [placeholder] The input placeholder.
- * @prop {string} [value] The initial value.
- * @prop {string} [type] The input type.
- * @prop {*} [...props] All other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>`
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types').InputProps} _depackForm.InputProps
  */

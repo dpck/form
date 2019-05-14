@@ -1,12 +1,12 @@
-<types>
+<types ns="_depackForm">
   <type name="FormProps" desc="Options for the Form component." noToc>
-    <prop opt type="function" name="onChange">
+    <prop opt type="!Function" name="onChange">
       The callback to call when a change is made to any of the inputs inside of the form.
     </prop>
-    <prop opt type="function" name="formRef">
+    <prop opt type="!Function" name="formRef">
       The function to call with the reference to the form HTML.
     </prop>
-    <prop opt type="function" name="onSubmit">
+    <prop opt type="!Function" name="onSubmit">
       The function to call on form submit.
     </prop>
   </type>
@@ -31,8 +31,8 @@
     <prop opt string name="className">
       The class name, such as `btn-lg`.
     </prop>
-    <prop type="('primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark')" default="primary" name="type">
-      The type of the button to add to the class as `btn-{type}`.
+    <prop type="string" default="primary" name="type">
+      The type of the button to add to the class as `btn-{type}`. One of `('primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark')`.
     </prop>
     <prop boolean default="false" name="outline">
       Display the outline style of the button via setting the `btn-outline-{type}` class.

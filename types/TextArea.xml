@@ -1,4 +1,4 @@
-<types>
+<types ns="_depackForm">
   <type name="TextAreaProps" desc="Options for the TextAreaProps component." noToc>
     <prop opt boolean name="required">
       Whether this is a required field.

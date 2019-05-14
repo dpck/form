@@ -44,13 +44,13 @@ import Form, {
 
 Creates the form that maintains the values of each field that is found inside its children. Any additional properties will be passed down to the form. Each child component will receive `values` in its context.
 
-__<a name="type-formprops">`FormProps`</a>__: Options for the Form component.
+__<a name="type-_depackformformprops">`_depackForm.FormProps`</a>__: Options for the Form component.
 
-|   Name   |    Type    |                                     Description                                     |
-| -------- | ---------- | ----------------------------------------------------------------------------------- |
-| onChange | _function_ | The callback to call when a change is made to any of the inputs inside of the form. |
-| formRef  | _function_ | The function to call with the reference to the form HTML.                           |
-| onSubmit | _function_ | The function to call on form submit.                                                |
+|   Name   |        Type        |                                     Description                                     |
+| -------- | ------------------ | ----------------------------------------------------------------------------------- |
+| onChange | <em>!Function</em> | The callback to call when a change is made to any of the inputs inside of the form. |
+| formRef  | <em>!Function</em> | The function to call with the reference to the form HTML.                           |
+| onSubmit | <em>!Function</em> | The function to call on form submit.                                                |
 
 ```jsx
 import Form, {
@@ -123,10 +123,7 @@ export default ExampleForm
 </form>
 ```
 
-<table>
-        <tr><td>
-        <img src="doc/ExampleForm.png" /></td></tr>
-      </table>
+<table><tr><td><img src="doc/ExampleForm.png" /></td></tr></table>
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true" width="15"></a></p>
 
@@ -134,12 +131,12 @@ export default ExampleForm
 
 The form group is used to represent a logical combination of a label, input, help text and validation error message. The _FormGroup_ component generates `id` and `hid` values and passes them to children components in the context.
 
-__<a name="type-formgroupprops">`FormGroupProps`</a>__: Options for the FormGroup component.
+__<a name="type-_depackformformgroupprops">`_depackForm.FormGroupProps`</a>__: Options for the FormGroup component.
 
-| Name  |   Type   |                                    Description                                    |
-| ----- | -------- | --------------------------------------------------------------------------------- |
-| label | _string_ | The label to display for the group.                                               |
-| help  | _string_ | The help text to show in `<small className="form-text text-muted">{help}</small>` |
+| Name  |      Type       |                                    Description                                    |
+| ----- | --------------- | --------------------------------------------------------------------------------- |
+| label | <em>string</em> | The label to display for the group.                                               |
+| help  | <em>string</em> | The help text to show in `<small className="form-text text-muted">{help}</small>` |
 
 ```jsx
 import Form, { FormGroup, Input } from '@depack/form'
@@ -173,16 +170,16 @@ const Example = () => (
 
 The input is a one-line entry field.
 
-__<a name="type-inputprops">`InputProps`</a>__: Options for the Input component.
+__<a name="type-_depackforminputprops">`_depackForm.InputProps`</a>__: The rest is all other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>`.
 
-|    Name     |   Type    |                                                                     Description                                                                      |
-| ----------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| required    | _boolean_ | Whether this is a required field.                                                                                                                    |
-| name        | _string_  | The input name.                                                                                                                                      |
-| placeholder | _string_  | The input placeholder.                                                                                                                               |
-| value       | _string_  | The initial value.                                                                                                                                   |
-| type        | _string_  | The input type.                                                                                                                                      |
-| ...props    | _*_       | All other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>` |
+|    Name     |       Type       |                Description                |
+| ----------- | ---------------- | ----------------------------------------- |
+| required    | <em>boolean</em> | Whether this is a required field.         |
+| name        | <em>string</em>  | The input name.                           |
+| placeholder | <em>string</em>  | The input placeholder.                    |
+| file        | <em>boolean</em> | Whether the input is for selecting files. |
+| value       | <em>string</em>  | The initial value.                        |
+| type        | <em>string</em>  | The input type.                           |
 
 ```jsx
 import { Input } from '@depack/form'
@@ -208,14 +205,14 @@ const Example = () => (
 
 This element present the values to select from.
 
-__<a name="type-selectprops">`SelectProps`</a>__: Options for the Select component.
+__<a name="type-_depackformselectprops">`_depackForm.SelectProps`</a>__: Options for the Select component.
 
-|   Name   |                   Type                   |                           Description                            |
-| -------- | ---------------------------------------- | ---------------------------------------------------------------- |
-| required | _boolean_                                | Whether this is a required field.                                |
-| name     | _string_                                 | The select name.                                                 |
-| value    | _string_                                 | The initial value.                                               |
-| options  | _Array&lt;{value: *, title: string}&gt;_ | The array with options to render inside of the `select` element. |
+|   Name   |                        Type                        |                           Description                            |
+| -------- | -------------------------------------------------- | ---------------------------------------------------------------- |
+| required | <em>boolean</em>                                   | Whether this is a required field.                                |
+| name     | <em>string</em>                                    | The select name.                                                 |
+| value    | <em>string</em>                                    | The initial value.                                               |
+| options  | <em>!Array&lt;{ value: *, title: string }&gt;</em> | The array with options to render inside of the `select` element. |
 
 ```jsx
 import { Select } from '@depack/form'
@@ -243,14 +240,14 @@ const Example = () => (
 
 The input field with multiple lines. The child of the component will set the initial value inside of the textarea.
 
-__<a name="type-textareaprops">`TextAreaProps`</a>__: Options for the TextAreaProps component.
+__<a name="type-_depackformtextareaprops">`_depackForm.TextAreaProps`</a>__: Options for the TextAreaProps component.
 
-|    Name     |   Type    |               Description               | Default |
-| ----------- | --------- | --------------------------------------- | ------- |
-| required    | _boolean_ | Whether this is a required field.       | -       |
-| name        | _string_  | The textarea name.                      | -       |
-| placeholder | _string_  | The textarea placeholder.               | -       |
-| rows        | _number_  | How many rows should the textarea have. | `3`     |
+|    Name     |       Type       |               Description               | Default |
+| ----------- | ---------------- | --------------------------------------- | ------- |
+| required    | <em>boolean</em> | Whether this is a required field.       | -       |
+| name        | <em>string</em>  | The textarea name.                      | -       |
+| placeholder | <em>string</em>  | The textarea placeholder.               | -       |
+| rows        | <em>number</em>  | How many rows should the textarea have. | `3`     |
 
 ```jsx
 import { TextArea } from '@depack/form'
@@ -273,20 +270,20 @@ const Example = () => (
 
 This class extends the `Preact.Component` and implements the `submit` method which will send the data to the server and await for the response while setting the `formLoading` property of the state to `true`. The `error` and `success` properties will also be set upon the arrival of data, with the JSON response being used to extract the error. The `submitFinish` callback can be used to receive the result of the form submission. Components implementing this abstract class must write their own render method.
 
-__<a name="type-submitformprops">`SubmitFormProps`</a>__: Options for the SubmitForm component.
+__<a name="type-_depackformsubmitformprops">`_depackForm.SubmitFormProps`</a>__: Options for the SubmitForm component.
 
-|     Name     |               Type               |                                    Description                                    |
-| ------------ | -------------------------------- | --------------------------------------------------------------------------------- |
-| __path*__    | _string_                         | The path where to send data.                                                      |
-| submitFinish | _(result: Object) =&gt; Promise_ | The callback after the data has been sent with possible response from the server. |
+|     Name     |                Type                 |                                    Description                                    |
+| ------------ | ----------------------------------- | --------------------------------------------------------------------------------- |
+| __path*__    | <em>string</em>                     | The path where to send data.                                                      |
+| submitFinish | <em>function(Object): !Promise</em> | The callback after the data has been sent with possible response from the server. |
 
-__<a name="type-submitformstate">`SubmitFormState`</a>__: The state structure for the SubmitForm.
+__<a name="type-_depackformsubmitformstate">`_depackForm.SubmitFormState`</a>__: The state structure for the SubmitForm.
 
-|       Name       |   Type    |                    Description                    |
-| ---------------- | --------- | ------------------------------------------------- |
-| __formLoading*__ | _boolean_ | Whether the data has been sent for submission.    |
-| __error*__       | _string_  | The error returned by the server.                 |
-| __success*__     | _boolean_ | Whether the form has been submitted successfully. |
+|       Name       |       Type       |                    Description                    |
+| ---------------- | ---------------- | ------------------------------------------------- |
+| __formLoading*__ | <em>boolean</em> | Whether the data has been sent for submission.    |
+| __error*__       | <em>string</em>  | The error returned by the server.                 |
+| __success*__     | <em>boolean</em> | Whether the form has been submitted successfully. |
 
 ```jsx
 import Form, { SubmitForm, Input } from '@depack/form'
@@ -323,16 +320,16 @@ Resets the `error` and `success` properties of the form.
 
 The button that can be placed inside the form and used for submission since it has `type="submit"` property. It also has the `loading` property to disable the button and show the spinning wheel indicator.
 
-__<a name="type-submitbuttonprops">`SubmitButtonProps`</a>__: Options for the SubmitButton component.
+__<a name="type-_depackformsubmitbuttonprops">`_depackForm.SubmitButtonProps`</a>__: Options for the SubmitButton component.
 
-|       Name       |                                               Type                                                |                                     Description                                     |  Default  |
-| ---------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | --------- |
-| loading          | _boolean_                                                                                         | Whether the button should display as loading.                                       | `false`   |
-| loadingText      | _string_                                                                                          | The text to show during the loading progress.                                       | -         |
-| __confirmText*__ | _string_                                                                                          | The text for the normal state.                                                      | -         |
-| className        | _string_                                                                                          | The class name, such as `btn-lg`.                                                   | -         |
-| type             | _('primary' \| 'secondary' \| 'success' \| 'danger' \| 'warning' \| 'info' \| 'light' \| 'dark')_ | The type of the button to add to the class as `btn-{type}`.                         | `primary` |
-| outline          | _boolean_                                                                                         | Display the outline style of the button via setting the `btn-outline-{type}` class. | `false`   |
+|       Name       |       Type       |                                                                              Description                                                                              |  Default  |
+| ---------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| loading          | <em>boolean</em> | Whether the button should display as loading.                                                                                                                         | `false`   |
+| loadingText      | <em>string</em>  | The text to show during the loading progress.                                                                                                                         | -         |
+| __confirmText*__ | <em>string</em>  | The text for the normal state.                                                                                                                                        | -         |
+| className        | <em>string</em>  | The class name, such as `btn-lg`.                                                                                                                                     | -         |
+| type             | <em>string</em>  | The type of the button to add to the class as `btn-{type}`. One of `('primary' \| 'secondary' \| 'success' \| 'danger' \| 'warning' \| 'info' \| 'light' \| 'dark')`. | `primary` |
+| outline          | <em>boolean</em> | Display the outline style of the button via setting the `btn-outline-{type}` class.                                                                                   | `false`   |
 
 ```jsx
 import { SubmitButton } from '@depack/form'
@@ -369,7 +366,7 @@ export default class Input extends Component {
   constructor() {
     super()
     /**
-     * @type {InputProps}
+     * @type {!_depackForm.InputProps}
      */
     this.props = this.props
   }
@@ -382,6 +379,9 @@ export default class Input extends Component {
     const { onChange } = this.context
     if (value !== undefined && onChange) onChange(name, value)
   }
+  /**
+   * @param {!_depackForm.InputProps} props Options for the Input component.
+   */
   render({
     required, name, placeholder, type = 'text', file, value, ...props
   }) {
@@ -404,15 +404,9 @@ export default class Input extends Component {
   }
 }
 
-/* documentary types/input.xml */
 /**
- * @typedef {Object} InputProps Options for the Input component.
- * @prop {boolean} [required] Whether this is a required field.
- * @prop {string} [name] The input name.
- * @prop {string} [placeholder] The input placeholder.
- * @prop {string} [value] The initial value.
- * @prop {string} [type] The input type.
- * @prop {*} [...props] All other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>`
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types').InputProps} _depackForm.InputProps
  */
 ```
 
@@ -427,18 +421,14 @@ export default class Input extends Component {
         <img src="https://raw.githubusercontent.com/wrote/wrote/master/images/artdeco.png" alt="Art Deco" />
       </a>
     </th>
-    <th>
-      © <a href="https://artd.eco">Art Deco</a> for <a href="https://artd.eco/depack">Depack</a>
-      2019
-    </th>
+    <th>© <a href="https://artd.eco">Art Deco</a> for <a href="https://artd.eco/depack">Depack</a> 2019</th>
     <th>
       <a href="https://www.technation.sucks" title="Tech Nation Visa">
-        <img src="https://raw.githubusercontent.com/artdecoweb/www.technation.sucks/master/anim.gif" alt="Tech Nation Visa" />
+        <img src="https://raw.githubusercontent.com/artdecoweb/www.technation.sucks/master/anim.gif"
+          alt="Tech Nation Visa" />
       </a>
     </th>
-    <th>
-      <a href="https://www.technation.sucks">Tech Nation Visa Sucks</a>
-    </th>
+    <th><a href="https://www.technation.sucks">Tech Nation Visa Sucks</a></th>
   </tr>
 </table>
 

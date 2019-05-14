@@ -7,13 +7,9 @@ import fetch from 'unfetch'
 export default class SubmitForm extends Component {
   constructor() {
     super()
-    /**
-     * @type {SubmitFormProps}
-     */
+    /** @type {!_depackForm.SubmitFormProps} */
     this.props = this.props
-    /**
-     * @type {SubmitFormState}
-     */
+    /** @type {!_depackForm.SubmitFormState} */
     this.state = {
       formLoading: false,
       error: null,
@@ -62,14 +58,11 @@ export default class SubmitForm extends Component {
   }
 }
 
-/* documentary types/SubmitForm.xml */
 /**
- * @typedef {Object} SubmitFormProps Options for the SubmitForm component.
- * @prop {string} path The path where to send data.
- * @prop {(result: Object) => Promise} [submitFinish] The callback after the data has been sent with possible response from the server.
- *
- * @typedef {Object} SubmitFormState The state structure for the SubmitForm.
- * @prop {boolean} formLoading Whether the data has been sent for submission.
- * @prop {string} error The error returned by the server.
- * @prop {boolean} success Whether the form has been submitted successfully.
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types').SubmitFormProps} _depackForm.SubmitFormProps
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types').SubmitFormState} _depackForm.SubmitFormState
  */
