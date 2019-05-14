@@ -25,7 +25,8 @@
   },
   "files": [
     "src",
-    "build"
+    "build",
+    "types/externs.js"
   ],
   "externs": "types/externs.js",
   "repository": {
