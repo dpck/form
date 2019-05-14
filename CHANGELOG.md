@@ -1,3 +1,9 @@
+## 14 May 2019
+
+### [1.3.0](https://github.com/dpck/form/compare/v1.2.1...v1.3.0)
+
+- [types] Publish externs and adjust types for the compiler.
+
 ## 6 March 2019
 
 ### 1.2.1
