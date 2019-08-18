@@ -16,6 +16,8 @@ export default class SubmitForm extends Component {
       error: null,
       success: null,
     }
+    /** @type {!RequestInit} */
+    this.fetchOptions = {}
   }
   /**
    * Submits the form to the `path` property, setting `formLoading` during this time. Also sets the `error` and `success` state.
@@ -34,6 +36,7 @@ export default class SubmitForm extends Component {
       res = await fetch(this.props.path, {
         method: 'POST',
         body: data,
+        ...this.fetchOptions,
       })
       const { 'error': error } = await res.json()
       if (error) this.setState({ error })

@@ -1,3 +1,10 @@
+## 18 August 2019
+
+### [1.3.2](https://github.com/dpck/form/compare/v1.3.1...v1.3.2)
+
+- [feature] Add `fetchOptions` to the _SubmitForm_.
+- [fix] Publish the **types** folder.
+
 ## 14 May 2019
 
 ### [1.3.1](https://github.com/dpck/form/compare/v1.3.0...v1.3.1)
