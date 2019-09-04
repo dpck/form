@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import { Component } from 'preact'
 import { shouldComponentUpdate } from './lib'
+import Help from './help'
 
 export default class Input extends Component {
   constructor() {
@@ -17,26 +18,64 @@ export default class Input extends Component {
     const { onChange } = this.context
     if (value !== undefined && onChange) onChange(name, value)
   }
-  render(props) {
-    const {
-      required, name, placeholder, type = 'text', file, value, ...prop
-    } = /** @type {!_depackForm.InputProps} */ (props)
-    const { onChange, hid, id, values = {} } = this.context
+  /**
+   * Triggers the onchange event on the form.
+   * @param {string} value
+   */
+  onChange(value) {
+    this.context.onChange(this.props.name, value)
+  }
+  /**
+   * @param {!_depackForm.InputProps} [props]
+   */
+  render({
+    required, name, placeholder, type = 'text', file, value, className,
+    invalid, valid, help, ...props
+  }) {
+    const { colClasses, prop } = getClasses(props)
+    const c = [
+      `form-control${file ? '-file' : ''}`, className,
+      invalid ? 'is-invalid' : null,
+      valid ? 'is-valid' : null,
+    ]
+      .filter(Boolean).join(' ')
+    const { hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
-    return h('input',{...prop,
+    const input = (h('input',{...prop,
       'required':required,
       'name':name,
       'placeholder':placeholder,
-      'className':`form-control${file ? '-file' : ''}`,
+      'className':c,
       'value':rendered ? values[name] : value,
       'type':type,
       'aria-describedby':hid,
       'id':id,
       'onChange':(e) => {
-        onChange(name, e.currentTarget.value)
+        this.onChange(e.currentTarget.value)
       }
-    })
+    }))
+    if (colClasses.length) {
+      const he = help ? (   h(Help,{help:help, hid:this.hid, valid:valid, invalid:invalid })) : null
+      return (  h('div',{'className':colClasses.join(' ')},
+        input,
+        he,
+      ))
+    }
+    return input
   }
+}
+
+const getClasses = (props) => {
+  const colClasses = []
+  const prop = Object.entries(props).reduce((acc, [key, value]) => {
+    if (key == 'col' || key.startsWith('col-')) {
+      colClasses.push(key)
+      return acc
+    }
+    acc[key] = value
+    return acc
+  }, {})
+  return { colClasses, prop }
 }
 
 /**

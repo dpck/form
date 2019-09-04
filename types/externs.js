@@ -15,14 +15,14 @@ _depackForm.SubmitButtonProps
 /* typal types/form-group.xml externs */
 /**
  * Options for the FormGroup component.
- * @typedef {{ label: (string|undefined), className: (string|undefined), labelClassName: (string|undefined), row: (boolean|undefined), form-row: (boolean|undefined), details: (boolean|undefined), invalid: (boolean|undefined), valid: (boolean|undefined), help: (string|undefined) }}
+ * @typedef {{ label: (string|undefined), className: (string|undefined), labelClassName: (string|undefined), row: (boolean|undefined), form-row: (boolean|undefined), details: (boolean|undefined), help: (string|undefined) }}
  */
 _depackForm.FormGroupProps
 
 /* typal types/Input.xml externs */
 /**
  * The rest is all other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>`.
- * @typedef {{ required: (boolean|undefined), name: (string|undefined), placeholder: (string|undefined), file: (boolean|undefined), value: (string|undefined), className: (string|undefined), col-*: (string|undefined), type: (string|undefined) }}
+ * @typedef {{ required: (boolean|undefined), name: (string|undefined), placeholder: (string|undefined), file: (boolean|undefined), value: (string|undefined), className: (string|undefined), col: (string|undefined), type: (string|undefined), help: (string|undefined), invalid: (boolean|undefined), valid: (boolean|undefined) }}
  */
 _depackForm.InputProps
 

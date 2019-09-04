@@ -1,3 +1,4 @@
+import { h } from 'preact'
 import { Component } from 'preact'
 import Help from './help'
 
@@ -31,29 +32,29 @@ export default class FormGroup extends Component {
     const lc = [row ? 'col-form-label' : null, labelClassName]
       .filter(Boolean).join(' ') || undefined
 
-    const lbl = label ? <label
-      className={lc}
-      htmlFor={this.id}>{label}</label> : null
+    const lbl = label ?   h('label',{
+      'className':lc,
+      'htmlFor':this.id},label) : null
 
-    const he = (<Help help={help} hid={this.hid} />) // ignore validation
+    const he = ( h(Help,{help:help, hid:this.hid })) // ignore validation
 
     if (details) {
       return (
-        <details className={c}>
-          <summary>
-            {lbl}
-          </summary>
-          {children}
-          {row ? <div className="col-12">{he}</div> : he}
-        </details>
+                 h('details',{'className':c},
+          h('summary',{},
+            lbl,
+          ),
+          children,
+          row ? h('div',{'className':"col-12"},he) : he,
+        )
       )
     }
 
-    return (<div className={c}>
-      {lbl}
-      {children}
-      {row ? <div className="col-12">{he}</div> : he}
-    </div>)
+    return (   h('div',{'className':c},
+      lbl,
+      children,
+      row ? h('div',{'className':"col-12"},he) : he,
+    ))
   }
 }
 

@@ -26,9 +26,7 @@ export {}
  * @prop {boolean} [row] Whether the group should be displayed in a row. Children must manually be wrapped in `div`s with `col` classes. Adds the `col-form-label` class to the label and the `row` class to the group.
  * @prop {boolean} [form-row] Same as `row`, but adds the `form-row` class to the group.
  * @prop {boolean} [details] Whether to display the group in `details` block.
- * @prop {boolean} [invalid] Adds the `invalid-feedback` class to help text.
- * @prop {boolean} [valid] Adds the `valid-feedback` class to help text.
- * @prop {string} [help] The help text to show in `＜small className="form-text text-muted"＞{help}＜/small＞`
+ * @prop {string} [help] The help text to show in `＜small className="form-text text-muted"＞{help}＜/small＞`. To support validation with `valid` and `invalid` classes, set help on inputs rather than group.
  */
 
 /* typal types/input.xml namespace */
@@ -41,8 +39,11 @@ export {}
  * @prop {boolean} [file] Whether the input is for selecting files.
  * @prop {string} [value] The initial value.
  * @prop {string} [className] The additional class name to add to `form-control` and `form-control-file`.
- * @prop {string} [col-*] If any of the `col` properties are passed (e.g., `col-12`, `col-sm-8`, _etc_), will create a div wrapper with this class.
+ * @prop {string} [col] If any of the `col` properties are passed (e.g., `col-12`, `col-sm-8`, _etc_), the _Form_ will create a `div` wrapper around the input with the column class.
  * @prop {string} [type="text"] The input type. Default `text`.
+ * @prop {string} [help] The help text to show under the input. Supports validation classes.
+ * @prop {boolean} [invalid] Adds the `invalid-feedback` class to help text.
+ * @prop {boolean} [valid] Adds the `valid-feedback` class to help text.
  */
 
 /* typal types/select.xml namespace */

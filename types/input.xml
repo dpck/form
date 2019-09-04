@@ -15,8 +15,23 @@
     <prop opt string name="value">
       The initial value.
     </prop>
-    <prop opt string name="type">
+    <prop opt string name="className">
+      The additional class name to add to `form-control` and `form-control-file`.
+    </prop>
+    <prop opt string name="col">
+      If any of the `col` properties are passed (e.g., `col-12`, `col-sm-8`, _etc_), the _Form_ will create a `div` wrapper around the input with the column class.
+    </prop>
+    <prop string name="type" default="text">
       The input type.
+    </prop>
+    <prop opt string name="help">
+      The help text to show under the input. Supports validation classes.
+    </prop>
+    <prop opt boolean name="invalid">
+      Adds the `invalid-feedback` class to help text.
+    </prop>
+    <prop opt boolean name="valid">
+      Adds the `valid-feedback` class to help text.
     </prop>
   </type>
 </types>

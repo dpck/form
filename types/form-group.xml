@@ -18,14 +18,8 @@
     <prop opt boolean name="details">
       Whether to display the group in `details` block.
     </prop>
-    <prop opt boolean name="invalid">
-      Adds the `invalid-feedback` class to help text.
-    </prop>
-    <prop opt boolean name="valid">
-      Adds the `valid-feedback` class to help text.
-    </prop>
     <prop opt string name="help">
-      The help text to show in `＜small className="form-text text-muted"＞{help}＜/small＞`
+      The help text to show in `＜small className="form-text text-muted"＞{help}＜/small＞`. To support validation with `valid` and `invalid` classes, set help on inputs rather than group.
     </prop>
   </type>
 </types>

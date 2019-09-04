@@ -9,6 +9,9 @@
     <prop opt string name="value">
       The initial value.
     </prop>
+    <prop opt string name="className">
+      The additional class name to add to `custom-select`.
+    </prop>
     <prop opt type="!Array<{value: *, title: string}>" name="options">
       The array with options to render inside of the `select` element.
     </prop>

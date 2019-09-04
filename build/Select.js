@@ -18,28 +18,29 @@ export default class Select extends Component {
     if (onChange && value !== undefined) onChange(name, value)
   }
   render(props) {
-    const { options, name, value, required } =
+    const { options, name, value, required, className, defaultText } =
       /** @type {!_depackForm.SelectProps} */ (props)
+    const c = className ? ` ${className}` : ''
     const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
     const selectValue = rendered ? values[name] : value
-    return     h('select',{
+    return (     h('select',{
       'name':name,
-      'value':selectValue,
+      'value':selectValue !== undefined ? selectValue : '',
+      'className':`custom-select${c}`,
       'required':required,
-      'className':"custom-select",
       'id':id,
       'aria-describedby':hid,
       'onChange':(e) => {
         onChange(name, e.currentTarget.value)
       }},
-      h('option'),
+      h('option',{'value':''},defaultText),
       options.map(({ value: v, title }) => {
         return h('option',{'key':v,'value':v,'selected':v==value},
           title,
         )
       }),
-    )
+    ))
   }
 }
 
