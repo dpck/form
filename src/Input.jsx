@@ -55,7 +55,7 @@ export default class Input extends Component {
       {...prop}
     />)
     if (colClasses.length) {
-      const he = help ? (<Help help={help} hid={this.hid} valid={valid} invalid={invalid} />) : null
+      const he = help ? (<Help help={help} hid={hid} valid={valid} invalid={invalid} />) : null
       return (<div className={colClasses.join(' ')}>
         {input}
         {he}

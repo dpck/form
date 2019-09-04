@@ -1,34 +1,40 @@
-function aa(a) {
+function l(a) {
   var b = 0;
   return function() {
     return b < a.length ? {done:!1, value:a[b++]} : {done:!0};
   };
 }
-function ba(a) {
+function r(a) {
   var b = "undefined" != typeof Symbol && Symbol.iterator && a[Symbol.iterator];
-  return b ? b.call(a) : {next:aa(a)};
+  return b ? b.call(a) : {next:l(a)};
 }
-var ca = "function" == typeof Object.create ? Object.create : function(a) {
+function aa(a) {
+  for (var b, c = []; !(b = a.next()).done;) {
+    c.push(b.value);
+  }
+  return c;
+}
+var ba = "function" == typeof Object.create ? Object.create : function(a) {
   function b() {
   }
   b.prototype = a;
   return new b;
-}, da;
+}, u;
 if ("function" == typeof Object.setPrototypeOf) {
-  da = Object.setPrototypeOf;
+  u = Object.setPrototypeOf;
 } else {
-  var ea;
+  var v;
   a: {
-    var fa = {ha:!0}, ha = {};
+    var ca = {B:!0}, x = {};
     try {
-      ha.__proto__ = fa;
-      ea = ha.ha;
+      x.__proto__ = ca;
+      v = x.B;
       break a;
     } catch (a) {
     }
-    ea = !1;
+    v = !1;
   }
-  da = ea ? function(a, b) {
+  u = v ? function(a, b) {
     a.__proto__ = b;
     if (a.__proto__ !== b) {
       throw new TypeError(a + " is not extensible");
@@ -36,1029 +42,743 @@ if ("function" == typeof Object.setPrototypeOf) {
     return a;
   } : null;
 }
-var ia = da;
-function m(a, b) {
-  a.prototype = ca(b.prototype);
+var y = u;
+function z(a, b) {
+  a.prototype = ba(b.prototype);
   a.prototype.constructor = a;
-  if (ia) {
-    ia(a, b);
+  if (y) {
+    y(a, b);
   } else {
     for (var c in b) {
       if ("prototype" != c) {
         if (Object.defineProperties) {
-          var d = Object.getOwnPropertyDescriptor(b, c);
-          d && Object.defineProperty(a, c, d);
+          var e = Object.getOwnPropertyDescriptor(b, c);
+          e && Object.defineProperty(a, c, e);
         } else {
           a[c] = b[c];
         }
       }
     }
   }
-  a.Fa = b.prototype;
+  a.H = b.prototype;
 }
-var w = "undefined" != typeof window && window === this ? this : "undefined" != typeof global && null != global ? global : this, ja = "function" == typeof Object.defineProperties ? Object.defineProperty : function(a, b, c) {
+var B = "undefined" != typeof window && window === this ? this : "undefined" != typeof global && null != global ? global : this, C = "function" == typeof Object.defineProperties ? Object.defineProperty : function(a, b, c) {
   a != Array.prototype && a != Object.prototype && (a[b] = c.value);
 };
-function ka(a, b) {
+function D(a, b) {
   if (b) {
-    var c = w;
+    var c = B;
     a = a.split(".");
-    for (var d = 0; d < a.length - 1; d++) {
-      var e = a[d];
-      e in c || (c[e] = {});
-      c = c[e];
+    for (var e = 0; e < a.length - 1; e++) {
+      var h = a[e];
+      h in c || (c[h] = {});
+      c = c[h];
     }
     a = a[a.length - 1];
-    d = c[a];
-    b = b(d);
-    b != d && null != b && ja(c, a, {configurable:!0, writable:!0, value:b});
+    e = c[a];
+    b = b(e);
+    b != e && null != b && C(c, a, {configurable:!0, writable:!0, value:b});
   }
 }
-ka("Promise", function(a) {
-  function b(a) {
-    this.c = 0;
-    this.j = void 0;
+D("Promise", function(a) {
+  function b(f) {
+    this.b = 0;
+    this.g = void 0;
     this.a = [];
-    var b = this.g();
+    var d = this.c();
     try {
-      a(b.resolve, b.reject);
-    } catch (k) {
-      b.reject(k);
+      f(d.resolve, d.reject);
+    } catch (g) {
+      d.reject(g);
     }
   }
   function c() {
     this.a = null;
   }
-  function d(a) {
-    return a instanceof b ? a : new b(function(b) {
-      b(a);
+  function e(f) {
+    return f instanceof b ? f : new b(function(d) {
+      d(f);
     });
   }
   if (a) {
     return a;
   }
-  c.prototype.c = function(a) {
+  c.prototype.b = function(f) {
     if (null == this.a) {
       this.a = [];
-      var b = this;
-      this.g(function() {
-        b.j();
+      var d = this;
+      this.c(function() {
+        d.g();
       });
     }
-    this.a.push(a);
+    this.a.push(f);
   };
-  var e = w.setTimeout;
-  c.prototype.g = function(a) {
-    e(a, 0);
+  var h = B.setTimeout;
+  c.prototype.c = function(f) {
+    h(f, 0);
   };
-  c.prototype.j = function() {
+  c.prototype.g = function() {
     for (; this.a && this.a.length;) {
-      var a = this.a;
+      var f = this.a;
       this.a = [];
-      for (var b = 0; b < a.length; ++b) {
-        var c = a[b];
-        a[b] = null;
+      for (var d = 0; d < f.length; ++d) {
+        var g = f[d];
+        f[d] = null;
         try {
-          c();
-        } catch (l) {
-          this.i(l);
+          g();
+        } catch (m) {
+          this.f(m);
         }
       }
     }
     this.a = null;
   };
-  c.prototype.i = function(a) {
-    this.g(function() {
-      throw a;
+  c.prototype.f = function(f) {
+    this.c(function() {
+      throw f;
     });
   };
-  b.prototype.g = function() {
-    function a(a) {
-      return function(d) {
-        c || (c = !0, a.call(b, d));
+  b.prototype.c = function() {
+    function f(m) {
+      return function(n) {
+        g || (g = !0, m.call(d, n));
       };
     }
-    var b = this, c = !1;
-    return {resolve:a(this.va), reject:a(this.i)};
+    var d = this, g = !1;
+    return {resolve:f(this.D), reject:f(this.f)};
   };
-  b.prototype.va = function(a) {
-    if (a === this) {
-      this.i(new TypeError("A Promise cannot resolve to itself"));
+  b.prototype.D = function(f) {
+    if (f === this) {
+      this.f(new TypeError("A Promise cannot resolve to itself"));
     } else {
-      if (a instanceof b) {
-        this.wa(a);
+      if (f instanceof b) {
+        this.F(f);
       } else {
         a: {
-          switch(typeof a) {
+          switch(typeof f) {
             case "object":
-              var c = null != a;
+              var d = null != f;
               break a;
             case "function":
-              c = !0;
+              d = !0;
               break a;
             default:
-              c = !1;
+              d = !1;
           }
         }
-        c ? this.I(a) : this.s(a);
+        d ? this.u(f) : this.j(f);
       }
     }
   };
-  b.prototype.I = function(a) {
-    var b = void 0;
+  b.prototype.u = function(f) {
+    var d = void 0;
     try {
-      b = a.then;
-    } catch (k) {
-      this.i(k);
+      d = f.then;
+    } catch (g) {
+      this.f(g);
       return;
     }
-    "function" == typeof b ? this.ya(b, a) : this.s(a);
+    "function" == typeof d ? this.G(d, f) : this.j(f);
   };
-  b.prototype.i = function(a) {
-    this.v(2, a);
+  b.prototype.f = function(f) {
+    this.l(2, f);
   };
-  b.prototype.s = function(a) {
-    this.v(1, a);
+  b.prototype.j = function(f) {
+    this.l(1, f);
   };
-  b.prototype.v = function(a, b) {
-    if (0 != this.c) {
-      throw Error("Cannot settle(" + a + ", " + b + "): Promise already settled in state" + this.c);
+  b.prototype.l = function(f, d) {
+    if (0 != this.b) {
+      throw Error("Cannot settle(" + f + ", " + d + "): Promise already settled in state" + this.b);
     }
-    this.c = a;
-    this.j = b;
-    this.B();
+    this.b = f;
+    this.g = d;
+    this.o();
   };
-  b.prototype.B = function() {
+  b.prototype.o = function() {
     if (null != this.a) {
-      for (var a = 0; a < this.a.length; ++a) {
-        f.c(this.a[a]);
+      for (var f = 0; f < this.a.length; ++f) {
+        k.b(this.a[f]);
       }
       this.a = null;
     }
   };
-  var f = new c;
-  b.prototype.wa = function(a) {
-    var b = this.g();
-    a.G(b.resolve, b.reject);
+  var k = new c;
+  b.prototype.F = function(f) {
+    var d = this.c();
+    f.s(d.resolve, d.reject);
   };
-  b.prototype.ya = function(a, b) {
-    var c = this.g();
+  b.prototype.G = function(f, d) {
+    var g = this.c();
     try {
-      a.call(b, c.resolve, c.reject);
-    } catch (l) {
-      c.reject(l);
+      f.call(d, g.resolve, g.reject);
+    } catch (m) {
+      g.reject(m);
     }
   };
-  b.prototype.then = function(a, c) {
-    function d(a, b) {
-      return "function" == typeof a ? function(b) {
+  b.prototype.then = function(f, d) {
+    function g(p, t) {
+      return "function" == typeof p ? function(w) {
         try {
-          e(a(b));
-        } catch (y) {
-          f(y);
+          m(p(w));
+        } catch (A) {
+          n(A);
         }
-      } : b;
+      } : t;
     }
-    var e, f, g = new b(function(a, b) {
-      e = a;
-      f = b;
+    var m, n, q = new b(function(p, t) {
+      m = p;
+      n = t;
     });
-    this.G(d(a, e), d(c, f));
-    return g;
+    this.s(g(f, m), g(d, n));
+    return q;
   };
-  b.prototype.catch = function(a) {
-    return this.then(void 0, a);
+  b.prototype.catch = function(f) {
+    return this.then(void 0, f);
   };
-  b.prototype.G = function(a, b) {
-    function c() {
-      switch(d.c) {
+  b.prototype.s = function(f, d) {
+    function g() {
+      switch(m.b) {
         case 1:
-          a(d.j);
+          f(m.g);
           break;
         case 2:
-          b(d.j);
+          d(m.g);
           break;
         default:
-          throw Error("Unexpected state: " + d.c);
+          throw Error("Unexpected state: " + m.b);
       }
     }
-    var d = this;
-    null == this.a ? f.c(c) : this.a.push(c);
+    var m = this;
+    null == this.a ? k.b(g) : this.a.push(g);
   };
-  b.resolve = d;
-  b.reject = function(a) {
-    return new b(function(b, c) {
-      c(a);
+  b.resolve = e;
+  b.reject = function(f) {
+    return new b(function(d, g) {
+      g(f);
     });
   };
-  b.race = function(a) {
-    return new b(function(b, c) {
-      for (var e = ba(a), f = e.next(); !f.done; f = e.next()) {
-        d(f.value).G(b, c);
+  b.race = function(f) {
+    return new b(function(d, g) {
+      for (var m = r(f), n = m.next(); !n.done; n = m.next()) {
+        e(n.value).s(d, g);
       }
     });
   };
-  b.all = function(a) {
-    var c = ba(a), e = c.next();
-    return e.done ? d([]) : new b(function(a, b) {
-      function f(b) {
-        return function(c) {
-          g[b] = c;
-          h--;
-          0 == h && a(g);
+  b.all = function(f) {
+    var d = r(f), g = d.next();
+    return g.done ? e([]) : new b(function(m, n) {
+      function q(w) {
+        return function(A) {
+          p[w] = A;
+          t--;
+          0 == t && m(p);
         };
       }
-      var g = [], h = 0;
+      var p = [], t = 0;
       do {
-        g.push(void 0), h++, d(e.value).G(f(g.length - 1), b), e = c.next();
-      } while (!e.done);
+        p.push(void 0), t++, e(g.value).s(q(p.length - 1), n), g = d.next();
+      } while (!g.done);
     });
   };
   return b;
 });
-function ma() {
-  ma = function() {
+function E() {
+  E = function() {
   };
-  w.Symbol || (w.Symbol = na);
+  B.Symbol || (B.Symbol = da);
 }
-function oa(a, b) {
+function F(a, b) {
   this.a = a;
-  ja(this, "description", {configurable:!0, writable:!0, value:b});
+  C(this, "description", {configurable:!0, writable:!0, value:b});
 }
-oa.prototype.toString = function() {
+F.prototype.toString = function() {
   return this.a;
 };
-var na = function() {
+var da = function() {
   function a(c) {
     if (this instanceof a) {
       throw new TypeError("Symbol is not a constructor");
     }
-    return new oa("jscomp_symbol_" + (c || "") + "_" + b++, c);
+    return new F("jscomp_symbol_" + (c || "") + "_" + b++, c);
   }
   var b = 0;
   return a;
 }();
-function z() {
-  ma();
-  var a = w.Symbol.iterator;
-  a || (a = w.Symbol.iterator = w.Symbol("Symbol.iterator"));
-  "function" != typeof Array.prototype[a] && ja(Array.prototype, a, {configurable:!0, writable:!0, value:function() {
-    return pa(aa(this));
+function G() {
+  E();
+  var a = B.Symbol.iterator;
+  a || (a = B.Symbol.iterator = B.Symbol("Symbol.iterator"));
+  "function" != typeof Array.prototype[a] && C(Array.prototype, a, {configurable:!0, writable:!0, value:function() {
+    return ea(l(this));
   }});
-  z = function() {
+  G = function() {
   };
 }
-function pa(a) {
-  z();
+function ea(a) {
+  G();
   a = {next:a};
-  a[w.Symbol.iterator] = function() {
+  a[B.Symbol.iterator] = function() {
     return this;
   };
   return a;
 }
-function D() {
-  this.s = !1;
-  this.g = null;
-  this.v = void 0;
-  this.c = 1;
-  this.i = this.j = 0;
-  this.I = this.a = null;
+function H() {
+  this.j = !1;
+  this.c = null;
+  this.l = void 0;
+  this.b = 1;
+  this.f = this.g = 0;
+  this.u = this.a = null;
 }
-function qa(a) {
-  if (a.s) {
+function I(a) {
+  if (a.j) {
     throw new TypeError("Generator is already running");
   }
-  a.s = !0;
+  a.j = !0;
 }
-D.prototype.B = function(a) {
-  this.v = a;
+H.prototype.o = function(a) {
+  this.l = a;
 };
-function ra(a, b) {
-  a.a = {Z:b, aa:!0};
-  a.c = a.j || a.i;
+function J(a, b) {
+  a.a = {w:b, A:!0};
+  a.b = a.g || a.f;
 }
-D.prototype.return = function(a) {
+H.prototype.return = function(a) {
   this.a = {return:a};
-  this.c = this.i;
+  this.b = this.f;
 };
-function sa(a, b, c) {
-  a.c = c;
+function K(a, b, c) {
+  a.b = c;
   return {value:b};
 }
-D.prototype.A = function(a) {
-  this.c = a;
+H.prototype.m = function(a) {
+  this.b = a;
 };
-function ta(a) {
-  this.a = new D;
-  this.c = a;
+function fa(a) {
+  this.a = new H;
+  this.b = a;
 }
-function ua(a, b) {
-  qa(a.a);
-  var c = a.a.g;
+function ha(a, b) {
+  I(a.a);
+  var c = a.a.c;
   if (c) {
-    return va(a, "return" in c ? c["return"] : function(a) {
-      return {value:a, done:!0};
+    return L(a, "return" in c ? c["return"] : function(e) {
+      return {value:e, done:!0};
     }, b, a.a.return);
   }
   a.a.return(b);
-  return E(a);
+  return M(a);
 }
-function va(a, b, c, d) {
+function L(a, b, c, e) {
   try {
-    var e = b.call(a.a.g, c);
-    if (!(e instanceof Object)) {
-      throw new TypeError("Iterator result " + e + " is not an object");
+    var h = b.call(a.a.c, c);
+    if (!(h instanceof Object)) {
+      throw new TypeError("Iterator result " + h + " is not an object");
     }
-    if (!e.done) {
-      return a.a.s = !1, e;
+    if (!h.done) {
+      return a.a.j = !1, h;
     }
-    var f = e.value;
-  } catch (h) {
-    return a.a.g = null, ra(a.a, h), E(a);
+    var k = h.value;
+  } catch (f) {
+    return a.a.c = null, J(a.a, f), M(a);
   }
-  a.a.g = null;
-  d.call(a.a, f);
-  return E(a);
+  a.a.c = null;
+  e.call(a.a, k);
+  return M(a);
 }
-function E(a) {
-  for (; a.a.c;) {
+function M(a) {
+  for (; a.a.b;) {
     try {
-      var b = a.c(a.a);
+      var b = a.b(a.a);
       if (b) {
-        return a.a.s = !1, {value:b.value, done:!1};
+        return a.a.j = !1, {value:b.value, done:!1};
       }
     } catch (c) {
-      a.a.v = void 0, ra(a.a, c);
+      a.a.l = void 0, J(a.a, c);
     }
   }
-  a.a.s = !1;
+  a.a.j = !1;
   if (a.a.a) {
     b = a.a.a;
     a.a.a = null;
-    if (b.aa) {
-      throw b.Z;
+    if (b.A) {
+      throw b.w;
     }
     return {value:b.return, done:!0};
   }
   return {value:void 0, done:!0};
 }
-function wa(a) {
+function ia(a) {
   this.next = function(b) {
-    qa(a.a);
-    a.a.g ? b = va(a, a.a.g.next, b, a.a.B) : (a.a.B(b), b = E(a));
+    I(a.a);
+    a.a.c ? b = L(a, a.a.c.next, b, a.a.o) : (a.a.o(b), b = M(a));
     return b;
   };
   this.throw = function(b) {
-    qa(a.a);
-    a.a.g ? b = va(a, a.a.g["throw"], b, a.a.B) : (ra(a.a, b), b = E(a));
+    I(a.a);
+    a.a.c ? b = L(a, a.a.c["throw"], b, a.a.o) : (J(a.a, b), b = M(a));
     return b;
   };
   this.return = function(b) {
-    return ua(a, b);
+    return ha(a, b);
   };
-  z();
+  G();
   this[Symbol.iterator] = function() {
     return this;
   };
 }
-function xa(a) {
-  function b(b) {
-    return a.next(b);
+function ja(a) {
+  function b(e) {
+    return a.next(e);
   }
-  function c(b) {
-    return a.throw(b);
+  function c(e) {
+    return a.throw(e);
   }
-  return new Promise(function(d, e) {
-    function f(a) {
-      a.done ? d(a.value) : Promise.resolve(a.value).then(b, c).then(f, e);
+  return new Promise(function(e, h) {
+    function k(f) {
+      f.done ? e(f.value) : Promise.resolve(f.value).then(b, c).then(k, h);
     }
-    f(a.next());
+    k(a.next());
   });
 }
-function ya(a, b) {
-  z();
+function ka(a, b) {
+  G();
   a instanceof String && (a += "");
-  var c = 0, d = {next:function() {
+  var c = 0, e = {next:function() {
     if (c < a.length) {
-      var e = c++;
-      return {value:b(e, a[e]), done:!1};
+      var h = c++;
+      return {value:b(h, a[h]), done:!1};
     }
-    d.next = function() {
+    e.next = function() {
       return {done:!0, value:void 0};
     };
-    return d.next();
+    return e.next();
   }};
-  d[Symbol.iterator] = function() {
-    return d;
+  e[Symbol.iterator] = function() {
+    return e;
   };
-  return d;
+  return e;
 }
-ka("Array.prototype.values", function(a) {
+D("Array.prototype.values", function(a) {
   return a ? a : function() {
-    return ya(this, function(a, c) {
+    return ka(this, function(b, c) {
       return c;
     });
   };
 });
-function za() {
-}
-var F = {}, G = [], Aa = [];
-function H(a, b) {
-  var c = Aa, d, e;
-  for (e = arguments.length; 2 < e--;) {
-    G.push(arguments[e]);
-  }
-  b && null != b.children && (G.length || G.push(b.children), delete b.children);
-  for (; G.length;) {
-    if ((d = G.pop()) && void 0 !== d.pop) {
-      for (e = d.length; e--;) {
-        G.push(d[e]);
-      }
-    } else {
-      "boolean" === typeof d && (d = null);
-      if (e = "function" !== typeof a) {
-        null == d ? d = "" : "number" === typeof d ? d = String(d) : "string" !== typeof d && (e = !1);
-      }
-      e && f ? c[c.length - 1] += d : c === Aa ? c = [d] : c.push(d);
-      var f = e;
+D("Object.entries", function(a) {
+  return a ? a : function(b) {
+    var c = [], e;
+    for (e in b) {
+      Object.prototype.hasOwnProperty.call(b, e) && c.push([e, b[e]]);
     }
-  }
-  f = new za;
-  f.nodeName = a;
-  f.children = c;
-  f.attributes = null == b ? void 0 : b;
-  f.key = null == b ? void 0 : b.key;
-  void 0 !== F.za && F.za(f);
-  return f;
-}
-function J(a, b) {
-  for (var c in b) {
-    a[c] = b[c];
-  }
-  return a;
-}
-function K(a, b) {
-  null != a && ("function" == typeof a ? a(b) : a.current = b);
-}
-var Ba = "function" == typeof Promise ? Promise.resolve().then.bind(Promise.resolve()) : setTimeout, Ca = /acit|ex(?:s|g|n|p|$)|rph|ows|mnc|ntw|ine[ch]|zoo|^ord/i, Da = [];
-function Ea(a) {
-  !a.C && (a.C = !0) && 1 == Da.push(a) && (F.Ba || Ba)(Fa);
-}
-function Fa() {
-  for (var a; a = Da.pop();) {
-    a.C && L(a);
-  }
-}
-function Ga(a) {
-  var b = J({}, a.attributes);
-  b.children = a.children;
-  a = a.nodeName.Ca;
-  if (void 0 !== a) {
-    for (var c in a) {
-      void 0 === b[c] && (b[c] = a[c]);
+    return c;
+  };
+});
+D("String.prototype.startsWith", function(a) {
+  return a ? a : function(b, c) {
+    if (null == this) {
+      throw new TypeError("The 'this' value for String.prototype.startsWith must not be null or undefined");
     }
-  }
-  return b;
-}
-function Ha(a) {
-  var b = a.parentNode;
-  b && b.removeChild(a);
-}
-function Ia(a, b, c, d) {
-  var e = M;
-  "className" === b && (b = "class");
-  if ("key" !== b) {
-    if ("ref" === b) {
-      K(c, null), K(d, a);
-    } else {
-      if ("class" !== b || e) {
-        if ("style" === b) {
-          if (d && "string" !== typeof d && "string" !== typeof c || (a.style.cssText = d || ""), d && "object" === typeof d) {
-            if ("string" !== typeof c) {
-              for (var f in c) {
-                f in d || (a.style[f] = "");
-              }
-            }
-            for (f in d) {
-              a.style[f] = "number" === typeof d[f] && !1 === Ca.test(f) ? d[f] + "px" : d[f];
-            }
-          }
-        } else {
-          if ("dangerouslySetInnerHTML" === b) {
-            d && (a.innerHTML = d.ga || "");
-          } else {
-            if ("o" == b[0] && "n" == b[1]) {
-              e = b !== (b = b.replace(/Capture$/, "")), b = b.toLowerCase().substring(2), d ? c || a.addEventListener(b, Ja, e) : a.removeEventListener(b, Ja, e), (a.X || (a.X = {}))[b] = d;
-            } else {
-              if ("list" !== b && "type" !== b && !e && b in a) {
-                try {
-                  a[b] = null == d ? "" : d;
-                } catch (h) {
-                }
-                null != d && !1 !== d || "spellcheck" == b || a.removeAttribute(b);
-              } else {
-                c = e && b !== (b = b.replace(/^xlink:?/, "")), null == d || !1 === d ? c ? a.removeAttributeNS("http://www.w3.org/1999/xlink", b.toLowerCase()) : a.removeAttribute(b) : "function" !== typeof d && (c ? a.setAttributeNS("http://www.w3.org/1999/xlink", b.toLowerCase(), d) : a.setAttribute(b, d));
-              }
-            }
-          }
-        }
-      } else {
-        a.className = d || "";
+    if (b instanceof RegExp) {
+      throw new TypeError("First argument to String.prototype.startsWith must not be a regular expression");
+    }
+    var e = this.length, h = b.length;
+    c = Math.max(0, Math.min(c | 0, this.length));
+    for (var k = 0; k < h && c < e;) {
+      if (this[c++] != b[k++]) {
+        return !1;
       }
     }
-  }
+    return k >= h;
+  };
+});
+var N = preact, O = N.h, P = N.Component, la = N.render;
+function ma(a) {
+  var b = a.help, c = a.i, e = a.valid, h = "text-muted";
+  a.invalid ? h = "invalid-feedback" : e && (h = "valid-feedback");
+  a = "form-text " + h;
+  return "string" != typeof b ? O("small", {id:c, className:a}, b) : O("small", {id:c, className:a, dangerouslySetInnerHTML:{__html:b}});
 }
-function Ja(a) {
-  return this.X[a.type](F.event && F.event(a) || a);
-}
-var Ka = [], La = 0, M = !1, N = !1;
-function Ma() {
-  for (var a; a = Ka.shift();) {
-    F.ia && F.ia(a), a.H && a.H();
-  }
-}
-function Na(a, b, c, d, e, f) {
-  La++ || (M = null != e && void 0 !== e.Ea, N = null != a && !("__preactattr_" in a));
-  a = Oa(a, b, c, d, f);
-  e && a.parentNode !== e && e.appendChild(a);
-  --La || (N = !1, f || Ma());
-  return a;
-}
-function Oa(a, b, c, d, e) {
-  var f = a, h = M;
-  if (null == b || "boolean" === typeof b) {
-    b = "";
-  }
-  if ("string" === typeof b || "number" === typeof b) {
-    return a && void 0 !== a.splitText && a.parentNode && (!a.h || e) ? a.nodeValue != b && (a.nodeValue = b) : (f = document.createTextNode(b), a && (a.parentNode && a.parentNode.replaceChild(f, a), O(a, !0))), f.__preactattr_ = !0, f;
-  }
-  e = b.nodeName;
-  if ("function" === typeof e) {
-    h = a;
-    var g = b;
-    f = b = h && h.h;
-    var k = h, l = b && h.L === g.nodeName, q = l;
-    for (a = Ga(g); b && !q && (b = b.Y);) {
-      q = b.constructor === g.nodeName;
-    }
-    b && q && (!d || b.h) ? (P(b, a, 3, c, d), h = b.o) : (f && !l && (Q(f), h = k = null), b = Pa(g.nodeName, a, c), h && !b.u && (b.u = h, k = null), P(b, a, 1, c, d), h = b.o, k && h !== k && (k.h = null, O(k, !1)));
-    return h;
-  }
-  M = "svg" === e ? !0 : "foreignObject" === e ? !1 : M;
-  e = String(e);
-  if (!a || a.ba !== e && a.nodeName.toLowerCase() !== e.toLowerCase()) {
-    if (f = e, e = M ? document.createElementNS("http://www.w3.org/2000/svg", f) : document.createElement(f), e.ba = f, f = e, a) {
-      for (; a.firstChild;) {
-        f.appendChild(a.firstChild);
-      }
-      a.parentNode && a.parentNode.replaceChild(f, a);
-      O(a, !0);
-    }
-  }
-  var r = f.firstChild;
-  a = f.__preactattr_;
-  e = b.children;
-  if (null == a) {
-    a = f.__preactattr_ = {};
-    for (var p = f.attributes, A = p.length; A--;) {
-      a[p[A].name] = p[A].value;
-    }
-  }
-  if (!N && e && 1 === e.length && "string" === typeof e[0] && null != r && void 0 !== r.splitText && null == r.nextSibling) {
-    r.nodeValue != e[0] && (r.nodeValue = e[0]);
-  } else {
-    if (e && e.length || null != r) {
-      r = f;
-      p = N || null != a.Aa;
-      A = r.childNodes;
-      var B = [], y = {}, u = 0, t = 0, n = A.length, I = 0, la = e ? e.length : 0;
-      if (0 !== n) {
-        for (q = 0; q < n; q++) {
-          var v = A[q], C = v.__preactattr_;
-          var x = la && C ? v.h ? v.h.V : C.key : null;
-          if (null != x) {
-            u++, y[x] = v;
-          } else {
-            if (C || (void 0 !== v.splitText ? p ? v.nodeValue.trim() : 1 : p)) {
-              B[I++] = v;
-            }
-          }
-        }
-      }
-      if (0 !== la) {
-        for (q = 0; q < la; q++) {
-          n = e[q];
-          l = null;
-          x = n.key;
-          if (null != x) {
-            u && void 0 !== y[x] && (l = y[x], y[x] = void 0, u--);
-          } else {
-            if (t < I) {
-              for (x = t; x < I; x++) {
-                if (v = void 0 !== B[x]) {
-                  if (v = k = B[x], "string" === typeof n || "number" === typeof n) {
-                    v = void 0 !== v.splitText;
-                  } else {
-                    if ("string" === typeof n.nodeName) {
-                      if (C = !v.L) {
-                        C = n.nodeName, C = v.ba === C || v.nodeName.toLowerCase() === C.toLowerCase();
-                      }
-                      v = C;
-                    } else {
-                      v = p || v.L === n.nodeName;
-                    }
-                  }
-                }
-                if (v) {
-                  l = k;
-                  B[x] = void 0;
-                  x === I - 1 && I--;
-                  x === t && t++;
-                  break;
-                }
-              }
-            }
-          }
-          l = Oa(l, n, c, d);
-          n = A[q];
-          l && l !== r && l !== n && (null == n ? r.appendChild(l) : l === n.nextSibling ? Ha(n) : r.insertBefore(l, n));
-        }
-      }
-      if (u) {
-        for (q in y) {
-          void 0 !== y[q] && O(y[q], !1);
-        }
-      }
-      for (; t <= I;) {
-        void 0 !== (l = B[I--]) && O(l, !1);
-      }
-    }
-  }
-  c = f;
-  d = b.attributes;
-  b = a;
-  for (g in b) {
-    d && null != d[g] || null == b[g] || Ia(c, g, b[g], b[g] = void 0);
-  }
-  for (g in d) {
-    "children" === g || "innerHTML" === g || g in b && d[g] === ("value" === g || "checked" === g ? c[g] : b[g]) || Ia(c, g, b[g], b[g] = d[g]);
-  }
-  M = h;
-  return f;
-}
-function O(a, b) {
-  var c = a.h;
-  c ? Q(c) : (null != a.__preactattr_ && K(a.__preactattr_.T, null), !1 !== b && null != a.__preactattr_ || Ha(a), Qa(a));
-}
-function Qa(a) {
-  for (a = a.lastChild; a;) {
-    var b = a.previousSibling;
-    O(a, !0);
-    a = b;
-  }
-}
-var R = [];
-function Pa(a, b, c) {
-  var d = R.length;
-  if (a.prototype && a.prototype.l) {
-    var e = new a(b, c);
-    S.call(e, b, c);
-  } else {
-    e = new S(b, c), e.constructor = a, e.l = Ra;
-  }
-  for (; d--;) {
-    if (R[d].constructor === a) {
-      e.u = R[d].u;
-      R.splice(d, 1);
-      break;
-    }
-  }
-  return e;
-}
-function Ra(a, b, c) {
-  return this.constructor(a, c);
-}
-function P(a, b, c, d, e) {
-  a.D || (a.D = !0, a.W = b.T, a.V = b.key, delete b.T, delete b.key, "undefined" === typeof a.constructor.$ && (!a.o || e ? a.ma && a.ma() : a.na && a.na(b, d)), d && d !== a.context && (a.P || (a.P = a.context), a.context = d), a.R || (a.R = a.b), a.b = b, a.D = !1, 0 !== c && (1 !== c && !1 === F.Ga && a.o ? Ea(a) : L(a, 1, e)), K(a.W, a));
-}
-function L(a, b, c, d) {
-  if (!a.D) {
-    var e = a.b, f = a.state, h = a.context, g = a.R || e, k = a.S || f, l = a.P || h, q = a.o, r = a.u, p = q || r, A = a.h, B = !1, y = l, u;
-    a.constructor.$ && (f = J(J({}, f), a.constructor.$(e, f)), a.state = f);
-    q && (a.b = g, a.state = k, a.context = l, 2 !== b && a.J && !1 === a.J(e, f, h) ? B = !0 : a.pa && a.pa(e, f, h), a.b = e, a.state = f, a.context = h);
-    a.R = a.S = a.P = a.u = null;
-    a.C = !1;
-    if (!B) {
-      e = a.l(e, f, h);
-      a.N && (h = J(J({}, h), a.N()));
-      q && a.sa && (y = a.sa(g, k));
-      f = e && e.nodeName;
-      if ("function" === typeof f) {
-        var t = Ga(e);
-        if ((u = A) && u.constructor === f && t.key == u.V) {
-          P(u, t, 1, h, !1);
-        } else {
-          var n = u;
-          a.h = u = Pa(f, t, h);
-          u.u = u.u || r;
-          u.Y = a;
-          P(u, t, 0, h, !1);
-          L(u, 1, c, !0);
-        }
-        t = u.o;
-      } else {
-        r = p;
-        if (n = A) {
-          r = a.h = null;
-        }
-        if (p || 1 === b) {
-          r && (r.h = null), t = Na(r, e, h, c || !q, p && p.parentNode, !0);
-        }
-      }
-      p && t !== p && u !== A && (h = p.parentNode) && t !== h && (h.replaceChild(t, p), n || (p.h = null, O(p, !1)));
-      n && Q(n);
-      if ((a.o = t) && !d) {
-        for (n = p = a; n = n.Y;) {
-          (p = n).o = t;
-        }
-        t.h = p;
-        t.L = p.constructor;
-      }
-    }
-    !q || c ? Ka.push(a) : B || (a.la && a.la(g, k, y), F.ja && F.ja(a));
-    for (; a.F.length;) {
-      a.F.pop().call(a);
-    }
-    La || d || Ma();
-  }
-}
-function Q(a) {
-  F.ka && F.ka(a);
-  var b = a.o;
-  a.D = !0;
-  a.oa && a.oa();
-  a.o = null;
-  var c = a.h;
-  c ? Q(c) : b && (null != b.__preactattr_ && K(b.__preactattr_.T, null), a.u = b, Ha(b), R.push(a), Qa(b));
-  K(a.W, null);
-}
-function S(a, b) {
-  this.C = !0;
-  this.context = b;
-  this.b = a;
-  this.state = this.state || {};
-  this.F = [];
-}
-J(S.prototype, {m:function(a, b) {
-  this.S || (this.S = this.state);
-  this.state = J(J({}, this.state), "function" === typeof a ? a(this.state, this.b) : a);
-  b && this.F.push(b);
-  Ea(this);
-}, Da:function(a) {
-  a && this.F.push(a);
-  L(this, 2);
-}, l:function() {
-}});
-function Sa(a, b) {
-  var c = this.b, d = c.name, e = a.value;
-  if (this.context.values[d] != b.values[d]) {
+;function Q(a, b) {
+  var c = this.props, e = c.name, h = a.value;
+  if (this.context.values[e] != b.values[e]) {
     return !0;
   }
-  if (c.value != e) {
-    return b.f && b.f(a.name, e), !1;
+  if (c.value != h) {
+    if (b.onChange) {
+      b.onChange(a.name, h);
+    }
+    return !1;
   }
 }
-;function T() {
-  S.call(this);
-  this.b = this.b;
+function R(a) {
+  var b = [];
+  a = Object.entries(a).reduce(function(c, e) {
+    var h = r(e);
+    e = h.next().value;
+    h = h.next().value;
+    if ("col" == e || e.startsWith("col-")) {
+      return b.push(e), c;
+    }
+    c[e] = h;
+    return c;
+  }, {});
+  return {v:b, C:a};
 }
-m(T, S);
-T.prototype.J = function(a, b, c) {
-  return Sa.call(this, a, c);
+;function S() {
+  var a = P.call(this) || this;
+  a.id = "i" + Math.floor(100000 * Math.random());
+  a.i = "h" + a.id;
+  a.props = a.props;
+  return a;
+}
+z(S, P);
+S.prototype.getChildContext = function() {
+  return {id:this.id, i:this.i};
 };
-T.prototype.H = function() {
-  var a = this.b, b = a.value;
+S.prototype.render = function(a) {
+  var b = Object.assign({}, a), c = a.children, e = a.label, h = a.help, k = a.details, f = a.className, d = a["form-row"], g = void 0 === a.row ? d : a.row;
+  a = a.labelClassName;
+  b = (delete b.children, delete b.label, delete b.help, delete b.details, delete b.className, delete b["form-row"], delete b.row, delete b.labelClassName, b);
+  f = ["form-group", f, g ? (d ? "form-" : "") + "row" : null].filter(Boolean).join(" ") || void 0;
+  d = R(b).v;
+  a = [g ? "col-form-label" : null, a].concat(d instanceof Array ? d : aa(r(d))).filter(Boolean).join(" ") || void 0;
+  e = e ? O("label", {className:a, htmlFor:this.id}, e) : null;
+  h = O(ma, {help:h, i:this.i});
+  return k ? O("details", {className:f}, O("summary", {}, e), c, g ? O("div", {className:"col-12"}, h) : h) : O("div", {className:f}, e, c, g ? O("div", {className:"col-12"}, h) : h);
+};
+function T() {
+  var a = P.call(this) || this;
+  a.props = a.props;
+  return a;
+}
+z(T, P);
+T.prototype.shouldComponentUpdate = function(a, b, c) {
+  return Q.call(this, a, c);
+};
+T.prototype.componentDidMount = function() {
+  var a = this.props, b = a.value;
   a = a.name;
-  var c = this.context.f;
+  var c = this.context.onChange;
   c && void 0 !== b && c(a, b);
 };
-T.prototype.l = function(a) {
-  var b = a.options, c = a.name, d = a.value, e = this.context, f = e.f, h = void 0 === e.values ? {} : e.values;
-  return H("select", {name:c, value:c in h ? h[c] : d, required:a.required, className:"custom-select", id:e.id, "aria-describedby":e.w, onChange:function(a) {
-    f(c, a.currentTarget.value);
-  }}, H("option"), b.map(function(a) {
-    var b = a.value;
-    return H("option", {key:b, value:b, selected:b == d}, a.title);
+T.prototype.render = function(a) {
+  var b = Object.assign({}, a), c = a.options, e = a.name, h = a.value, k = a.required, f = a.className;
+  a = a.defaultText;
+  var d = (delete b.options, delete b.name, delete b.value, delete b.required, delete b.className, delete b.defaultText, b), g = this.context, m = g.onChange;
+  b = g.i;
+  var n = g.id;
+  g = void 0 === g.values ? {} : g.values;
+  g = e in g ? g[e] : h;
+  d = R(d).v;
+  f = ["custom-select", f].filter(Boolean).join(" ");
+  c = O("select", {name:e, value:void 0 !== g ? g : "", className:f, required:k, id:n, "aria-describedby":b, onChange:function(q) {
+    m(e, q.currentTarget.value);
+  }}, O("option", {value:""}, a), c.map(function(q) {
+    var p = q.value;
+    return O("option", {key:p, value:p, selected:p == h}, q.title);
   }));
+  return d.length ? O("div", {className:d.join(" ")}, c) : c;
 };
 function U() {
-  S.call(this);
-  this.b = this.b;
+  var a = P.call(this) || this;
+  a.props = a.props;
+  return a;
 }
-m(U, S);
-U.prototype.J = function(a, b, c) {
-  return Sa.call(this, a, c);
+z(U, P);
+U.prototype.shouldComponentUpdate = function(a, b, c) {
+  return Q.call(this, a, c);
 };
-U.prototype.H = function() {
-  var a = this.b, b = ba(a.children).next().value;
+U.prototype.componentDidMount = function() {
+  var a = this.props, b = r(a.children).next().value;
   a = a.name;
-  var c = this.context.f;
+  var c = this.context.onChange;
   b && c(a, b.trim());
 };
-U.prototype.l = function(a) {
-  var b = a.name, c = a.children, d = this.context, e = d.f, f = void 0 === d.values ? {} : d.values;
-  return H("textarea", {required:a.required, name:b, placeholder:a.placeholder, "aria-describedby":d.w, className:"form-control", id:d.id, onChange:function(a) {
-    e(b, a.currentTarget.value);
-  }, rows:void 0 === a.rows ? 3 : a.rows}, b in f ? f[b] : c);
+U.prototype.render = function(a) {
+  var b = a.name, c = a.children, e = this.context, h = e.onChange, k = void 0 === e.values ? {} : e.values;
+  return O("textarea", {required:a.required, name:b, placeholder:a.placeholder, "aria-describedby":e.i, className:"form-control", id:e.id, onChange:function(f) {
+    h(b, f.currentTarget.value);
+  }, rows:void 0 === a.rows ? 3 : a.rows}, b in k ? k[b] : c);
 };
 function V() {
-  S.call(this);
-  this.b = this.b;
+  var a = P.call(this) || this;
+  a.props = a.props;
+  return a;
 }
-m(V, S);
-V.prototype.J = function(a, b, c) {
-  return Sa.call(this, a, c);
+z(V, P);
+V.prototype.shouldComponentUpdate = function(a, b, c) {
+  return Q.call(this, a, c);
 };
-V.prototype.H = function() {
-  var a = this.b, b = a.value;
+V.prototype.componentDidMount = function() {
+  var a = this.props, b = a.value;
   a = a.name;
-  var c = this.context.f;
+  var c = this.context.onChange;
   void 0 !== b && c && c(a, b);
 };
-V.prototype.l = function(a) {
-  var b = Object.assign({}, a), c = a.required, d = a.name, e = a.placeholder, f = void 0 === a.type ? "text" : a.type, h = a.file;
-  a = a.value;
-  b = (delete b.required, delete b.name, delete b.placeholder, delete b.type, delete b.file, delete b.value, b);
-  var g = this.context, k = g.f, l = void 0 === g.values ? {} : g.values;
-  return H("input", Object.assign({}, b, {required:c, name:d, placeholder:e, className:"form-control" + (h ? "-file" : ""), value:d in l ? l[d] : a, type:f, "aria-describedby":g.w, id:g.id, onChange:function(a) {
-    k(d, a.currentTarget.value);
-  }}));
+V.prototype.onChange = function(a) {
+  this.context.onChange(this.props.name, a);
 };
-function Ta(a, b) {
-  return b = b || {}, new Promise(function(c, d) {
-    function e() {
-      return {ok:2 == (f.status / 100 | 0), statusText:f.statusText, status:f.status, url:f.responseURL, text:function() {
-        return Promise.resolve(f.responseText);
+V.prototype.render = function(a) {
+  var b = this, c = Object.assign({}, a), e = a.required, h = a.name, k = a.placeholder, f = void 0 === a.type ? "text" : a.type, d = a.file, g = a.value, m = a.className, n = a.invalid, q = a.valid;
+  a = a.help;
+  c = (delete c.required, delete c.name, delete c.placeholder, delete c.type, delete c.file, delete c.value, delete c.className, delete c.invalid, delete c.valid, delete c.help, c);
+  var p = R(c);
+  c = p.v;
+  p = p.C;
+  m = ["form-control" + (d ? "-file" : ""), m, n ? "is-invalid" : null, q ? "is-valid" : null].filter(Boolean).join(" ");
+  var t = this.context;
+  d = t.i;
+  var w = void 0 === t.values ? {} : t.values;
+  e = O("input", Object.assign({}, p, {required:e, name:h, placeholder:k, className:m, value:h in w ? w[h] : g, type:f, "aria-describedby":d, id:t.id, onChange:function(A) {
+    b.onChange(A.currentTarget.value);
+  }}));
+  return c.length ? (n = a ? O(ma, {help:a, i:d, valid:q, invalid:n}) : null, O("div", {className:c.join(" ")}, e, n)) : e;
+};
+function na(a, b) {
+  return b = b || {}, new Promise(function(c, e) {
+    function h() {
+      return {ok:2 == (k.status / 100 | 0), statusText:k.statusText, status:k.status, url:k.responseURL, text:function() {
+        return Promise.resolve(k.responseText);
       }, json:function() {
-        return Promise.resolve(JSON.parse(f.responseText));
+        return Promise.resolve(JSON.parse(k.responseText));
       }, blob:function() {
-        return Promise.resolve(new Blob([f.response]));
-      }, clone:e, headers:{keys:function() {
-        return h;
+        return Promise.resolve(new Blob([k.response]));
+      }, clone:h, headers:{keys:function() {
+        return f;
       }, entries:function() {
-        return g;
-      }, get:function(a) {
-        return k[a.toLowerCase()];
-      }, has:function(a) {
-        return a.toLowerCase() in k;
+        return d;
+      }, get:function(n) {
+        return g[n.toLowerCase()];
+      }, has:function(n) {
+        return n.toLowerCase() in g;
       }}};
     }
-    var f = new XMLHttpRequest, h = [], g = [], k = {}, l;
-    for (l in f.open(b.method || "get", a, !0), f.onload = function() {
-      f.getAllResponseHeaders().replace(/^(.*?):[^\S\n]*([\s\S]*?)$/gm, function(a, b, c) {
-        h.push(b = b.toLowerCase());
-        g.push([b, c]);
-        k[b] = k[b] ? k[b] + "," + c : c;
+    var k = new XMLHttpRequest, f = [], d = [], g = {}, m;
+    for (m in k.open(b.method || "get", a, !0), k.onload = function() {
+      k.getAllResponseHeaders().replace(/^(.*?):[^\S\n]*([\s\S]*?)$/gm, function(n, q, p) {
+        f.push(q = q.toLowerCase());
+        d.push([q, p]);
+        g[q] = g[q] ? g[q] + "," + p : p;
       });
-      c(e());
-    }, f.onerror = d, f.withCredentials = "include" == b.credentials, b.headers) {
-      f.setRequestHeader(l, b.headers[l]);
+      c(h());
+    }, k.onerror = e, k.withCredentials = "include" == b.credentials, b.headers) {
+      k.setRequestHeader(m, b.headers[m]);
     }
-    f.send(b.body || null);
+    k.send(b.body || null);
   });
 }
 ;function W() {
-  S.call(this);
-  this.b = this.b;
-  this.state = {M:!1, error:null, K:null};
+  var a = P.call(this) || this;
+  a.props = a.props;
+  a.state = {formLoading:!1, error:null, success:null};
+  a.b = {};
+  return a;
 }
-m(W, S);
-W.prototype.submit = function(a) {
-  var b = this, c, d, e, f, h;
-  return xa(new wa(new ta(function(g) {
-    switch(g.c) {
+z(W, P);
+W.prototype.a = function(a) {
+  var b = this, c, e, h, k, f;
+  return ja(new ia(new fa(function(d) {
+    switch(d.b) {
       case 1:
         a.preventDefault();
-        if (!b.b.path) {
-          return b.m({error:"Path is not set in the properties of the form."}), g.return(!1);
+        if (!b.props.path) {
+          return b.setState({error:"Path is not set in the properties of the form."}), d.return(!1);
         }
-        b.m({error:null, K:null});
+        b.setState({error:null, success:null});
         c = new FormData(a.target);
-        b.m({M:!0});
-        g.j = 2;
-        g.i = 3;
-        return sa(g, Ta(b.b.path, {method:"POST", body:c}), 5);
+        b.setState({formLoading:!0});
+        d.g = 2;
+        d.f = 3;
+        return K(d, na(b.props.path, Object.assign({}, {method:"POST", body:c}, b.b)), 5);
       case 5:
-        return d = g.v, sa(g, d.json(), 6);
+        return e = d.l, K(d, e.json(), 6);
       case 6:
-        e = g.v, (f = e.error) ? b.m({error:f}) : b.m({K:1});
+        h = d.l, (k = h.error) ? b.setState({error:k}) : b.setState({success:1});
       case 3:
-        g.I = [g.a];
-        g.j = 0;
-        g.i = 0;
-        b.m({M:!1});
-        var k = g.I.splice(0)[0];
-        (k = g.a = g.a || k) ? k.aa ? g.c = g.j || g.i : void 0 != k.A && g.i < k.A ? (g.c = k.A, g.a = null) : g.c = g.i : g.c = 4;
+        d.u = [d.a];
+        d.g = 0;
+        d.f = 0;
+        b.setState({formLoading:!1});
+        var g = d.u.splice(0)[0];
+        (g = d.a = d.a || g) ? g.A ? d.b = d.g || d.f : void 0 != g.m && d.f < g.m ? (d.b = g.m, d.a = null) : d.b = d.f : d.b = 4;
         break;
       case 2:
-        g.j = 0;
-        k = g.a.Z;
-        g.a = null;
-        h = k;
-        b.m({error:h});
-        g.A(3);
+        d.g = 0;
+        g = d.a.w;
+        d.a = null;
+        f = g;
+        b.setState({error:f});
+        d.m(3);
         break;
       case 4:
-        if (!b.b.xa) {
-          g.A(7);
+        if (!b.props.submitFinish) {
+          d.m(7);
           break;
         }
-        return sa(g, b.b.xa(d), 7);
+        return K(d, b.props.submitFinish(e), 7);
       case 7:
-        return g.return(!1);
+        return d.return(!1);
     }
   })));
 };
-W.prototype.reset = function() {
-  this.m({error:null, K:null});
-};
 function X() {
-  S.call(this);
-  this.state = {values:{}};
-  this.b = this.b;
+  var a = P.call(this) || this;
+  a.state = {values:{}};
+  a.props = a.props;
+  return a;
 }
-m(X, S);
-X.prototype.N = function() {
-  return {values:this.state.values, f:this.f.bind(this)};
+z(X, P);
+X.prototype.getChildContext = function() {
+  return {values:this.state.values, onChange:this.onChange.bind(this)};
 };
-X.prototype.f = function(a, b) {
+X.prototype.onChange = function(a, b) {
   var c = {};
-  this.m({values:Object.assign({}, this.state.values, (c[a] = b, c))});
-  this.b.f && this.b.f(this.state.values);
+  this.setState({values:Object.assign({}, this.state.values, (c[a] = b, c))});
+  if (this.props.onChange) {
+    this.props.onChange(this.state.values);
+  }
 };
-X.prototype.l = function(a) {
-  var b = Object.assign({}, a), c = a.children, d = a.ra;
-  a = a.ca;
-  b = (delete b.children, delete b.ra, delete b.ca, delete b.f, b);
-  return H("form", Object.assign({}, b, {ref:d, onSubmit:a}), c);
+X.prototype.render = function(a) {
+  var b = Object.assign({}, a), c = a.children, e = a.formRef;
+  a = a.onSubmit;
+  b = (delete b.children, delete b.formRef, delete b.onSubmit, delete b.onChange, b);
+  return O("form", Object.assign({}, b, {ref:e, onSubmit:a}), c);
 };
-function Y() {
-  S.call(this);
-  this.id = "i" + Math.floor(100000 * Math.random());
-  this.w = "h" + this.id;
-  this.b = this.b;
-}
-m(Y, S);
-Y.prototype.N = function() {
-  return {id:this.id, w:this.w};
-};
-Y.prototype.l = function() {
-  var a = this.b, b = a.children, c = a.label;
-  a = a.O;
-  return H("div", {className:"form-group"}, c && H("label", {htmlFor:this.id}, c), b, a && H("small", {id:this.w, dangerouslySetInnerHTML:{ga:a}, className:"form-text text-muted"}));
-};
-function Ua(a) {
-  var b = a.ta, c = a.qa, d = void 0 === a.ua ? c : a.ua;
+function oa(a) {
+  var b = a.loading, c = a.confirmText, e = void 0 === a.loadingText ? c : a.loadingText;
   a = ["btn", "btn-" + ((void 0 === a.outline ? 0 : a.outline) ? "outline-" : "") + (void 0 === a.type ? "primary" : a.type), a.className].filter(Boolean);
-  return H("button", {className:a.join(" "), type:"submit", disabled:b}, b && H("span", {className:"spinner-border spinner-border-sm" + (d ? " mr-2" : ""), role:"status", "aria-hidden":"true"}), b ? d : c);
+  return O("button", {className:a.join(" "), type:"submit", disabled:b}, b && O("span", {className:"spinner-border spinner-border-sm" + (e ? " mr-2" : ""), role:"status", "aria-hidden":"true"}), b ? e : c);
 }
-var Z = {get ea() {
-  return T;
-}, get fa() {
-  return U;
-}, get da() {
-  return V;
-}, get U() {
-  return W;
-}};
-function Va(a) {
-  return Z.U.apply(this, arguments) || this;
+;function Y() {
+  return W.apply(this, arguments) || this;
 }
-m(Va, Z.U);
-Va.prototype.l = function(a) {
-  var b = this, c = Object.assign({}, a), d = a.f;
-  a = (delete c.f, c);
-  var e = this.state;
-  c = e.M;
-  var f = e.error;
-  e = e.K;
-  return H(X, Object.assign({}, a, {ca:this.submit.bind(this), f:function(a) {
-    b.reset();
-    d && d(a);
-  }}), H(Y, {label:"Input", O:"Type in something..."}, H(Z.da, {name:"input", value:"hello-world"})), H(Y, {label:"Select", O:"Please select..."}, H(Z.ea, {options:[{title:"Free will", value:"1"}, {title:"Unfree will", value:"2"}], name:"select", value:"2"})), H(Y, {label:"TextArea", O:"Multiple row input..."}, H(Z.fa, {name:"textarea"}, "One must still have chaos in oneself to be able to give birth to a dancing star.")), H(Ua, {ta:c, type:"warning", qa:"Submit Data"}), f && "Error: " + f, e && "OK");
+z(Y, W);
+Y.prototype.render = function(a) {
+  var b = this, c = Object.assign({}, a), e = a.onChange;
+  a = (delete c.onChange, c);
+  var h = this.state;
+  c = h.formLoading;
+  var k = h.error;
+  h = h.success;
+  return O(X, Object.assign({}, a, {onSubmit:this.a.bind(this), onChange:function(f) {
+    b.setState({error:null, success:null});
+    e && e(f);
+  }}), O(S, {label:"Input", help:"Type in something..."}, O(V, {name:"input", value:"hello-world"})), O(S, {label:"Select", help:"Please select..."}, O(T, {options:[{title:"Free will", value:"1"}, {title:"Unfree will", value:"2"}], name:"select", value:"2"})), O(S, {label:"TextArea", help:"Multiple row input..."}, O(U, {name:"textarea"}, "One must still have chaos in oneself to be able to give birth to a dancing star.")), O(oa, {loading:c, type:"warning", confirmText:"Submit Data"}), k && "Error: " + 
+  k, h && "OK");
 };
-function Wa(a) {
-  S.apply(this, arguments);
+function Z() {
+  return P.apply(this, arguments) || this;
 }
-m(Wa, S);
-Wa.prototype.l = function() {
+z(Z, P);
+Z.prototype.render = function() {
   var a = this;
-  return H("div", {className:"container"}, H("h1", {}, "@Depack/Form"), H("blockquote", {className:"blockquote"}, "The Preact component that creates and maintains\n          the form state (designed for Depack bundler)."), H("div", {className:"row"}, H("div", {className:"col-sm-6"}, H(Va, {f:function(b) {
-    a.m(b);
-  }, path:"/form"})), H("div", {className:"col-sm-6"}, H("pre", {style:"white-space: pre-wrap;"}, JSON.stringify(this.state, null, 2)))));
+  return O("div", {className:"container"}, O("h1", {}, "@Depack/Form"), O("blockquote", {className:"blockquote"}, "The Preact component that creates and maintains\n          the form state (designed for Depack bundler)."), O("div", {className:"row"}, O("div", {className:"col-sm-6"}, O(Y, {onChange:function(b) {
+    a.setState(b);
+  }, path:"/form"})), O("div", {className:"col-sm-6"}, O("pre", {style:"white-space: pre-wrap;"}, JSON.stringify(this.state, null, 2)))));
 };
-var Xa = H(Wa);
-Na(void 0, Xa, {}, !1, document.querySelector("#preact"), !1);
+la(O(Z), document.querySelector("#preact"));
 
 
 //# sourceMappingURL=main.js.map

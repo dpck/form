@@ -1,11 +1,12 @@
-import core from '@idio/core'
+import idio from '@idio/idio'
+import frontend from '@idio/frontend'
 import render from '@depack/render'
 import jsx from '@a-la/jsx'
 
 export default class IdioContext {
   /**
    * The context will start a server and serve the code given
-   * @param {import('@idio/core').MiddlewareConfig} config
+   * @param {import('@idio/idio').MiddlewareConfig} config
    */
   async start(config = {}, port = null) {
     const { input, pre = '', ...conf } = config
@@ -19,9 +20,15 @@ export default class IdioContext {
     const pree = jsx(pre, {
       quoteProps: 'dom',
     })
-    const { app, url } = await core({
+    const { app, url } = await idio({
       frontend: {
-        directory: ['src', 'test/context/idio', 'build'],
+        async middlewareConstructor() {
+          const f = await frontend({
+            directory: ['src', 'test/context/idio', 'build'],
+          })
+          return f
+        },
+        use: true,
       },
       async serveJSX(ctx) {
         ctx.body = render(<html>
