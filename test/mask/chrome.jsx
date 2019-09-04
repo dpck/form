@@ -1,4 +1,5 @@
-import { makeTestSuite, equal } from 'zoroaster'
+import makeTestSuite from '@zoroaster/mask'
+import { equal } from '@zoroaster/assert'
 import IdioContext from '../context/Idio'
 import RemoteChrome from '../context/RemoteChrome'
 
@@ -8,12 +9,12 @@ export const Chrome = makeTestSuite('test/result/chrome.jsx', {
    * @param {RemoteChrome} i
    * @param {IdioContext} i
    */
-  async getResults(input, { Page, Runtime, client }, { start }, { log }) {
+  async getResults({ Page, Runtime, client }, { start }, { log }) {
     log(client)
     const { action, pre } = this
     const url = await start({
       pre,
-      input,
+      input: this.input,
     })
 
     await Page.navigate({ url })

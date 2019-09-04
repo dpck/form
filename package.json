@@ -52,15 +52,15 @@
     "@depack/context": "1.1.2",
     "@depack/render": "1.3.2",
     "@idio/core": "1.4.0",
-    "alamode": "2.4.0",
+    "alamode": "3.0.0",
     "chrome-remote-interface": "0.28.0",
-    "documentary": "1.32.1",
+    "documentary": "1.32.2",
     "erte": "1.2.0",
     "eslint-config-artdeco": "1.0.1",
     "preact": "8.5.2",
     "rexml": "2.2.2",
     "yarn-s": "1.1.0",
-    "zoroaster": "4.1.1-alpha"
+    "zoroaster": "4.1.2"
   },
   "dependencies": {
     "unfetch": "4.1.0"

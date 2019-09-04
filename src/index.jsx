@@ -34,34 +34,7 @@ export default class Form extends Component {
   }
 }
 
-/**
- * The div with `form-group` class to hold the label, input, help and validation message.
- */
-export class FormGroup extends Component {
-  constructor() {
-    super()
-    this.id = `i${Math.floor(Math.random() * 100000)}`
-    this.hid = `h${this.id}`
-    /** @type {!_depackForm.FormGroupProps} */
-    this.props = this.props
-  }
-  getChildContext() {
-    return {
-      id: this.id,
-      hid: this.hid,
-    }
-  }
-  render(props) {
-    const { children, label, help } =
-      /** @type {!_depackForm.FormGroupProps} */ (props)
-    return <div className="form-group">
-      {label && <label htmlFor={this.id}>{label}</label>}
-      {children}
-      {help && <small id={this.hid} className="form-text text-muted" dangerouslySetInnerHTML={{ __html: help }}/>}
-    </div>
-  }
-}
-
+export { default as FormGroup } from './form-group'
 export { default as Select } from './Select'
 export { default as TextArea } from './TextArea'
 export { default as Input } from './Input'
@@ -82,10 +55,6 @@ export const SubmitButton = ({ loading, confirmText, loadingText = confirmText, 
 /**
  * @suppress {nonStandardJsDocs}
  * @typedef {import('../types').FormProps} _depackForm.FormProps
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../types').FormGroupProps} _depackForm.FormGroupProps
  */
 /**
  * @suppress {nonStandardJsDocs}

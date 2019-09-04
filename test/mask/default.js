@@ -1,14 +1,13 @@
-import { makeTestSuite } from 'zoroaster'
+import makeTestSuite from '@zoroaster/mask'
 import JSXContext from '@depack/context'
 import Form, * as Form2 from '../../src'
 
-export default makeTestSuite('test/result/index.jsx', {
+export default makeTestSuite('test/result/default', {
   /**
-   * @param {string} input
    * @param {JSXContext} context
    */
-  getResults(input, { getVNode, render }) {
-    const vnode = getVNode(input, {
+  getResults({ getVNode, render }) {
+    const vnode = getVNode(this.input, {
       Form, ...Form2,
     })
     const res = render(vnode, {

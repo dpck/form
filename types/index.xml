@@ -10,14 +10,7 @@
       The function to call on form submit.
     </prop>
   </type>
-  <type name="FormGroupProps" desc="Options for the FormGroup component." noToc>
-    <prop opt string name="label">
-      The label to display for the group.
-    </prop>
-    <prop opt string name="help">
-      The help text to show in `<small className="form-text text-muted">{help}</small>`
-    </prop>
-  </type>
+
   <type name="SubmitButtonProps" desc="Options for the SubmitButton component." noToc>
     <prop boolean name="loading" default="false">
       Whether the button should display as loading.
