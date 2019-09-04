@@ -1,5 +1,5 @@
 import { Component } from 'preact'
-import { shouldComponentUpdate } from './lib'
+import { shouldComponentUpdate, getClasses } from './lib'
 
 export default class Select extends Component {
   constructor() {
@@ -16,29 +16,41 @@ export default class Select extends Component {
     const { onChange } = this.context
     if (onChange && value !== undefined) onChange(name, value)
   }
-  render(props) {
-    const { options, name, value, required } =
-      /** @type {!_depackForm.SelectProps} */ (props)
+  /**
+   * @param {!_depackForm.SelectProps} [props]
+   */
+  render({ options, name, value, required, className, defaultText, ...props }) {
     const { onChange, hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
     const selectValue = rendered ? values[name] : value
-    return <select
+
+    const { colClasses } = getClasses(props)
+    const c = [
+      `custom-select`, className,
+    ]
+      .filter(Boolean).join(' ')
+
+    const select = (<select
       name={name}
-      value={selectValue}
-      className="custom-select"
+      value={selectValue !== undefined ? selectValue : ''}
+      className={c}
       required={required}
       id={id}
       aria-describedby={hid}
       onChange={(e) => {
         onChange(name, e.currentTarget.value)
       }}>
-      <option></option>
+      <option value={''}>{defaultText}</option>
       {options.map(({ value: v, title }) => {
         return <option key={v} value={v} selected={v==value}>
           {title}
         </option>
       })}
-    </select>
+    </select>)
+    if (colClasses.length) {
+      return (<div className={colClasses.join(' ')}>{select}</div>)
+    }
+    return select
   }
 }
 

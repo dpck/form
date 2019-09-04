@@ -9,8 +9,14 @@
     <prop opt string name="value">
       The initial value.
     </prop>
+    <prop opt string name="col">
+      If any of the `col` properties are passed (e.g., `col-12`, `col-sm-8`, _etc_), the _Form_ will create a `div` wrapper around the select with the column class.
+    </prop>
     <prop opt string name="className">
       The additional class name to add to `custom-select`.
+    </prop>
+    <prop opt string name="defaultText">
+      The default option's text.
     </prop>
     <prop opt type="!Array<{value: *, title: string}>" name="options">
       The array with options to render inside of the `select` element.

@@ -15,7 +15,7 @@ _depackForm.SubmitButtonProps
 /* typal types/form-group.xml externs */
 /**
  * Options for the FormGroup component.
- * @typedef {{ label: (string|undefined), className: (string|undefined), labelClassName: (string|undefined), row: (boolean|undefined), form-row: (boolean|undefined), details: (boolean|undefined), help: (string|undefined) }}
+ * @typedef {{ label: (string|undefined), className: (string|undefined), labelClassName: (string|undefined), col: (string|undefined), row: (boolean|undefined), form-row: (boolean|undefined), details: (boolean|undefined), help: (string|undefined) }}
  */
 _depackForm.FormGroupProps
 
@@ -29,7 +29,7 @@ _depackForm.InputProps
 /* typal types/Select.xml externs */
 /**
  * Options for the Select component.
- * @typedef {{ required: (boolean|undefined), name: (string|undefined), value: (string|undefined), className: (string|undefined), options: ((!Array<{value: *, title: string}>)|undefined) }}
+ * @typedef {{ required: (boolean|undefined), name: (string|undefined), value: (string|undefined), col: (string|undefined), className: (string|undefined), defaultText: (string|undefined), options: ((!Array<{value: *, title: string}>)|undefined) }}
  */
 _depackForm.SelectProps
 

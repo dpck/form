@@ -1,5 +1,5 @@
 import { Component } from 'preact'
-import { shouldComponentUpdate } from './lib'
+import { shouldComponentUpdate, getClasses } from './lib'
 import Help from './help'
 
 export default class Input extends Component {
@@ -63,19 +63,6 @@ export default class Input extends Component {
     }
     return input
   }
-}
-
-const getClasses = (props) => {
-  const colClasses = []
-  const prop = Object.entries(props).reduce((acc, [key, value]) => {
-    if (key == 'col' || key.startsWith('col-')) {
-      colClasses.push(key)
-      return acc
-    }
-    acc[key] = value
-    return acc
-  }, {})
-  return { colClasses, prop }
 }
 
 /**

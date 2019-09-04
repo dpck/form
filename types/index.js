@@ -22,7 +22,8 @@ export {}
  * @typedef {Object} _depackForm.FormGroupProps Options for the FormGroup component.
  * @prop {string} [label] The label to display for the group.
  * @prop {string} [className] The additional class name to add to `form-group`.
- * @prop {string} [labelClassName] The additional class name to add to `form-group`.
+ * @prop {string} [labelClassName] The additional class name to add to the label.
+ * @prop {string} [col] If any of the `col` properties are passed (e.g., `col-12`, `col-sm-8`, _etc_), they will be set on the label.
  * @prop {boolean} [row] Whether the group should be displayed in a row. Children must manually be wrapped in `div`s with `col` classes. Adds the `col-form-label` class to the label and the `row` class to the group.
  * @prop {boolean} [form-row] Same as `row`, but adds the `form-row` class to the group.
  * @prop {boolean} [details] Whether to display the group in `details` block.
@@ -53,7 +54,9 @@ export {}
  * @prop {boolean} [required] Whether this is a required field.
  * @prop {string} [name] The select name.
  * @prop {string} [value] The initial value.
+ * @prop {string} [col] If any of the `col` properties are passed (e.g., `col-12`, `col-sm-8`, _etc_), the _Form_ will create a `div` wrapper around the select with the column class.
  * @prop {string} [className] The additional class name to add to `custom-select`.
+ * @prop {string} [defaultText] The default option's text.
  * @prop {!Array<{value: *, title: string}>} [options] The array with options to render inside of the `select` element.
  */
 

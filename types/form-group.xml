@@ -7,7 +7,10 @@
       The additional class name to add to `form-group`.
     </prop>
     <prop opt string name="labelClassName">
-      The additional class name to add to `form-group`.
+      The additional class name to add to the label.
+    </prop>
+    <prop opt string name="col">
+      If any of the `col` properties are passed (e.g., `col-12`, `col-sm-8`, _etc_), they will be set on the label.
     </prop>
     <prop opt boolean name="row">
       Whether the group should be displayed in a row. Children must manually be wrapped in `div`s with `col` classes. Adds the `col-form-label` class to the label and the `row` class to the group.

@@ -14,3 +14,20 @@ export const shouldComponentUpdate = function (newProps, newContext) {
     return false
   }
 }
+
+/**
+ * Extracts col classes from props and returns new props without them.
+ * @param {Object} props
+ */
+export const getClasses = (props) => {
+  const colClasses = []
+  const prop = Object.entries(props).reduce((acc, [key, value]) => {
+    if (key == 'col' || key.startsWith('col-')) {
+      colClasses.push(key)
+      return acc
+    }
+    acc[key] = value
+    return acc
+  }, {})
+  return { colClasses, prop }
+}

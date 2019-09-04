@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import { Component } from 'preact'
 import Help from './help'
+import { getClasses } from './lib';
 
 /**
  * The div with `form-group` class to hold the label, input, help and validation message.
@@ -22,14 +23,16 @@ export default class FormGroup extends Component {
   /**
    * @param {!_depackForm.FormGroupProps} [props]
    */
-  render({ children, label, help, details, className, 'form-row': formRow, row = formRow, labelClassName }) {
+  render({ children, label, help, details, className, 'form-row': formRow, row = formRow, labelClassName, ...props }) {
     const c = [
       'form-group', className,
       row ? `${formRow ? 'form-' : ''}row` : null,
     ]
       .filter(Boolean).join(' ') || undefined
 
-    const lc = [row ? 'col-form-label' : null, labelClassName]
+    const { colClasses } = getClasses(props)
+
+    const lc = [row ? 'col-form-label' : null, labelClassName, ...colClasses]
       .filter(Boolean).join(' ') || undefined
 
     const lbl = label ?   h('label',{
