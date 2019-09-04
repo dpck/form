@@ -1,3 +1,11 @@
+## 5 September 2019
+
+### [1.4.0](https://github.com/dpck/form/compare/v1.3.2...v1.4.0)
+
+- [feature] Add columns for inline fields.
+- [feature] Support classes, including validation.
+- [feature] Form group in details.
+
 ## 18 August 2019
 
 ### [1.3.2](https://github.com/dpck/form/compare/v1.3.1...v1.3.2)

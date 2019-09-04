@@ -55,7 +55,7 @@ export default class Input extends Component {
       }
     }))
     if (colClasses.length) {
-      const he = help ? (   h(Help,{help:help, hid:this.hid, valid:valid, invalid:invalid })) : null
+      const he = help ? (   h(Help,{help:help, hid:hid, valid:valid, invalid:invalid })) : null
       return (  h('div',{'className':colClasses.join(' ')},
         input,
         he,

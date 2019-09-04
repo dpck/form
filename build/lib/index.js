@@ -17,7 +17,7 @@ export const shouldComponentUpdate = function (newProps, newContext) {
 
 /**
  * Extracts col classes from props and returns new props without them.
- * @param {Object} props
+ * @param {!Object} props
  */
 export const getClasses = (props) => {
   const colClasses = []
