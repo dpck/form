@@ -42,10 +42,11 @@ export default class IdioContext {
           <script type="module" src="test/context/idio/math-random.js" />
           <script type="module" src="test/context/idio/format.js" />
           <script type="module" dangerouslySetInnerHTML={{
-            __html: `import { h, render, Component } from '/node_modules/preact/dist/preact.mjs'
+            __html: `import { h, render, Component } from '/node_modules/preact/src/preact.js'
 /**/ import Form, { FormGroup, Input, TextArea, Select } from '/${process.env.ALAMODE_ENV=='test-build' ? 'build' : 'src'}/'
 ${pree}
-render(${inv}, document.body)
+const inv = ${inv}
+render(inv, document.body)
 `,
           }}>
           </script>

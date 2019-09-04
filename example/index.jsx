@@ -7,16 +7,7 @@ import frontend from '@idio/frontend'
     frontend: {
       async middlewareConstructor() {
         const f = await frontend({
-          directory: 'example',
-        })
-        return f
-      },
-      use: true,
-    },
-    frontend2: {
-      async middlewareConstructor() {
-        const f = await frontend({
-          directory: 'src',
+          directory: ['example', 'src'],
         })
         return f
       },

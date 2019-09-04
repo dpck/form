@@ -5,7 +5,6 @@ import RemoteChrome from '../context/RemoteChrome'
 
 export const Chrome = makeTestSuite('test/result/chrome.jsx', {
   /**
-   * @param {string} input
    * @param {RemoteChrome} i
    * @param {IdioContext} i
    */
@@ -27,6 +26,8 @@ export const Chrome = makeTestSuite('test/result/chrome.jsx', {
       if (s.result) actionValue = s.result.value
     }
     const res = await Runtime.evaluate({ expression: 'window.idio.format(document.querySelector(\'html body\'), 0).innerHTML.trim()' })
+    // console.log('', url)
+    // await new Promise((r) => setTimeout(r, 1000000))
     handleError(res)
     const { result: { value } } = res
     const v = value.replace(/(<input[\s\S]*?)>/g, (m, i) => {
