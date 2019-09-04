@@ -5,6 +5,6 @@ The input field with multiple lines. The child of the component will set the ini
 %TYPEDEF types/TextArea.xml%
 
 %EXAMPLE: example/API/TextArea.jsx, ../../src => @depack/form%
-%FORK-html example example/API/TextArea%
+%FORK-html example/API/TextArea%
 
 %~ width="15"%

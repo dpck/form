@@ -7,7 +7,7 @@ This class extends the `Preact.Component` and implements the `submit` method whi
 %TYPEDEF types/SubmitForm.xml SubmitFormState%
 
 %EXAMPLE: example/API/SubmitForm.jsx, ../../src => @depack/form%
-%FORK-html example example/API/SubmitForm%
+%FORK-html example/API/SubmitForm%
 
 ```#### reset => void
 ```

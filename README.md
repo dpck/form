@@ -26,7 +26,9 @@ yarn add -E @depack/form
 - [Custom Components](#custom-components)
 - [Copyright](#copyright)
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/0.svg?sanitize=true">
+</a></p>
 
 ## API
 
@@ -38,13 +40,15 @@ import Form, {
 } from '@depack/form'
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/1.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/1.svg?sanitize=true">
+</a></p>
 
 ### **Form**
 
 Creates the form that maintains the values of each field that is found inside its children. Any additional properties will be passed down to the form. Each child component will receive `values` in its context.
 
-__<a name="type-_depackformformprops">`_depackForm.FormProps`</a>__: Options for the Form component.
+<strong><a name="type-_depackformformprops">`_depackForm.FormProps`</a></strong>: Options for the Form component.
 
 |   Name   |        Type        |                                     Description                                     |
 | -------- | ------------------ | ----------------------------------------------------------------------------------- |
@@ -100,16 +104,16 @@ export default ExampleForm
   <div class="form-group">
     <label for="i70984">Input</label>
     <input name="input" class="form-control" value="hello-world" type="text"
-      aria-describedby="hi70984" id="i70984" />
+      aria-describedby="hi70984" id="i70984">
     <small id="hi70984" class="form-text text-muted">Type in something...</small>
   </div>
   <div class="form-group">
     <label for="i97426">Select</label>
-    <select name="select" value="2" class="custom-select" id="i97426"
+    <select name="select" class="custom-select" id="i97426"
       aria-describedby="hi97426">
-      <option></option>
+      <option value></option>
       <option value="1">Free will</option>
-      <option value="2" selected>Unfree will</option>
+      <option selected value="2" selected>Unfree will</option>
     </select>
     <small id="hi97426" class="form-text text-muted">Please select...</small>
   </div>
@@ -123,20 +127,28 @@ export default ExampleForm
 </form>
 ```
 
-<table><tr><td><img src="doc/ExampleForm.png" /></td></tr></table>
+<table><tr><td><img src="doc/ExampleForm.png"></td></tr></table>
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/2.svg?sanitize=true" width="15">
+</a></p>
 
 ### **FormGroup**
 
 The form group is used to represent a logical combination of a label, input, help text and validation error message. The _FormGroup_ component generates `id` and `hid` values and passes them to children components in the context.
 
-__<a name="type-_depackformformgroupprops">`_depackForm.FormGroupProps`</a>__: Options for the FormGroup component.
+<strong><a name="type-_depackformformgroupprops">`_depackForm.FormGroupProps`</a></strong>: Options for the FormGroup component.
 
-| Name  |      Type       |                                    Description                                    |
-| ----- | --------------- | --------------------------------------------------------------------------------- |
-| label | <em>string</em> | The label to display for the group.                                               |
-| help  | <em>string</em> | The help text to show in `<small className="form-text text-muted">{help}</small>` |
+|      Name      |       Type       |                                                                                          Description                                                                                           |
+| -------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| label          | <em>string</em>  | The label to display for the group.                                                                                                                                                            |
+| className      | <em>string</em>  | The additional class name to add to `form-group`.                                                                                                                                              |
+| labelClassName | <em>string</em>  | The additional class name to add to the label.                                                                                                                                                 |
+| col            | <em>string</em>  | If any of the `col` properties are passed (e.g., `col-12`, `col-sm-8`, _etc_), they will be set on the label.                                                                                  |
+| row            | <em>boolean</em> | Whether the group should be displayed in a row. Children must manually be wrapped in `div`s with `col` classes. Adds the `col-form-label` class to the label and the `row` class to the group. |
+| form-row       | <em>boolean</em> | Same as `row`, but adds the `form-row` class to the group.                                                                                                                                     |
+| details        | <em>boolean</em> | Whether to display the group in `details` block.                                                                                                                                               |
+| help           | <em>string</em>  | The help text to show in `＜small className="form-text text-muted"＞{help}＜/small＞`. To support validation with `valid` and `invalid` classes, set help on inputs rather than group.             |
 
 ```jsx
 import Form, { FormGroup, Input } from '@depack/form'
@@ -156,30 +168,36 @@ const Example = () => (
 <form>
   <div class="form-group">
     <label for="i70984">What is your name?</label>
-    <input class="form-control" type="text" aria-describedby="hi70984" id="i70984" />
+    <input class="form-control" type="text" aria-describedby="hi70984" id="i70984">
     <small id="hi70984" class="form-text text-muted">
-      Your name, your name, what is your name?
-    </small>
+      Your name, your name, what is your name?</small>
   </div>
 </form>
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/3.svg?sanitize=true" width="15">
+</a></p>
 
 ### **Input**
 
 The input is a one-line entry field.
 
-__<a name="type-_depackforminputprops">`_depackForm.InputProps`</a>__: The rest is all other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>`.
+<strong><a name="type-_depackforminputprops">`_depackForm.InputProps`</a></strong>: The rest is all other options to be passed to the input element. When compiling with _Depack_, the props must be added like `<Input {...({ 'onClick': test })}>`.
 
-|    Name     |       Type       |                Description                |
-| ----------- | ---------------- | ----------------------------------------- |
-| required    | <em>boolean</em> | Whether this is a required field.         |
-| name        | <em>string</em>  | The input name.                           |
-| placeholder | <em>string</em>  | The input placeholder.                    |
-| file        | <em>boolean</em> | Whether the input is for selecting files. |
-| value       | <em>string</em>  | The initial value.                        |
-| type        | <em>string</em>  | The input type.                           |
+|    Name     |       Type       |                                                                          Description                                                                          | Default |
+| ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| required    | <em>boolean</em> | Whether this is a required field.                                                                                                                             | -       |
+| name        | <em>string</em>  | The input name.                                                                                                                                               | -       |
+| placeholder | <em>string</em>  | The input placeholder.                                                                                                                                        | -       |
+| file        | <em>boolean</em> | Whether the input is for selecting files.                                                                                                                     | -       |
+| value       | <em>string</em>  | The initial value.                                                                                                                                            | -       |
+| className   | <em>string</em>  | The additional class name to add to `form-control` and `form-control-file`.                                                                                   | -       |
+| col         | <em>string</em>  | If any of the `col` properties are passed (e.g., `col-12`, `col-sm-8`, _etc_), the _Form_ will create a `div` wrapper around the input with the column class. | -       |
+| type        | <em>string</em>  | The input type.                                                                                                                                               | `text`  |
+| help        | <em>string</em>  | The help text to show under the input. Supports validation classes.                                                                                           | -       |
+| invalid     | <em>boolean</em> | Adds the `invalid-feedback` class to help text.                                                                                                               | -       |
+| valid       | <em>boolean</em> | Adds the `valid-feedback` class to help text.                                                                                                                 | -       |
 
 ```jsx
 import { Input } from '@depack/form'
@@ -196,23 +214,28 @@ const Example = () => (
 ```
 ```html
 <input required name="example" placeholder="enter the value..."
-  class="form-control" value="initial value" type="text" />
+  class="form-control" value="initial value" type="text">
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/4.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/4.svg?sanitize=true" width="15">
+</a></p>
 
 ### **Select**
 
 This element present the values to select from.
 
-__<a name="type-_depackformselectprops">`_depackForm.SelectProps`</a>__: Options for the Select component.
+<strong><a name="type-_depackformselectprops">`_depackForm.SelectProps`</a></strong>: Options for the Select component.
 
-|   Name   |                        Type                        |                           Description                            |
-| -------- | -------------------------------------------------- | ---------------------------------------------------------------- |
-| required | <em>boolean</em>                                   | Whether this is a required field.                                |
-| name     | <em>string</em>                                    | The select name.                                                 |
-| value    | <em>string</em>                                    | The initial value.                                               |
-| options  | <em>!Array&lt;{ value: *, title: string }&gt;</em> | The array with options to render inside of the `select` element. |
+|    Name     |                        Type                        |                                                                          Description                                                                           |
+| ----------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| required    | <em>boolean</em>                                   | Whether this is a required field.                                                                                                                              |
+| name        | <em>string</em>                                    | The select name.                                                                                                                                               |
+| value       | <em>string</em>                                    | The initial value.                                                                                                                                             |
+| col         | <em>string</em>                                    | If any of the `col` properties are passed (e.g., `col-12`, `col-sm-8`, _etc_), the _Form_ will create a `div` wrapper around the select with the column class. |
+| className   | <em>string</em>                                    | The additional class name to add to `custom-select`.                                                                                                           |
+| defaultText | <em>string</em>                                    | The default option's text.                                                                                                                                     |
+| options     | <em>!Array&lt;{ value: *, title: string }&gt;</em> | The array with options to render inside of the `select` element.                                                                                               |
 
 ```jsx
 import { Select } from '@depack/form'
@@ -227,20 +250,22 @@ const Example = () => (
 )
 ```
 ```html
-<select name="example" value="1" required class="custom-select">
-  <option></option>
-  <option value="1" selected>hello</option>
+<select name="example" class="custom-select" required>
+  <option value></option>
+  <option selected value="1" selected>hello</option>
   <option value="2">world</option>
 </select>
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/5.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/5.svg?sanitize=true" width="15">
+</a></p>
 
 ### **Textarea**
 
 The input field with multiple lines. The child of the component will set the initial value inside of the textarea.
 
-__<a name="type-_depackformtextareaprops">`_depackForm.TextAreaProps`</a>__: Options for the TextAreaProps component.
+<strong><a name="type-_depackformtextareaprops">`_depackForm.TextAreaProps`</a></strong>: Options for the TextAreaProps component.
 
 |    Name     |       Type       |               Description               | Default |
 | ----------- | ---------------- | --------------------------------------- | ------- |
@@ -264,20 +289,22 @@ const Example = () => (
   class="form-control" rows="4">Hello World</textarea>
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/6.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/6.svg?sanitize=true" width="15">
+</a></p>
 
 ### **SubmitForm**
 
 This class extends the `Preact.Component` and implements the `submit` method which will send the data to the server and await for the response while setting the `formLoading` property of the state to `true`. The `error` and `success` properties will also be set upon the arrival of data, with the JSON response being used to extract the error. The `submitFinish` callback can be used to receive the result of the form submission. Components implementing this abstract class must write their own render method.
 
-__<a name="type-_depackformsubmitformprops">`_depackForm.SubmitFormProps`</a>__: Options for the SubmitForm component.
+<strong><a name="type-_depackformsubmitformprops">`_depackForm.SubmitFormProps`</a></strong>: Options for the SubmitForm component.
 
 |     Name     |                Type                 |                                    Description                                    |
 | ------------ | ----------------------------------- | --------------------------------------------------------------------------------- |
 | __path*__    | <em>string</em>                     | The path where to send data.                                                      |
-| submitFinish | <em>function(Object): !Promise</em> | The callback after the data has been sent with possible response from the server. |
+| submitFinish | <em>(arg0: Object) => !Promise</em> | The callback after the data has been sent with possible response from the server. |
 
-__<a name="type-_depackformsubmitformstate">`_depackForm.SubmitFormState`</a>__: The state structure for the SubmitForm.
+<strong><a name="type-_depackformsubmitformstate">`_depackForm.SubmitFormState`</a></strong>: The state structure for the SubmitForm.
 
 |       Name       |       Type        |                    Description                    |
 | ---------------- | ----------------- | ------------------------------------------------- |
@@ -306,21 +333,23 @@ const Example = () => (
 )
 ```
 ```html
-<form><input name="example" class="form-control" type="text" /><button type="submit">Submit</button></form>
+<form><input name="example" class="form-control" type="text"><button type="submit">Submit</button></form>
 ```
 
-#### `reset(): void`
+#### <code><ins>reset</ins>(): <i>void</i></code>
 
 Resets the `error` and `success` properties of the form.
 
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/7.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/7.svg?sanitize=true" width="15">
+</a></p>
 
 ### **SubmitButton**
 
 The button that can be placed inside the form and used for submission since it has `type="submit"` property. It also has the `loading` property to disable the button and show the spinning wheel indicator.
 
-__<a name="type-_depackformsubmitbuttonprops">`_depackForm.SubmitButtonProps`</a>__: Options for the SubmitButton component.
+<strong><a name="type-_depackformsubmitbuttonprops">`_depackForm.SubmitButtonProps`</a></strong>: Options for the SubmitButton component.
 
 |       Name       |       Type       |                                                                              Description                                                                              |  Default  |
 | ---------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
@@ -343,7 +372,9 @@ const Example = ({ formLoading }) => (
 <button class="btn btn-outline-light" type="submit">Add Data</button>
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/8.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/8.svg?sanitize=true">
+</a></p>
 
 ## Custom Components
 
@@ -360,7 +391,8 @@ Here is an example of the _Input_ component which accounts for all the above poi
 
 ```jsx
 import { Component } from 'preact'
-import { shouldComponentUpdate } from './lib'
+import { shouldComponentUpdate, getClasses } from './lib'
+import Help from './help'
 
 export default class Input extends Component {
   constructor() {
@@ -377,26 +409,51 @@ export default class Input extends Component {
     const { onChange } = this.context
     if (value !== undefined && onChange) onChange(name, value)
   }
-  render(props) {
-    const {
-      required, name, placeholder, type = 'text', file, value, ...prop
-    } = /** @type {!_depackForm.InputProps} */ (props)
-    const { onChange, hid, id, values = {} } = this.context
+  /**
+   * Triggers the onchange event on the form.
+   * @param {string} value
+   */
+  onChange(value) {
+    this.context.onChange(this.props.name, value)
+  }
+  /**
+   * @param {!_depackForm.InputProps} [props]
+   */
+  render({
+    required, name, placeholder, type = 'text', file, value, className,
+    invalid, valid, help, ...props
+  }) {
+    const { colClasses, prop } = getClasses(props)
+    const c = [
+      `form-control${file ? '-file' : ''}`, className,
+      invalid ? 'is-invalid' : null,
+      valid ? 'is-valid' : null,
+    ]
+      .filter(Boolean).join(' ')
+    const { hid, id, values = {} } = this.context
     const rendered = name in values // for SSR
-    return <input
+    const input = (<input
       required={required}
       name={name}
       placeholder={placeholder}
-      className={`form-control${file ? '-file' : ''}`}
+      className={c}
       value={rendered ? values[name] : value}
       type={type}
       aria-describedby={hid}
       id={id}
       onChange={(e) => {
-        onChange(name, e.currentTarget.value)
+        this.onChange(e.currentTarget.value)
       }}
       {...prop}
-    />
+    />)
+    if (colClasses.length) {
+      const he = help ? (<Help help={help} hid={hid} valid={valid} invalid={invalid} />) : null
+      return (<div className={colClasses.join(' ')}>
+        {input}
+        {he}
+      </div>)
+    }
+    return input
   }
 }
 
@@ -406,7 +463,9 @@ export default class Input extends Component {
  */
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/9.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/9.svg?sanitize=true">
+</a></p>
 
 ## Copyright
 
@@ -414,18 +473,21 @@ export default class Input extends Component {
   <tr>
     <th>
       <a href="https://artd.eco">
-        <img src="https://raw.githubusercontent.com/wrote/wrote/master/images/artdeco.png" alt="Art Deco" />
+        <img width="100" src="https://raw.githubusercontent.com/wrote/wrote/master/images/artdeco.png"
+          alt="Art Deco">
       </a>
     </th>
     <th>© <a href="https://artd.eco">Art Deco</a> for <a href="https://artd.eco/depack">Depack</a> 2019</th>
     <th>
       <a href="https://www.technation.sucks" title="Tech Nation Visa">
-        <img src="https://raw.githubusercontent.com/artdecoweb/www.technation.sucks/master/anim.gif"
-          alt="Tech Nation Visa" />
+        <img width="100" src="https://raw.githubusercontent.com/idiocc/cookies/master/wiki/arch4.jpg"
+          alt="Tech Nation Visa">
       </a>
     </th>
     <th><a href="https://www.technation.sucks">Tech Nation Visa Sucks</a></th>
   </tr>
 </table>
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/-1.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/-1.svg?sanitize=true">
+</a></p>
