@@ -1,6 +1,6 @@
 # @depack/form
 
-[![npm version](https://badge.fury.io/js/%40depack%2Fform.svg)](https://npmjs.org/package/@depack/form)
+[![npm version](https://badge.fury.io/js/%40depack%2Fform.svg)](https://www.npmjs.com/package/@depack/form)
 
 `@depack/form` is The Bootstrap Form Component For Entering Data.
 
@@ -359,6 +359,7 @@ The button that can be placed inside the form and used for submission since it h
 | className        | <em>string</em>  | The class name, such as `btn-lg`.                                                                                                                                     | -         |
 | type             | <em>string</em>  | The type of the button to add to the class as `btn-{type}`. One of `('primary' \| 'secondary' \| 'success' \| 'danger' \| 'warning' \| 'info' \| 'light' \| 'dark')`. | `primary` |
 | outline          | <em>boolean</em> | Display the outline style of the button via setting the `btn-outline-{type}` class.                                                                                   | `false`   |
+| disabled         | <em>boolean</em> | Whether the button is disabled. It becomes disabled when the form is loading by default.                                                                              | `false`   |
 
 ```jsx
 import { SubmitButton } from '@depack/form'

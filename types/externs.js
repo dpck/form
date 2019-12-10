@@ -8,7 +8,7 @@ var _depackForm = {}
 _depackForm.FormProps
 /**
  * Options for the SubmitButton component.
- * @typedef {{ loading: (boolean|undefined), loadingText: (string|undefined), confirmText: string, className: (string|undefined), type: (string|undefined), outline: (boolean|undefined) }}
+ * @typedef {{ loading: (boolean|undefined), loadingText: (string|undefined), confirmText: string, className: (string|undefined), type: (string|undefined), outline: (boolean|undefined), disabled: (boolean|undefined) }}
  */
 _depackForm.SubmitButtonProps
 

@@ -14,6 +14,7 @@ export {}
  * @prop {string} [className] The class name, such as `btn-lg`.
  * @prop {string} [type="primary"] The type of the button to add to the class as `btn-{type}`. One of `('primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark')`. Default `primary`.
  * @prop {boolean} [outline=false] Display the outline style of the button via setting the `btn-outline-{type}` class. Default `false`.
+ * @prop {boolean} [disabled=false] Whether the button is disabled. It becomes disabled when the form is loading by default. Default `false`.
  */
 
 /* typal types/form-group.xml namespace */

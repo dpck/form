@@ -20,12 +20,13 @@ export default class TextArea extends Component {
     const { onChange } = this.context
     if (child) onChange(name, child.trim())
   }
-  render(props) {
-    const { rows = 3, required, name, placeholder, children } =
-      /** @type {!_depackForm.TextAreaProps} */ (props)
+  /**
+   * @param {!_depackForm.TextAreaProps} [props]
+   */
+  render({ rows = 3, required, name, placeholder, children, ...props }) {
     const { hid, id, onChange, values = {} } = this.context
     const rendered = name in values // for SSR
-    return h('textarea',{
+    return h('textarea',{...props,
       'required':required,
       'name':name,
       'placeholder':placeholder,

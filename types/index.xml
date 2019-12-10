@@ -30,5 +30,8 @@
     <prop boolean default="false" name="outline">
       Display the outline style of the button via setting the `btn-outline-{type}` class.
     </prop>
+    <prop boolean default="false" name="disabled">
+      Whether the button is disabled. It becomes disabled when the form is loading by default.
+    </prop>
   </type>
 </types>

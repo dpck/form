@@ -44,9 +44,9 @@ export { default as SubmitForm } from './SubmitForm'
  * The button with `type="submit"` which can be loading with a spinner indicator.
  * @param {!_depackForm.SubmitButtonProps} props Options for the SubmitButton component.
  */
-export const SubmitButton = ({ loading, confirmText, loadingText = confirmText, className, type = 'primary', outline = false }) => {
+export const SubmitButton = ({ disabled, loading, confirmText, loadingText = confirmText, className, type = 'primary', outline = false, ...props }) => {
   const classes = ['btn', `btn-${outline ? 'outline-' : ''}${type}`, className].filter(Boolean)
-  return (<button type="submit" className={classes.join(' ')} disabled={loading}>
+  return (<button type="submit" className={classes.join(' ')} disabled={disabled || loading} {...props}>
     {loading && <span className={`spinner-border spinner-border-sm${loadingText ? ' mr-2' : ''}`} role="status" aria-hidden="true"/>}
     {loading ? loadingText : confirmText}
   </button>)

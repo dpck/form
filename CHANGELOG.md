@@ -1,3 +1,10 @@
+## 10 December 2019
+
+### [1.4.1](https://github.com/dpck/form/compare/v1.4.0...v1.4.1)
+
+- [fix] Pass down properties to _SubmitButton_ and _TextArea_.
+- [props] Add `disabled` prop to the button.
+
 ## 5 September 2019
 
 ### [1.4.0](https://github.com/dpck/form/compare/v1.3.2...v1.4.0)
