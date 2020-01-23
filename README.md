@@ -234,7 +234,7 @@ This element present the values to select from.
 | value       | <em>string</em>                                    | The initial value.                                                                                                                                             |
 | col         | <em>string</em>                                    | If any of the `col` properties are passed (e.g., `col-12`, `col-sm-8`, _etc_), the _Form_ will create a `div` wrapper around the select with the column class. |
 | className   | <em>string</em>                                    | The additional class name to add to `custom-select`.                                                                                                           |
-| defaultText | <em>string</em>                                    | The default option's text.                                                                                                                                     |
+| defaultText | <em>?string</em>                                   | The default option's text. Pass `null` to disable the default option.                                                                                          |
 | options     | <em>!Array&lt;{ value: *, title: string }&gt;</em> | The array with options to render inside of the `select` element.                                                                                               |
 
 ```jsx
@@ -478,7 +478,7 @@ export default class Input extends Component {
           alt="Art Deco">
       </a>
     </th>
-    <th>© <a href="https://artd.eco">Art Deco</a> for <a href="https://artd.eco/depack">Depack</a> 2019</th>
+    <th>© <a href="https://artd.eco">Art Deco</a> for <a href="https://artd.eco/depack">Depack</a> 2020</th>
     <th>
       <a href="https://www.technation.sucks" title="Tech Nation Visa">
         <img width="100" src="https://raw.githubusercontent.com/idiocc/cookies/master/wiki/arch4.jpg"

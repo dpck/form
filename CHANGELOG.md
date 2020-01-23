@@ -1,3 +1,10 @@
+## 23 January 2020
+
+### [1.4.2](https://github.com/dpck/form/compare/v1.4.1...v1.4.2)
+
+- [fix] Pass props to _Select_.
+- [fix] Allow to pass `null` as **defaultText** to _Select_.
+
 ## 10 December 2019
 
 ### [1.4.1](https://github.com/dpck/form/compare/v1.4.0...v1.4.1)
