@@ -42,7 +42,11 @@ export default class SubmitForm extends Component {
       if (error) this.setState({ error })
       else this.setState({ success: 1 })
     } catch (error) {
-      this.setState({ error })
+      let err = error
+      if (error instanceof Event) {
+        err = new Error('Network error')
+      }
+      this.setState({ error: err })
     } finally {
       this.setState({ formLoading: false })
     }

@@ -24,7 +24,7 @@ export default class Select extends Component {
     const rendered = name in values // for SSR
     const selectValue = rendered ? values[name] : value
 
-    const { colClasses } = getClasses(props)
+    const { colClasses, prop } = getClasses(props)
     const c = [
       `custom-select`, className,
     ]
@@ -39,12 +39,12 @@ export default class Select extends Component {
       aria-describedby={hid}
       onChange={(e) => {
         onChange(name, e.currentTarget.value)
-      }}>
-      <option value={''}>{defaultText}</option>
+      }} {...prop}>
+      {defaultText !== null && <option value={''}>{defaultText}</option>}
       {options.map(({ value: v, title }) => {
-        return <option key={v} value={v} selected={v==value}>
+        return (<option key={v} value={v} selected={v==value}>
           {title}
-        </option>
+        </option>)
       })}
     </select>)
     if (colClasses.length) {

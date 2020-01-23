@@ -29,7 +29,7 @@ _depackForm.InputProps
 /* typal types/Select.xml externs */
 /**
  * Options for the Select component.
- * @typedef {{ required: (boolean|undefined), name: (string|undefined), value: (string|undefined), col: (string|undefined), className: (string|undefined), defaultText: (string|undefined), options: ((!Array<{value: *, title: string}>)|undefined) }}
+ * @typedef {{ required: (boolean|undefined), name: (string|undefined), value: (string|undefined), col: (string|undefined), className: (string|undefined), defaultText: ((?string)|undefined), options: ((!Array<{value: *, title: string}>)|undefined) }}
  */
 _depackForm.SelectProps
 

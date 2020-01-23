@@ -57,7 +57,7 @@ export {}
  * @prop {string} [value] The initial value.
  * @prop {string} [col] If any of the `col` properties are passed (e.g., `col-12`, `col-sm-8`, _etc_), the _Form_ will create a `div` wrapper around the select with the column class.
  * @prop {string} [className] The additional class name to add to `custom-select`.
- * @prop {string} [defaultText] The default option's text.
+ * @prop {?string} [defaultText] The default option's text. Pass `null` to disable the default option.
  * @prop {!Array<{value: *, title: string}>} [options] The array with options to render inside of the `select` element.
  */
 

@@ -15,8 +15,8 @@
     <prop opt string name="className">
       The additional class name to add to `custom-select`.
     </prop>
-    <prop opt string name="defaultText">
-      The default option's text.
+    <prop opt type="?string" name="defaultText">
+      The default option's text. Pass `null` to disable the default option.
     </prop>
     <prop opt type="!Array<{value: *, title: string}>" name="options">
       The array with options to render inside of the `select` element.

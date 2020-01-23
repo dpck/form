@@ -25,13 +25,13 @@ export default class Select extends Component {
     const rendered = name in values // for SSR
     const selectValue = rendered ? values[name] : value
 
-    const { colClasses } = getClasses(props)
+    const { colClasses, prop } = getClasses(props)
     const c = [
       `custom-select`, className,
     ]
       .filter(Boolean).join(' ')
 
-    const select = (     h('select',{
+    const select = (         h('select',{...prop,
       'name':name,
       'value':selectValue !== undefined ? selectValue : '',
       'className':c,
@@ -41,11 +41,11 @@ export default class Select extends Component {
       'onChange':(e) => {
         onChange(name, e.currentTarget.value)
       }},
-      h('option',{'value':''},defaultText),
+      defaultText !== null && h('option',{'value':''},defaultText),
       options.map(({ value: v, title }) => {
-        return h('option',{'key':v,'value':v,'selected':v==value},
+        return (h('option',{'key':v,'value':v,'selected':v==value},
           title,
-        )
+        ))
       }),
     ))
     if (colClasses.length) {
